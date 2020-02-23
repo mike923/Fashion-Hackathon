@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import userInputHook from './Hooks/UseInputHook'
 import DesignerTabs from './DesignerTabs';
+import DesignerCreateForm from './DesignerCreateForm';
 
 const styles = {
     container: {
@@ -36,11 +37,11 @@ const Designers = () => {
 
             <DesignerTabs>
                 <div label="Design">
-                    Created and pending Designs
-      </div>
+                    Tab where user can see all their current pending or finished products
+                </div>
                 <div label="Create Design">
-                    Form to create your design
-      </div>
+                    <DesignerCreateForm />
+                </div>
                 <div label="Manufacturers">
                     List of all Manufacturers
       </div>
