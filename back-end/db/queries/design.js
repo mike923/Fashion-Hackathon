@@ -1,6 +1,16 @@
 const db = require('../config')
 
-const getDesignersById = async (id) => {
+const getAllDesigns = async () => {
+    let qryString = `SELECT designs.id, designs.design_file,color,pattern,
+                    height,width,designer_id,username,email
+                    FROM designs
+                    INNER JOIN users ON designs.designer_id = users.id
+                    `
+
+    return await db.any(qryString)
+}
+
+const getDesignsById = async (id) => {
     let qryString = `SELECT designs.id, designs.design_file,color,pattern,
                     height,width,designer_id,username,email
                     FROM designs
@@ -23,5 +33,6 @@ const addNewDesign = async (user) => {
 
 module.exports = {
     addNewDesign,
-    getDesignersById
+    getDesignsById,
+    getAllDesigns
 }

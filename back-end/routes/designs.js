@@ -2,11 +2,31 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../db/queries/design')
 
+router.get('/', async (req, res, next) => {
 
+    let allDesign = await queries.getAllDesigns(req.params.id)
+
+    try {
+        res.json(
+            {
+                payload: allDesign,
+                msg: 'all designs retrieved',
+                error: 'false'
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            payload: null,
+            message: 'you can\'t perform this action',
+            error: true
+        })
+    }
+})
 
 router.get('/:id', async (req, res, next) => {
 
-    let newDesign = await queries.getDesignersById(req.params.id)
+    let newDesign = await queries.getDesignsById(req.params.id)
 
     try {
         res.json(
