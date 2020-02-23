@@ -1,5 +1,0 @@
-export const HANDLECHANGE = 'HANDLECHANGE'
-export const SET_USER = 'SET_USER'
-export const SET_LOADING = 'SET_LOADING'
-export const SET_PREV_URL = 'SET_PREV_URL'
-export const LOGOUT = 'LOGOUT'
