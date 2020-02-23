@@ -14,6 +14,7 @@ Your API Endpoints should include at least:
   | ------ | ------------ | --------------------- | ------------------------ |
   | GET    | `/users`     | Get all users         | n/a                      |
   | GET    | `/users/:id` | Get single user by id | n/a                      |
+  | GET    | `/users/:type` | Get all users by type | n/a                      |
   | POST   | `/users/`    | Add new user          | `avatar_url`, `username` |
 
 - **Types**
