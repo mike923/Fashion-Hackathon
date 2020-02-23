@@ -33,5 +33,9 @@ const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
     </nav>
 )
 
+const navStyle = {
+    color: 'black'
+}
+
 export default Navbar;
 
