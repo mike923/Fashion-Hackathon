@@ -4,6 +4,11 @@
 
 ![database schema diagram](./assets/schema-diagram.png) 
 
+## App Purpose
+Problem: Indie designers have a limited ways to access realiable and detailed manufacturers. And the manufacturers they do use are not transparent with the materials they use
+Solution: We offer an easy way to access green manufacturers and see the materials they use.
+
+
 ## API Endpoints
 
 Your API Endpoints should include at least:
