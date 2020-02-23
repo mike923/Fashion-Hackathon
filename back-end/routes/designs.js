@@ -4,9 +4,9 @@ const queries = require('../db/queries/design')
 
 
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
 
-    let newDesign = queries.addNewDesign(req.body)
+    let newDesign = await queries.addNewDesign(req.body)
 
     try {
         res.json(
@@ -25,3 +25,5 @@ router.post('/', (req, res, next) => {
         })
     }
 })
+
+module.exports = router

@@ -1,14 +1,14 @@
 DROP DATABASE if exists fashionhackathon;
 CREATE DATABASE fashionhackathon;
 
--- \c fashionhackathon
+\c fashionhackathon;
 
-DROP TABLE IF EXISTS materials_used;
-DROP TABLE IF EXISTS manufacture_design;
-DROP TABLE IF EXISTS materials;
-DROP TABLE IF EXISTS designs;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS types;
+-- DROP TABLE IF EXISTS materials_used;
+-- DROP TABLE IF EXISTS manufacture_design;
+-- DROP TABLE IF EXISTS materials;
+-- DROP TABLE IF EXISTS designs;
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS types;
 
 CREATE TABLE types (
     id SERIAL PRIMARY KEY,
@@ -19,8 +19,8 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR NOT NULL UNIQUE,
     password_digest VARCHAR NOT NULL,
-    email VARCHAR NOT NULL,
-    type_id INT NOT NULL REFERENCES types(id)
+    email VARCHAR NOT NULL
+    -- type_id INT NOT NULL REFERENCES types(id)
 );
 
 CREATE TABLE designs (
@@ -30,7 +30,6 @@ CREATE TABLE designs (
     pattern VARCHAR NOT NULL,
     height INT NOT NULL,
     width INT NOT NULL,
-    pattern VARCHAR NOT NULL,
     designer_id INT NOT NULL REFERENCES users(id)
 );
 
@@ -52,4 +51,7 @@ CREATE TABLE materials_used (
     percentage_used INT NOT NULL
 );
 
+INSERT INTO  users (username,password_digest,email) VALUES('Test','testing','testing@email.com');
 
+
+ 
