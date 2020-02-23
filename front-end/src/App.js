@@ -13,7 +13,7 @@ import {
 } from './Components'
 
 import { Switch, Route } from 'react-router-dom'
-import { AuthContainer } from './Contatiners';
+import { AuthContainer } from './Containers';
 
 class App extends Component {
 
