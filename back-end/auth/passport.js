@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const { comparePass } = require('../auth/helpers');
+const { comparePass } = require('./helpers');
 const usersQueries = require('../db/queries/users');
 
 passport.use(new LocalStrategy(async (username, password, done) => {
