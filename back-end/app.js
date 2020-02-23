@@ -8,7 +8,7 @@ const passport = require('./auth/passport')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-
+const designsRouter = require('./routes/designs')
 
 const { seed } = require('./db/seed')
 seed()
@@ -31,9 +31,10 @@ app.use(session(sessionConfig))
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/auth', authRouter);
+app.use('/api', indexRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/design', designsRouter);
 
 
 module.exports = app;
