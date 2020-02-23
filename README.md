@@ -2,7 +2,7 @@
 
 ## Database Structure
 
-![database schema diagram](assets/schema_diagram.png)
+![database schema diagram](./assets/schema_diagram.png)
 
 ## API Endpoints
 
