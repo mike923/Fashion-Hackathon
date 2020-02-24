@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/incomplete/:id', async (req, res, next) => {
 
-    let newDesign = await queries.getInCompleteDesignsByDesignerId(req.params.id)
+    let newDesign = await queries.getDesignsByStatus('false',req.params.id)
 
     try {
         res.json(
@@ -48,7 +48,7 @@ router.get('/incomplete/:id', async (req, res, next) => {
 
 router.get('/completed/:id', async (req, res, next) => {
 
-    let newDesign = await queries.getCompletedDesignsByDesignerId(req.params.id)
+    let newDesign = await queries.getDesignsByStatus('true',req.params.id)
 
     try {
         res.json(

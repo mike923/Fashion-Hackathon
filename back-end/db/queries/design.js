@@ -12,33 +12,20 @@ const getAllDesigns = async () => {
     return await db.any(qryString)
 }
 
-const getInCompleteDesignsByDesignerId = async (id) => {
+const getDesignsByStatus = async (param,id) => {
     let qryString = `
-                    SELECT designs.id, designs.design_file,designs.color,designs.pattern,
-                    designs.height,designs.width,designs.designer_id,users.username,users.email, 
-                    designs.complete
-                    FROM designs
-                    INNER JOIN users ON designs.designer_id = users.id
-                    WHERE users.id = $1 AND complete = false
-                    ORDER BY designs.id DESC
+    SELECT designs.id, designs.design_file,designs.color,designs.pattern,
+    designs.height,designs.width,designs.designer_id,users.username,users.email, 
+    designs.complete
+    FROM designs
+    INNER JOIN users ON designs.designer_id = users.id
+    WHERE users.id = $1 AND complete = ${param}
+    ORDER BY designs.id DESC
                     `
 
     return await db.any(qryString, [id])
 }
 
-const getCompletedDesignsByDesignerId = async (id) => {
-    let qryString = `
-                    SELECT designs.id, designs.design_file,designs.color,designs.pattern,
-                    designs.height,designs.width,designs.designer_id,users.username,users.email, 
-                    designs.complete
-                    FROM designs
-                    INNER JOIN users ON designs.designer_id = users.id
-                    WHERE users.id = $1 AND complete = true
-                    ORDER BY designs.id DESC
-                    `
-
-    return await db.any(qryString, [id])
-}
 const getDesignsByManufactureId = async (id) => {
     let qryString = `SELECT designs.id, designs.design_file,color,pattern,
                     height,width,designer_id,username,email
@@ -76,9 +63,10 @@ const addNewDesign = async (design) => {
 
 module.exports = {
     addNewDesign,
-    getInCompleteDesignsByDesignerId,
-    getCompletedDesignsByDesignerId,
+    // getInCompleteDesignsByDesignerId,
+    // getCompletedDesignsByDesignerId,
     getAllDesigns,
     getDesignsByManufactureId,
-    updateDesignStatus
+    updateDesignStatus,
+    getDesignsByStatus
 }
