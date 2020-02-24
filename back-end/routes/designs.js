@@ -24,7 +24,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/incomplete/:id', async (req, res, next) => {
 
     let newDesign = await queries.getInCompleteDesignsByDesignerId(req.params.id)
 
@@ -45,6 +45,29 @@ router.get('/:id', async (req, res, next) => {
         })
     }
 })
+
+router.get('/completed/:id', async (req, res, next) => {
+
+    let newDesign = await queries.getCompletedDesignsByDesignerId(req.params.id)
+
+    try {
+        res.json(
+            {
+                payload: newDesign,
+                msg: 'all designs retrieved',
+                error: 'false'
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            payload: null,
+            message: 'you can\'t perform this action',
+            error: true
+        })
+    }
+})
+
 router.get('/manufacture_design/:manufacture_design_id', async (req, res, next) => {
 
     let newDesign = await queries.getDesignsByManufactureId(req.params.manufacture_design_id)
@@ -76,6 +99,28 @@ router.post('/', async (req, res, next) => {
             {
                 payload: newDesign,
                 msg: 'new design uploaded',
+                error: 'false'
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            payload: null,
+            message: 'you can\'t perform this action',
+            error: true
+        })
+    }
+})
+
+router.patch('/:id', async (req, res, next) => {
+
+    
+    try {
+        let updatedDesign = await queries.updateDesignStatus(req.body,req.params.id)
+        res.json(
+            {
+                payload: updatedDesign,
+                msg: 'design status has changed',
                 error: 'false'
             }
         )
