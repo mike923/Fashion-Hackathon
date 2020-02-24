@@ -30,7 +30,8 @@ CREATE TABLE designs (
    pattern VARCHAR NOT NULL,
    height INT NOT NULL,
    width INT NOT NULL,
-   designer_id INT NOT NULL REFERENCES users(id)
+   designer_id INT NOT NULL REFERENCES users(id),
+   complete BOOLEAN NOT NULL DEFAULT FALSE
 );
  
 CREATE TABLE materials (
