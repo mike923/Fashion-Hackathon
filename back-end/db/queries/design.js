@@ -6,7 +6,7 @@ const getAllDesigns = async () => {
                     height,width,designer_id,username,email, complete
                     FROM designs
                     INNER JOIN users ON designs.designer_id = users.id
-                    
+                    ORDER BY designs.id DESC
                     `
 
     return await db.any(qryString)
@@ -20,6 +20,7 @@ const getInCompleteDesignsByDesignerId = async (id) => {
                     FROM designs
                     INNER JOIN users ON designs.designer_id = users.id
                     WHERE users.id = $1 AND complete = false
+                    ORDER BY designs.id DESC
                     `
 
     return await db.any(qryString, [id])
@@ -33,6 +34,7 @@ const getCompletedDesignsByDesignerId = async (id) => {
                     FROM designs
                     INNER JOIN users ON designs.designer_id = users.id
                     WHERE users.id = $1 AND complete = true
+                    ORDER BY designs.id DESC
                     `
 
     return await db.any(qryString, [id])
@@ -43,6 +45,7 @@ const getDesignsByManufactureId = async (id) => {
                     FROM designs
                     INNER JOIN users ON designs.designer_id = users.id
                     WHERE users.id = $1
+                    ORDER BY designs.id DESC
                     `
 
     return await db.any(qryString, [id])

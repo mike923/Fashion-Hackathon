@@ -45,32 +45,29 @@ CREATE TABLE manufacturer (
    specialty VARCHAR NOT NULL
 );
 
-CREATE TABLE manufacturer_design (
-   id SERIAL PRIMARY KEY,
-   manufacturer_id INT NOT NULL REFERENCES manufacturer(id),
-   product_id INT NOT NULL REFERENCES designs(id)
-);
-
 CREATE TABLE materials_used (
    id SERIAL PRIMARY KEY,
-   manufacture_design_id INT NOT NULL REFERENCES manufacturer_design(id),
+   manufacturer_id INT NOT NULL REFERENCES manufacturer(id),
+   product_id INT NOT NULL REFERENCES designs(id),
    material_id INT NOT NULL REFERENCES materials(id),
    percentage_used INT NOT NULL
 );
 
+-- INSERT INTO users
 INSERT INTO  
-   users (username,password_digest,email) 
+   users (username, password_digest, email) 
 VALUES
-   ('Test','$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2','testing@email.com');
+   ('Test', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com');
 
+-- INSERT INTO designs
 INSERT INTO 
-   designs (design_file,color,pattern,height ,width ,designer_id )
+   designs (design_file, color, pattern, height, width, designer_id)
 VALUES
    ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', 'yellow', 'plain', 10, 15, 1);
 
-
+-- INSERT INTO materials
 INSERT INTO 
-   materials(material) 
+   materials (material) 
 VALUES 
    ('cotton'),
    ('wool'),
@@ -78,22 +75,17 @@ VALUES
    ('polyester'),
    ('rayon');
 
+-- INSERT INTO manufacturer
 INSERT INTO 
-   manufacturer (manufacturer_name,specialty) 
+   manufacturer (manufacturer_name, specialty) 
 VALUES
-   ('Cotton emporium.','we do all things wool and cotton'),
-   ('Leather','Leather good');
+   ('Cotton emporium.', 'we do all things wool and cotton'),
+   ('Leather', 'Leather good');
 
-
+-- INSERT INTO materials_used
 INSERT INTO 
-   manufacturer_design(manufacturer_id,product_id) 
+   materials_used (manufacturer_id, product_id, material_id, percentage_used) 
 VALUES 
-   (1,1);
-
-
-INSERT INTO 
-   materials_used (manufacture_design_id,material_id,percentage_used) 
-VALUES 
-   (1,1,20);
+   (1, 1, 1, 20);
 
 
