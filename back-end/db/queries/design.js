@@ -2,12 +2,12 @@ const db = require('../config')
 
 const getAllDesigns = async () => {
     let qryString = `
-                    SELECT designs.id, designs.design_file,color,pattern,
-                    height,width,designer_id,username,email, complete
-                    FROM designs
-                    INNER JOIN users ON designs.designer_id = users.id
-                    ORDER BY designs.id DESC
-                    `
+    SELECT designs.id, designs.design_file,color,pattern,
+    height,width,designer_id,username,email, complete
+    FROM designs
+    INNER JOIN users ON designs.designer_id = users.id
+    ORDER BY designs.id DESC
+    `
 
     return await db.any(qryString)
 }
@@ -21,19 +21,20 @@ const getDesignsByStatus = async (param,id) => {
     INNER JOIN users ON designs.designer_id = users.id
     WHERE users.id = $1 AND complete = ${param}
     ORDER BY designs.id DESC
-                    `
+     `
 
     return await db.any(qryString, [id])
 }
 
 const getDesignsByManufactureId = async (id) => {
-    let qryString = `SELECT designs.id, designs.design_file,color,pattern,
-                    height,width,designer_id,username,email
-                    FROM designs
-                    INNER JOIN users ON designs.designer_id = users.id
-                    WHERE users.id = $1
-                    ORDER BY designs.id DESC
-                    `
+    let qryString = `
+    SELECT designs.id, designs.design_file,color,pattern,
+    height,width,designer_id,username,email
+    FROM designs
+    INNER JOIN users ON designs.designer_id = users.id
+    WHERE users.id = $1
+    ORDER BY designs.id DESC
+    `
 
     return await db.any(qryString, [id])
 }
@@ -63,8 +64,6 @@ const addNewDesign = async (design) => {
 
 module.exports = {
     addNewDesign,
-    // getInCompleteDesignsByDesignerId,
-    // getCompletedDesignsByDesignerId,
     getAllDesigns,
     getDesignsByManufactureId,
     updateDesignStatus,
