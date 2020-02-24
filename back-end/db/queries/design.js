@@ -10,6 +10,16 @@ const getAllDesigns = async () => {
     return await db.any(qryString)
 }
 
+const getDesignsByDesignerId = async (id) => {
+    let qryString = `SELECT designs.id, designs.design_file,color,pattern,
+                    height,width,designer_id,username,email
+                    FROM designs
+                    INNER JOIN users ON designs.designer_id = users.id
+                    WHERE users.id = $1
+                    `
+
+    return await db.any(qryString, [id])
+}
 const getDesignsById = async (id) => {
     let qryString = `SELECT designs.id, designs.design_file,color,pattern,
                     height,width,designer_id,username,email
@@ -33,6 +43,6 @@ const addNewDesign = async (user) => {
 
 module.exports = {
     addNewDesign,
-    getDesignsById,
+    getDesignsByDesignerId,
     getAllDesigns
 }

@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
 
-    let newDesign = await queries.getDesignsById(req.params.id)
+    let newDesign = await queries.getDesignsByDesignerId(req.params.id)
 
     try {
         res.json(
