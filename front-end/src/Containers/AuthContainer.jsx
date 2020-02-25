@@ -10,7 +10,7 @@ const AuthContainer = ({ isUserLoggedIn, setUser, prevURL, ...props}) => {
 
     const signupUser = async () => {
         try {
-            await axios.post('/auth/signup', props)
+            await axios.post('/api/auth/signup', props)
             loginUser()
         } catch (err) {
             console.log('ERROR', err)
