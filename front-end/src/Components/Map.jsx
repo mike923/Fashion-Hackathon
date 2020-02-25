@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-// import ApiKey from "./apiKey";
-// import axios from 'axios'
 
 const mapStyles = {
     width: '100vw',
-    height: '100vh',
+    height: '90vh',
     marginRight: '0',
     position: 'absolute'
 };
@@ -17,13 +15,12 @@ class MapContainer extends Component {
 
         this.state = {
             stores: [
-                // { lat: 47.49855629475769, lng: -122.14184416996333 },
-                // { latitude: 47.359423, longitude: -122.021071 },
-                // { latitude: 47.2052192687988, longitude: -121.988426208496 },
-                // { latitude: 47.6307081, longitude: -122.1434325 },
-                // { latitude: 47.3084488, longitude: -122.2140121 },
-                // { latitude: 47.5524695, longitude: -122.0425407 },
-                // { latitude: 48.85837009999999, longitude: 2.2944813 }
+                { latitude: 40.753128, longitude: -73.986304 },
+                { latitude: 40.953490, longitude: -74.066891 },
+                { latitude: 40.690626, longitude: -73.863369 },
+                { latitude: 39.897151, longitude: -75.292922},
+                { latitude: 32.390816, longitude: -86.214771 },
+                { latitude: 47.5524695, longitude: -122.0425407 },
             ]
         }
     }
@@ -31,8 +28,8 @@ class MapContainer extends Component {
     displayMarkers = () => {
         return this.state.stores.map((store, index) => {
             return <Marker key={index} id={index} position={{
-                lat: store.coords.latitude,
-                lng: store.coords.longitude
+                lat: store.latitude,
+                lng: store.longitude
             }}
                 onClick={() => console.log("You clicked me!")} />
         })
@@ -43,9 +40,9 @@ class MapContainer extends Component {
             <div className='mapContainer'>
                 <Map
                     google={this.props.google}
-                    zoom={8}
+                    zoom={12}
                     style={mapStyles}
-                    initialCenter={{ lat: 40.748817, lng: -73.985428 }}
+                    initialCenter={{ lat: 40.753128, lng: -73.986304 }}
                 >
                     {this.displayMarkers()}
                 </Map>
@@ -56,5 +53,5 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: process.env.API_KEY
+    apiKey:process.env.REACT_APP_API_KEY
 })(MapContainer);
