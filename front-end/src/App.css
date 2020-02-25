@@ -69,6 +69,11 @@
     background-color: royalblue;
   }
   
+  .bannerimg {
+    width: 99%;
+    height: 300px;
+  }
+
   @media (max-width: 800px) {
     .form-inline input {
       margin: 10px 0;
