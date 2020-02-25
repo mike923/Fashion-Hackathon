@@ -32,7 +32,7 @@ const Designers = () => {
     return (
         <div styles={styles}>
             <br />
-            <img src={bannerImg} alt="banner" />
+            <img src={bannerImg} alt="banner" className='bannerimg' />
 
             <h1>Designers Portal</h1>
 
@@ -46,7 +46,7 @@ const Designers = () => {
                 <div label="Manufacturers">
                     List of all Manufacturers
                     <a href="/map">to map</a>
-      </div>
+                </div>
             </DesignerTabs>
         </div>
     )

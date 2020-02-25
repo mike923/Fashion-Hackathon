@@ -30,7 +30,7 @@ class App extends Component {
           <Route exact path='/signup' component={AuthContainer} />
           <Route exact path='/map' component={MapContainer} />
           <Route exact path='/users/designer' component={Designers} />
-          <Route exact path='/users/type/manufacturer/:id' component={Manufacturers} />
+          <Route exact path='/users/type/manufacturer' component={Manufacturers} />
           <Route exact path='/users/type/:id/order' component={Orders} />
           <Route exact path='/users/type/:id/product' component={Products} />
         </Switch>
