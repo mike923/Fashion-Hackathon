@@ -3,20 +3,21 @@
   }
   
   .tab-list {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;
     padding-left: 0;
   }
   
   .tab-list-item {
     display: inline-block;
     list-style: none;
+    background-color: rgb(117, 93, 93);
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
   }
   
   .tab-list-active {
-    background-color: white;
-    border: solid #ccc;
+    background-color: rgb(214, 137, 22);
+    border: solid rgb(0, 0, 0);
     border-width: 1px 1px 0 1px;
   }  
 
@@ -24,8 +25,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border: solid rgb(0, 0, 0);
+    border-width: 1px 1px 1px 1px;
     min-height: 10vh;
-    background: plum;
+    background: white;
     color: black;
   }
   
