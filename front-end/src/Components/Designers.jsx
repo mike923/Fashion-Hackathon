@@ -33,10 +33,10 @@ const Designers = () => {
             <br />
             <img src={bannerImg} alt="banner" />
 
-            <h1>Welcome to Designers</h1>
+            <h1>Designers Portal</h1>
 
             <DesignerTabs>
-                <div label="Design">
+                <div label="Products">
                     Tab where user can see all their current pending or finished products
                 </div>
                 <div label="Create Design">
