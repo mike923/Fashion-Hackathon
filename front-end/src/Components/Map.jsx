@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import ApiKey from "./apiKey";
+// import ApiKey from "./apiKey";
 // import axios from 'axios'
 
 import './MapBox.css'
@@ -57,5 +57,5 @@ export class Map extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ApiKey
+    apiKey: process.env.API_KEY
 })(Map);
