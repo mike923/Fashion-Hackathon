@@ -45,6 +45,7 @@ const Designers = () => {
                 </div>
                 <div label="Manufacturers">
                     List of all Manufacturers
+                    <a href="/map">to map</a>
       </div>
             </DesignerTabs>
         </div>

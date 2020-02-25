@@ -10,7 +10,10 @@ import {
   Products,
   Designers,
   Manufacturers,
+
 } from './Components'
+
+import MapContainer from './Components/Map'
 
 import { Switch, Route } from 'react-router-dom'
 import { AuthContainer, NavbarContainer } from './Containers';
@@ -25,6 +28,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={AuthContainer} />
           <Route exact path='/signup' component={AuthContainer} />
+          <Route exact path='/map' component={MapContainer} />
           <Route exact path='/users/designer' component={Designers} />
           <Route exact path='/users/type/manufacturer/:id' component={Manufacturers} />
           <Route exact path='/users/type/:id/order' component={Orders} />
