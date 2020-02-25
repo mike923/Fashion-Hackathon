@@ -9,6 +9,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const designsRouter = require('./routes/designs')
+const materialsRouter = require('./routes/materials')
 
 const { seed } = require('./db/seed')
 seed()
@@ -35,6 +36,7 @@ app.use('/api', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/designs', designsRouter);
+app.use('/api/materials', materialsRouter);
 
 
 module.exports = app;

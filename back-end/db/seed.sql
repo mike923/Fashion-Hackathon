@@ -86,6 +86,7 @@ VALUES
 INSERT INTO 
    materials_used (manufacturer_id, product_id, material_id, percentage_used) 
 VALUES 
-   (1, 1, 1, 20);
-
-
+   (1, 1, 1, 20),
+   (1, 1, 2, 20),
+   (1, 1, 3, 20),
+   (1, 1, 4, 40);
