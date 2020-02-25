@@ -20,7 +20,7 @@ CREATE TABLE users (
    username VARCHAR NOT NULL UNIQUE,
    password_digest VARCHAR NOT NULL,
    email VARCHAR NOT NULL
-   -- type_id INT NOT NULL REFERENCES types(id)
+   type_id INT NOT NULL REFERENCES types(id)
 );
 
 CREATE TABLE designs (

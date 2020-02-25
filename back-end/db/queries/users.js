@@ -8,6 +8,8 @@ const addNewUser = async (user) => await db.one(`
 	RETURNING id, username
 `, user)
 
+
+
 const getUserByID = async (id) => await db.oneOrNone('SELECT id, username FROM users WHERE id = $1', [id])
 
 const getUserByUsername = async (username) => await db.oneOrNone('SELECT * FROM users WHERE username = $1', [username])
