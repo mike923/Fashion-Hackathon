@@ -3,7 +3,6 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 // import ApiKey from "./apiKey";
 // import axios from 'axios'
 
-import './MapBox.css'
 const mapStyles = {
     width: '100vw',
     height: '100vh',
@@ -12,7 +11,7 @@ const mapStyles = {
 };
 
 
-export class Map extends Component {
+class MapContainer extends Component {
     constructor(props) {
         super(props);
 
@@ -58,4 +57,4 @@ export class Map extends Component {
 
 export default GoogleApiWrapper({
     apiKey: process.env.API_KEY
-})(Map);
+})(MapContainer);
