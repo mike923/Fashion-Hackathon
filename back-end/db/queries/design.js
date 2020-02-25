@@ -32,7 +32,8 @@ const getDesignsByManufactureId = async (id) => {
     height,width,designer_id,username,email
     FROM designs
     INNER JOIN users ON designs.designer_id = users.id
-    WHERE users.id = $1
+    INNER JOIN materials_used ON materials_used.product_id  = designs.id
+    WHERE materials_used.manufacturer_id = $1
     ORDER BY designs.id DESC
     `
 
