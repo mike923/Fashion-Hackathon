@@ -1,14 +1,14 @@
 const db = require('../config')
 
-const getAllUsers = async () => await db.any('SELECT id, username, avatar_url FROM users')
+const getAllUsers = async () => await db.any('SELECT id, username FROM users')
 
 const addNewUser = async (user) => await db.one(`
-	INSERT INTO users(username, password_digest, avatar_url)
-	VALUES($/username/, $/password/, $/avatar_url/)
-	RETURNING id, username, avatar_url
+	INSERT INTO users(username, password_digest)
+	VALUES($/username/, $/password/)
+	RETURNING id, username
 `, user)
 
-const getUserByID = async (id) => await db.oneOrNone('SELECT id, username, avatar_url FROM users WHERE id = $1', [id])
+const getUserByID = async (id) => await db.oneOrNone('SELECT id, username FROM users WHERE id = $1', [id])
 
 const getUserByUsername = async (username) => await db.oneOrNone('SELECT * FROM users WHERE username = $1', [username])
 
