@@ -92,7 +92,11 @@ router.get('/manufacture_design/:manufacture_design_id', async (req, res, next) 
 
 router.post('/', async (req, res, next) => {
 
-    let newDesign = await queries.addNewDesign(req.body)
+    const colors = [...req.body.colors.split(',')]
+    let bodyCopy = Object.assign({},req.body)
+    bodyCopy.colors = colors
+
+    let newDesign = await queries.addNewDesign(bodyCopy)
 
     try {
         res.json(

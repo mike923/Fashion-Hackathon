@@ -26,7 +26,7 @@ CREATE TABLE users (
 CREATE TABLE designs (
    id SERIAL PRIMARY KEY,
    design_file VARCHAR UNIQUE NOT NULL,
-   color VARCHAR NOT NULL,
+   colors VARCHAR [],
    pattern VARCHAR NOT NULL,
    height INT NOT NULL,
    width INT NOT NULL,
@@ -61,9 +61,9 @@ VALUES
 
 -- INSERT INTO designs
 INSERT INTO 
-   designs (design_file, color, pattern, height, width, designer_id)
+   designs (design_file, colors, pattern, height, width, designer_id)
 VALUES
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', 'yellow', 'plain', 10, 15, 1);
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', ARRAY['yellow'], 'plain', 10, 15, 1);
 
 -- INSERT INTO materials
 INSERT INTO 
