@@ -19,7 +19,7 @@ const AuthContainer = ({ isUserLoggedIn, setUser, prevURL, ...props}) => {
 
     const loginUser = async () => {
         try {
-            const { data: { payload } } = await axios.post('/auth/login', props)
+            const { data: { payload } } = await axios.post('/api/auth/login', props)
             setUser(payload)
         } catch (err) {
             console.log('ERROR', err)
