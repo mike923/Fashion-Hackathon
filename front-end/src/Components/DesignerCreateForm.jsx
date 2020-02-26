@@ -17,8 +17,8 @@ const DesignerCreateForm = () => {
       <br />
       <img  style ={imageStyle} src={imgUrl} alt="default image"/>
       <form>
-        <input type="file" onInput={(e)=>{
-          setImgUrl(e.target.value)
+        <input type="file" onChange={(e)=>{
+          console.log(e.target.files[0])
         }}/>
       </form>
     </div>
