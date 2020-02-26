@@ -93,8 +93,12 @@ router.get('/manufacture_design/:manufacture_design_id', async (req, res, next) 
 router.post('/', async (req, res, next) => {
 
     const colors = [...req.body.colors.split(',')]
+    
+    let imageUrl = "http://localhost:8080/" + req.file.path.replace('public/', '')
+    
     let bodyCopy = Object.assign({},req.body)
     bodyCopy.colors = colors
+    bodyCopy.imageUrl = imageUrl
 
     let newDesign = await queries.addNewDesign(bodyCopy)
 
