@@ -1,27 +1,34 @@
-import React, {Component} from 'react'
+import React, { useEffect, useState } from 'react'
+import DesignerProducts from '../Components/DesignerProducts'
 import axios from 'axios'
 
-class DesignsContainer extends Component {
+const DesignsContainer = () => {
+
+    const [products, setProducts] = useState([]);
 
 
- fetchAllDesigns = async () =>{
-     try {
-         const{data :{payload}} = await axios.get(`api/products`)
-     } catch (error) {
-         
-     }
- }
+    const fetchAllDesigns = async () => {
+        try {
+            const { data: { payload } } = await axios.get(`/api/products`)
+            setProducts(payload)
+            console.log(payload);
 
-
-
-
-    render(){
-        return(
-            <div>
-
-            </div>
-        )
+        } catch (error) {
+            console.log(error);
+        }
     }
+
+    useEffect(() => {
+        fetchAllDesigns()
+    }, [])
+
+
+    if (products.length) {
+        return <DesignerProducts products={products}/>
+    } else {
+        return <div>No product results. Create some new designs!</div>
+    }
+
 }
 
 export default DesignsContainer
