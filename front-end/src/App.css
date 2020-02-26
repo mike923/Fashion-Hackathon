@@ -25,11 +25,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: solid rgb(0, 0, 0);
-    border-width: 1px 1px 1px 1px;
-    min-height: 10vh;
-    background: white;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
     color: black;
+    position: sticky;
+    top: 0;
+
   }
   
   .designerFormImg {
@@ -68,7 +72,12 @@
   .form-inline button:hover {
     background-color: royalblue;
   }
-  
+
+  .homeimg {
+    width: 90%;
+    height: 500px;
+  }
+
   .bannerimg {
     width: 99%;
     height: 300px;

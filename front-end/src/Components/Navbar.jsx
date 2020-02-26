@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
     <nav>
-        <h3>The Fanshion Something</h3>
+        <h3>The Fashion Something</h3>
         <ul className='nav-links'>
             <Link style={navStyle} to="/"><strong><li>Home</li></strong></Link>
             <Link style={navStyle} to="/users/designer"><strong><li>Designer</li></strong></Link>
