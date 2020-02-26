@@ -46,7 +46,14 @@ const addNewDesigner = async (designer_id, design_company_id) => await db.one(`
     RETURNING *
 `, [designer_id, design_company_id])
 
+const addNewCompany = async (name) => await db.one(`
+    INSERT INTO design_companies (company_name)
+    VALUES ($1)
+    RETURNING *
+`, [name])
+
 module.exports = {
+    addNewCompany,
     addNewDesigner,
     getAllDesigners,
     getDesignerByID,
