@@ -33,20 +33,6 @@ const getDesignsByStatus = async (param,id) => await db.any(`
     ORDER BY designs.id DESC
 `, [id])
 
-const getDesignsByDesignersId = async (id) => await db.any(`
-    
-`)
-
-const getDesignsByManufactureId = async (id) => await db.any(`
-    SELECT designs.id, designs.design_file,colors,pattern,
-    height,width,designer_id,username,email,materials_used.id
-    FROM designs
-    INNER JOIN users ON designs.designer_id = users.id
-    INNER JOIN materials_used ON materials_used.product_id  = designs.id
-    WHERE materials_used.manufacturer_id = $1
-    ORDER BY designs.id DESC
-`, [id])
-
 const updateDesignStatus = async (obj,id) => await db.one(`
     UPDATE designs
     SET complete = $1
@@ -75,9 +61,8 @@ const getDesignsByDesign = async (id) => await db.any(`
 `, [id])
 
 module.exports = {
-    addNewDesign,
-    getAllDesigns,
-    getDesignsByManufactureId,
-    updateDesignStatus,
-    getDesignsByStatus
+    getAllProducts,
+    getAllProductsByDesigner,
+    getAllProductsByDesignCompany,
+    getAllProductsByManufacturer,    
 }

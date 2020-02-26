@@ -19,6 +19,7 @@ router.post('/company', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('post error /company\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to add manufacturing company',
@@ -36,6 +37,7 @@ router.post('/employee', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('post error /employee\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to add employee',
@@ -53,6 +55,7 @@ router.get('/all', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('get error /all\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieved all manufacturers',
@@ -70,6 +73,7 @@ router.get('/all/employees', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('get error /all/employees\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieved all manufacturing employees',
@@ -87,6 +91,7 @@ router.get('/:id/employees', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('get error /:id/employees\n', error)
         res.status(500).json({
             payload: null,
             msg: `Failed to retrieved all employees in company_id: ${Number(req.params.id)}`,
@@ -104,6 +109,7 @@ router.get('/employee/:id', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('get error /employee/:id\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieved company employee',
@@ -121,6 +127,7 @@ router.get('/:id', async (req, res, next) => {
             err: false
         })
     } catch (error) {
+        console.log('get error /:id\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieved company',
