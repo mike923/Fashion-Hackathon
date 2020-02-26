@@ -5,6 +5,12 @@ const getAllDesignCompanies = async () => await db.any(`
     FROM design_companies
 `)
 
+const getDesignCompanyByID = async (id) => await db.any(`
+    SELECT *
+    FROM design_companies
+    WHERE id = $1
+`, [id])
+
 const getAllDesigners = async () => await db.any(`
     SELECT 
         users.id AS user_id, username, avatar_url, email, account_type, 
@@ -57,6 +63,7 @@ module.exports = {
     addNewDesigner,
     getAllDesigners,
     getDesignerByID,
+    getDesignCompanyByID,
     getAllDesignCompanies,
     getAllDesignersByCompany,
 }
