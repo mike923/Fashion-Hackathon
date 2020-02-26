@@ -40,15 +40,22 @@ const getManufacturerEmployeeByID = async (id) => await db.one(`
 	WHERE users.id = $1
 `, [id])
 
-const addNewManufacturer = async (employee_id, manufacture_id) => await db.one(`
+const addNewEmployee = async (employee_id, manufacture_id) => await db.one(`
 	INSERT INTO manufacture_employee (employee_id, manufacture_id)
-	VALUES ($1, $2/)
+	VALUES ($1, $2)
 	RETURNING *
 `, [employee_id, manufacture_id])
 
+const addNewManufacturer = async (name, specialty) => await db.one(`
+	INSERT INTO manufacturers (manufacturer_name, specialty)
+	VALUES ($1, $2)
+	RETURNING *
+`, [name, specialty])
+
 module.exports = {
+	addNewEmployee,
     addNewManufacturer,
-    getAllManufacturers,
+	getAllManufacturers,
     getManufacturerEmployeeByID,
     getAllManufacturerEmployees,
     getAllManufacturerEmployeesByCompany,
