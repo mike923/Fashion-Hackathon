@@ -3,9 +3,9 @@ const router = express.Router();
 const {
     addNewCompany,
     addNewDesigner,
-    getAllDesigners,
     getDesignerByID,
     getDesignCompanyByID,
+    getAllDesigners,
     getAllDesignCompanies,
     getAllDesignersByCompany,
 } = require('../db/queries/designers')
@@ -15,13 +15,47 @@ router.post('/company', async (req, res, next) => {
         let company = await addNewCompany(req.body.company_name)
         res.json({
             payload: company,
-            msg: 'Retrieved all design company',
+            msg: 'Successfully added design company',
             err: false
         })
     } catch (error) {
         res.status(500).json({
             payload: null,
-            msg: 'Failed to retrieved all design company',
+            msg: 'Failed to add design company',
+            err: true
+        }) 
+    }
+})
+
+router.post('/designer', async (req, res, next) => {
+    try {
+        let designer = await addNewDesigner(req.body.designer_id, req.body.design_company_id)
+        res.json({
+            payload: designer,
+            msg: 'Successfully added designer',
+            err: false
+        })
+    } catch (error) {
+        res.status(500).json({
+            payload: null,
+            msg: 'Failed to add  designer',
+            err: true
+        }) 
+    }
+})
+
+router.get('/all', async (req, res, next) => {
+    try {
+        let designers = await getAllDesigners()
+        res.json({
+            payload: designers,
+            msg: 'Retrieved all designers',
+            err: false
+            })
+    } catch (error) {
+        res.status(500).json({
+            payload: null,
+            msg: 'Failed to retrieved all designers',
             err: true
         }) 
     }
@@ -39,23 +73,6 @@ router.get('/all/companies', async (req, res, next) => {
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieved all design companies',
-            err: true
-        }) 
-    }
-})
-
-router.get('/all/designers', async (req, res, next) => {
-    try {
-        let designers = await getAllDesigners()
-        res.json({
-            payload: designers,
-            msg: 'Retrieved all designers',
-            err: false
-            })
-    } catch (error) {
-        res.status(500).json({
-            payload: null,
-            msg: 'Failed to retrieved all designers',
             err: true
         }) 
     }

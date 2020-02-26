@@ -43,7 +43,7 @@ const getDesignerByID = async (id) => await db.one(`
     ON designer_id = users.id
     LEFT JOIN design_companies
     ON design_companies.id = design_company_id
-    WHERE users.id = $1
+    WHERE designers.id = $1
 `, [id])
 
 const addNewDesigner = async (designer_id, design_company_id) => await db.one(`

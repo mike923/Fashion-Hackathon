@@ -5,7 +5,13 @@ const getAllManufacturers = async () => await db.any(`
     FROM manufacturers
 `)
 
-const getAllManufacturerEmployees = async () => await db.any(`
+const getCompanyByID = async (id) => await db.any(`
+    SELECT * 
+	FROM manufacturers
+	WHERE id = $1
+`, [id])
+
+const getAllEmployees = async () => await db.any(`
 	SELECT
 		users.id AS user_id, username, avatar_url, email, account_type, 
 		manufacture_id, manufacturer_name, specialty
@@ -16,7 +22,7 @@ const getAllManufacturerEmployees = async () => await db.any(`
 	ON manufacturers.id = manufacture_id
 `)
 
-const getAllManufacturerEmployeesByCompany = async (id) => await db.any(`
+const getAllEmployeesByCompany = async (id) => await db.any(`
 	SELECT
 		users.id AS user_id, username, avatar_url, email, account_type, 
 		manufacture_id, manufacturer_name, specialty
@@ -28,7 +34,7 @@ const getAllManufacturerEmployeesByCompany = async (id) => await db.any(`
 	WHERE manufacture_id = $1
 `, [id])
 
-const getManufacturerEmployeeByID = async (id) => await db.one(`
+const getEmployeeByID = async (id) => await db.one(`
 	SELECT
 		users.id AS user_id, username, avatar_url, email, account_type, 
 		manufacture_id, manufacturer_name, specialty
@@ -37,7 +43,7 @@ const getManufacturerEmployeeByID = async (id) => await db.one(`
 	ON employee_id = users.id
 	LEFT JOIN manufacturers
 	ON manufacturers.id = manufacture_id
-	WHERE users.id = $1
+	WHERE manufacture_employee.id = $1
 `, [id])
 
 const addNewEmployee = async (employee_id, manufacture_id) => await db.one(`
@@ -54,9 +60,10 @@ const addNewManufacturer = async (name, specialty) => await db.one(`
 
 module.exports = {
 	addNewEmployee,
-    addNewManufacturer,
+	addNewManufacturer,
+    getEmployeeByID,
+    getCompanyByID,
+    getAllEmployees,
 	getAllManufacturers,
-    getManufacturerEmployeeByID,
-    getAllManufacturerEmployees,
-    getAllManufacturerEmployeesByCompany,
+    getAllEmployeesByCompany,
 }
