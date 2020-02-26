@@ -69,7 +69,7 @@ CREATE TABLE materials_used (
    percentage_used INT NOT NULL
 );
 
--- INSERT INTO users
+
 INSERT INTO  
    users (username, password_digest, email, avatar_url, account_type) 
 VALUES
@@ -78,14 +78,14 @@ VALUES
    ('PAM', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com', 'https://www.africanprintinfashion.com/wp-content/uploads/2016/07/APIF_estore_africanfashion.jpg', 'DESIGNER'),
    ('ANN', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com', 'https://www.africanprintinfashion.com/wp-content/uploads/2016/07/APIF_estore_africanfashion.jpg', 'MANUFACTURER');
 
--- INSERT INTO manufacturer
+
 INSERT INTO 
    manufacturers (manufacturer_name, specialty) 
 VALUES
    ('Cotton emporium.', 'we do all things wool and cotton'),
    ('Leather', 'Leather good');
 
--- INSERT INTO manufacturer
+
 INSERT INTO 
    design_companies (company_name) 
 VALUES
@@ -104,13 +104,16 @@ VALUES
    (2, 1),
    (4, 2);
 
--- INSERT INTO designs
+
 INSERT INTO 
    product_design (design_file, designer_specs, designer_id, manufacturer_id)
 VALUES
    ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 1);
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 2);
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 1);
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 2);
 
--- INSERT INTO materials
+
 INSERT INTO 
    materials (material) 
 VALUES 
@@ -120,7 +123,7 @@ VALUES
    ('polyester'),
    ('rayon');
 
--- INSERT INTO materials_used
+
 INSERT INTO 
    materials_used (manufacturer_id, product_id, material_id, percentage_used) 
 VALUES 
