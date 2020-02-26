@@ -51,7 +51,8 @@ app.use(passport.session());
 app.use("/api", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
-app.use("/api/designs", designsRouter);
+app.use("/api/products", upload.single('design_file'), designsRouter);
 app.use("/api/materials", materialsRouter);
+
 
 module.exports = app;
