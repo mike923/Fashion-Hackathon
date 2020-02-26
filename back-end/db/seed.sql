@@ -44,7 +44,7 @@ CREATE TABLE manufacture_employee (
 
 CREATE TABLE product_design (
    id SERIAL PRIMARY KEY,
-   design_file VARCHAR UNIQUE NOT NULL,
+   design_file VARCHAR NOT NULL,
    -- colors VARCHAR [],
    -- pattern VARCHAR NOT NULL,
    -- height INT NOT NULL,
@@ -108,9 +108,9 @@ VALUES
 INSERT INTO 
    product_design (design_file, designer_specs, designer_id, manufacturer_id)
 VALUES
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 1);
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 2);
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 1);
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 1),
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 2),
+   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 1),
    ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 2);
 
 
