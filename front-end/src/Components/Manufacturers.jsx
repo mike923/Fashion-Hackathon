@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 // import userInputHook from './Hooks/UseInputHook'
-import ManufacturerTabs from './ManufacturerTabs';
 import ManufacturerOrders from './ManufacturerOrders';
-import ManufacturerMaterialRecipts from './ManufacturerMaterialRecipts';
-import ManufacturerDesignersList from './ManufacturerDesignersList';
+
+import ManufacturerContainer from '../Containers/ManufacturersContainer'
 
 const styles = {
     container: {
@@ -36,18 +35,7 @@ const Manufacturers = () => {
 
             <h1>Manufactures Portal</h1>
 
-            <ManufacturerTabs>
-                <div label="Orders">
-                    <ManufacturerOrders />
-                </div>
-                <div label="Material Recipts">
-                    <ManufacturerMaterialRecipts />
-                </div>
-                <div label="Designers">
-                    List of all Designers
-                    <ManufacturerDesignersList />
-                </div>
-            </ManufacturerTabs>
+            <ManufacturerContainer/>
 
         </div>
     )
