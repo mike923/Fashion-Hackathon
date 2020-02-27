@@ -20,6 +20,17 @@ const ManufacturersContainer = (props) => {
         }
     }
 
+    const fetchAllManufacturersOrders = async () => {
+        try {
+            const { data: { payload } } = await axios.get(`/manufacturers/all`)
+            setManufacturers(payload)
+            console.log(payload);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         fetchAllManufacturers()
     }, [])

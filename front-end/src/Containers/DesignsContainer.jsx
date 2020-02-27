@@ -8,6 +8,7 @@ const DesignsContainer = (props) => {
     
 
     const [products, setProducts] = useState([]);
+    const [manufacturers, setManufacturers] = useState([]);
 
 
     const fetchAllDesigns = async () => {
@@ -21,8 +22,22 @@ const DesignsContainer = (props) => {
         }
     }
 
+    console.log(manufacturers);
+    
+    const fetchAllManufacturers = async () => {
+        try {
+            const { data: { payload } } = await axios.get(`/manufacturers/all`)
+            setManufacturers(payload)
+            console.log(payload);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         fetchAllDesigns()
+        fetchAllManufacturers()
     }, [])
 
 

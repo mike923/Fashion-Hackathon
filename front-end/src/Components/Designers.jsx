@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import DesignerTabs from './DesignerTabs';
 import DesignerCreateForm from './DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
-import ManufacturersContainer from '../Containers/ManufacturersContianer'
 import DesignsContainer from '../Containers/DesignsContainer';
 import Map from './Map';
 
@@ -47,7 +46,7 @@ const Designers = () => {
                     <DesignerCreateForm />
                 </div>
                 <div label="Manufacturers">
-                    <ManufacturersContainer/>
+                    List of all Manufacturers
                     <a href="/map">to map</a>
                 </div>
                 <div label='Map'>
