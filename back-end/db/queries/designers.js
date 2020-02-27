@@ -13,22 +13,22 @@ const getDesignCompanyByID = async (id) => await db.any(`
 
 const getAllDesigners = async () => await db.any(`
     SELECT 
-        users.id AS user_id, username, avatar_url, email, account_type, 
+        user_id, username, avatar_url, email, account_type, 
         design_company_id, company_name
     FROM users
     INNER JOIN designers 
-    ON designer_id = users.id
+    ON user_id = users.id
     LEFT JOIN design_companies
     ON design_companies.id = design_company_id
 `)
 
 const getAllDesignersByCompany = async (id) => await db.any(`
     SELECT 
-        users.id AS user_id, username, avatar_url, email, account_type, 
+        user_id, username, avatar_url, email, account_type, 
         design_company_id, company_name
     FROM users
     INNER JOIN designers 
-    ON designer_id = users.id
+    ON user_id = users.id
     LEFT JOIN design_companies
     ON design_companies.id = design_company_id
     WHERE design_company_id = $1
@@ -36,21 +36,21 @@ const getAllDesignersByCompany = async (id) => await db.any(`
 
 const getDesignerByID = async (id) => await db.one(`
     SELECT 
-        users.id AS user_id, username, avatar_url, email, account_type, 
+        user_id, username, avatar_url, email, account_type, 
         design_company_id, company_name
     FROM users
     INNER JOIN designers 
-    ON designer_id = users.id
+    ON user_id = users.id
     LEFT JOIN design_companies
     ON design_companies.id = design_company_id
     WHERE designers.id = $1
 `, [id])
 
-const addNewDesigner = async (designer_id, design_company_id) => await db.one(`
-    INSERT INTO designers (designer_id, design_company_id)
+const addNewDesigner = async (user_id, design_company_id) => await db.one(`
+    INSERT INTO designers (user_id, design_company_id)
     VALUES ($1, $2)
     RETURNING *
-`, [designer_id, design_company_id])
+`, [user_id, design_company_id])
 
 const addNewCompany = async (name) => await db.one(`
     INSERT INTO design_companies (company_name)
