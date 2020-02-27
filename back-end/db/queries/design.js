@@ -40,8 +40,8 @@ const updateDesignStatus = async (obj,id) => await db.one(`
 `, [obj.complete, id])
 
 const addNewDesign = async (design) => await db.any(`
-    INSERT INTO designs(design_file,colors, pattern, height,width,designer_id)
-	VALUES($/design_file/,$/colors/, $/pattern/, $/height/,$/width/,$/designer_id/)
+    INSERT INTO product_design(design_file, designer_specs, designer_id, manufacturer_id)
+	VALUES($/design_file/, $/designer_specs/, $/designer_id/, $/manufacturer_id/)
 	RETURNING *
 `, design)
 
