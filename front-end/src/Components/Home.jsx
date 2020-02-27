@@ -24,15 +24,14 @@ const Home = () => {
             <section className='top-container'>
                 <header className="showcase">
                     <h1>Sustainable and Transparent</h1>
-                    <p>Your choice of freedom</p>
                 </header>
                 <div className='top-box top-box-a'>
-                    <h4>Membership</h4>
+                    <h2>Membership</h2>
                     <p className='price'>$99/mo</p>
                     <a href='' className='home-btn'>Buy Now</a>
                 </div>
                 <div className='top-box top-box-b'>
-                    <h4>Pro Membership</h4>
+                    <h2>Pro Membership</h2>
                     <p className='price'>$199/mo</p>
                     <a href='' className='home-btn'>Buy Now</a>
                 </div>
@@ -71,11 +70,11 @@ const Home = () => {
                 <img src='https://www.iso.cuhk.edu.hk/images/publication/sustainable-campus/201601/original/world_1.jpg' alt='' />
                 <div>
                     <h2>The True Cost of Fast Fashion</h2>
-                    <p>Lorem ipsum dolor sit amet, cetero oporteat
-                         sensibus his eu. Has ex vidisse perpetua, vis
-                          partem mollis mandamus at. Ea nam legere
-                          mentitum prodesset, no quo lucilius liberavisse,
-                      te oratio.</p>
+                    <p>Lorem ipsum dolor sit amet, nec viris nihil fastidii ex, eu pri dicit paulo mollis. Sed an sint reprimique. Id his facilis cotidieque, esse movet volutpat eos te, no ius velit quaeque alienum. Enim tibique eum te, explicari definiebas pri eu, in audire vituperata sed. Et novum soluta placerat eam, no sea esse zril scripta. Simul veritus partiendo eum ex, in vim porro eloquentiam disputationi, ad eam eirmod deterruisset.
+
+Te brute scripta nam, in qui possit indoctum instructior. Ut doctus luptatum eloquentiam duo, quem dolorum officiis ad vel. Ex tale eius delicatissimi cum. Ne quot movet vivendo vel, ex sit dicam albucius intellegebat. Case consectetuer an duo.
+
+Id per vide referrentur, te everti convenire sit. Odio facer cum an, ea fastidii deterruisset eam. Liber efficiendi interpretaris vix ex, iudico possim convenire in vix. Et per.</p>
                     <a href="#" className='home-btn'>Learn More</a>
                 </div>
 
