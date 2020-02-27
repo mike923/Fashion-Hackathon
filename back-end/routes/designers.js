@@ -30,7 +30,7 @@ router.post('/company', async (req, res, next) => {
 
 router.post('/designer', async (req, res, next) => {
     try {
-        let designer = await addNewDesigner(req.body.designer_id, req.body.design_company_id)
+        let designer = await addNewDesigner(req.body.user_id, req.body.design_company_id)
         res.json({
             payload: designer,
             msg: 'Successfully added designer',

@@ -1,10 +1,10 @@
 const db = require('../config')
 
 const getAllProducts = async () => await db.any(`
-    SELECT *
+    SELECT *, product_design.id AS product_id
     FROM product_design
     INNER JOIN designers
-    ON product_design.designer_id = designers.designer_id
+    ON designer_id = designers.id
     INNER JOIN design_companies
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
@@ -12,22 +12,22 @@ const getAllProducts = async () => await db.any(`
 `)
 
 const getAllProductsByDesigner = async (id) => await db.any(`
-    SELECT *
+    SELECT *, product_design.id AS product_id
     FROM product_design
     INNER JOIN designers
-    ON product_design.designer_id = designers.designer_id
+    ON designer_id = designers.id
     INNER JOIN design_companies
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
     ON manufacturer_id = manufacturers.id
-    WHERE designers.designer_id = $1
+    WHERE user_id = $1
 `, [id])
 
 const getAllProductsByDesignCompany = async (id) => await db.any(`
     SELECT *, product_design.id AS product_id
     FROM product_design
     INNER JOIN designers
-    ON designers.id = product_design.designer_id
+    ON designers.id = designer_id
     INNER JOIN design_companies
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
@@ -39,7 +39,7 @@ const getAllProductsByManufacturer = async (id) => await db.any(`
     SELECT *, product_design.id AS product_id
     FROM product_design
     INNER JOIN designers
-    ON designers.id = product_design.designer_id
+    ON designers.id = designer_id
     INNER JOIN design_companies
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers
@@ -51,7 +51,7 @@ const getProductsByStatus = async (status, type, id) => await db.any(`
     SELECT *
     FROM product_design
     INNER JOIN designers
-    ON product_design.designer_id = designers.designer_id
+    ON designer_id = designers.id
     INNER JOIN design_companies
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
