@@ -5,6 +5,7 @@ import DesignerCreateForm from './DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
 import DesignerContainer from '../Containers/DesignsContainer'
 import DesignsContainer from '../Containers/DesignsContainer';
+import Map from './Map';
 
 const styles = {
     container: {
@@ -48,6 +49,9 @@ const Designers = () => {
                 <div label="Manufacturers">
                     List of all Manufacturers
                     <a href="/map">to map</a>
+                </div>
+                <div label='Map'>
+                    <Map />
                 </div>
             </DesignerTabs>
         </div>

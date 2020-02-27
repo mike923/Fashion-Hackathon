@@ -20,7 +20,7 @@ const getAllProductsByDesigner = async (id) => await db.any(`
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
     ON manufacturer_id = manufacturers.id
-    WHERE designer_id = $1
+    WHERE designers.designer_id = $1
 `, [id])
 
 const getAllProductsByDesignCompany = async (id) => await db.any(`
