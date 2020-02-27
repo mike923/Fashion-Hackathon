@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Logo from "../A9Logo.png"
 
 const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
     <nav>
-        <h3>The Fashion Something</h3>
+        <img src={Logo} alt='Logo'></img>
+        <h3>Fashion Design</h3>
         <ul className='nav-links'>
             <Link style={navStyle} to="/"><strong><li>Home</li></strong></Link>
             <Link style={navStyle} to="/users/designer"><strong><li>Designer</li></strong></Link>
