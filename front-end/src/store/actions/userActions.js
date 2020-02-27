@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, LOAD_USER, LOGIN_USER, LOGOUT } from './actionTypes';
+import { RECEIVE_USERS, LOAD_USER, LOGIN_USER, LOGOUT,LOAD_MANUFACTURERS } from './actionTypes';
 
 export const fetchUsers = (payload) => {
     return {
@@ -24,5 +24,12 @@ export const setUser = (payload) => {
 export const logout = () => {
     return {
         type: LOGOUT,
+    }
+}
+
+export const loadManufacturers =(payload)=>{
+    return{
+        type:LOAD_MANUFACTURERS,
+        payload
     }
 }

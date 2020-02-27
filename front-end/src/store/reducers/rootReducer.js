@@ -1,5 +1,6 @@
 import authReducer from './authReducer'
 import inputReducer from './inputReducer'
+import designerReducer from './designerReducer'
 
 
 import { combineReducers } from "redux";
@@ -7,6 +8,7 @@ import { combineReducers } from "redux";
 export const rootReducer = combineReducers(
     {
         authReducer,
-        inputReducer
+        inputReducer,
+        designerReducer
     }
 );
