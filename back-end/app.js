@@ -55,7 +55,7 @@ app.use("/api", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/products", productsRouter);
-// app.use("/api/products", upload.single('design_file'), productsRouter);
+app.use("/api/productimg", upload.single('design_file'), designsRouter);
 app.use("/api/designers", designersRouter);
 app.use("/api/manufacturers", manufacturersRouter);
 // app.use("/api/products", designsRouter);
