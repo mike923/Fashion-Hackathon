@@ -1,49 +1,35 @@
 const db = require('../config')
 
-const getAllUsers = async () => await db.any(`
+const ALL_USERS = `
 	SELECT 
-		users.id AS user_id, username, avatar_url, email, account_type,
+		users.id AS user_id,
+		username, avatar_url, email, account_type,
+		design_company_id, company_name,
 		manufacture_id, manufacturer_name, specialty,
-		design_company_id, company_name
+		designers.id AS designer_id,
+		manufacture_employee.id AS employee_id
 	FROM users
 	LEFT JOIN designers
-	ON designers.designer_id = users.id
+	ON user_id = users.id
 	LEFT JOIN manufacture_employee
-	ON manufacture_employee.employee_id = users.id
-	LEFT JOIN manufactures
-	ON manufactures.id = manufacture_employee.manufacture_id
+	ON employee_id = users.id
+	LEFT JOIN manufacturers
+	ON manufacture_id = manufacturers.id
 	LEFT JOIN design_companies
-	ON design_companies.id = designers.design_company_id
-`)
+	ON design_company_id = design_companies.id
+`
+
+const getAllUsers = async () => await db.any(ALL_USERS + 'ORDER BY users.id')
+
+const getUserByID = async (id) => await db.oneOrNone(ALL_USERS + `WHERE users.id = $1`, [id])
+
+const getUserByUsername = async (username) => await db.oneOrNone(ALL_USERS + `WHERE username = $1`, [username])
 
 const addNewUser = async (user) => await db.one(`
 	INSERT INTO users (username, password_digest, avatar_url, email, account_type)
 	VALUES ($/username/, $/password_digest/, $/avatar_url/, $/email/, $/account_type/)
 	RETURNING id, username, avatar_url, email, account_type
 `, user)
-
-const getUserByID = async (id) => await db.oneOrNone(`
-	SELECT 
-		users.id AS user_id, username, avatar_url, email, account_type,
-		manufacture_id, manufacturer_name, specialty,
-		design_company_id, company_name
-	FROM users
-	LEFT JOIN designers
-	ON designers.designer_id = users.id
-	LEFT JOIN manufacture_employee
-	ON manufacture_employee.employee_id = users.id
-	LEFT JOIN manufactures
-	ON manufactures.id = manufacture_employee.manufacture_id
-	LEFT JOIN design_companies
-	ON design_companies.id = designers.design_company_id
-	WHERE users.id = $1
-`, [id])
-
-const getUserByUsername = async (username) => await db.oneOrNone(`
-	SELECT * 
-	FROM users 
-	WHERE username = $1
-`, [username])
 
 module.exports = {
 	addNewUser,

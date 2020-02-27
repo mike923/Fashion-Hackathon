@@ -13,6 +13,7 @@ router.get('/', requireLoginMid, async (req, res, next) => {
       err: false
     })
   } catch (error) {
+    console.log('get error /\n', error)
     res.status(500).json({
       payload: null,
       msg: 'Failed retrieving all users',

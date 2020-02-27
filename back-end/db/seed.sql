@@ -71,47 +71,71 @@ CREATE TABLE materials_used (
 
 
 INSERT INTO  
-   users (username, password_digest, email, avatar_url, account_type) 
+   users (username, password_digest, email, account_type, avatar_url) 
 VALUES
-   ('Test', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com', 'https://www.africanprintinfashion.com/wp-content/uploads/2016/07/APIF_estore_africanfashion.jpg', 'DESIGNER'),
-   ('JON', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com', 'https://www.africanprintinfashion.com/wp-content/uploads/2016/07/APIF_estore_africanfashion.jpg', 'MANUFACTURER'),
-   ('PAM', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com', 'https://www.africanprintinfashion.com/wp-content/uploads/2016/07/APIF_estore_africanfashion.jpg', 'DESIGNER'),
-   ('ANN', '$2b$12$9XYzDmcZjnK2npJSe6msQenecn6.iZFUIEQSU3U7Zp/ObIHWMV8Z2', 'testing@email.com', 'https://www.africanprintinfashion.com/wp-content/uploads/2016/07/APIF_estore_africanfashion.jpg', 'MANUFACTURER');
+   ('Test', 'testing', 'testing@email.com', 'DESIGNER', 'https://www.testim.io/wp-content/uploads/2019/11/Automated-Testing.jpg'),
+   --1
+   ('JON', 'jon', 'JON@email.com', 'MANUFACTURER', 'https://usatftw.files.wordpress.com/2019/04/ad51644215b57ef0cfea49acab180dbff2da45b775f7e9c63d4cd3402c3ed867-e1555335664836.jpg?w=651&h=391&crop=1&zoom=2'),
+   --2
+   ('PAM', 'pam', 'PAM@email.com', 'DESIGNER', 'https://i.redd.it/3dayub1a9wrz.jpg'),
+   --3
+   ('kam', 'kam', 'kam@email.com', 'DESIGNER', 'https://miro.medium.com/max/3150/1*XHa-3O0Q-uS7t0r8Ibgekw.jpeg'),
+   --4
+   ('von', 'von', 'von@email.com', 'DESIGNER', 'https://www.thenewdealer.org/wp-content/uploads/2013/03/pg-5-pic-4-800x533.jpg'),
+   --5
+   ('mlq', 'mlq', 'mlq@email.com', 'MANUFACTURER', 'https://media-exp1.licdn.com/dms/image/C4D03AQHKGTVYMBEsVw/profile-displayphoto-shrink_200_200/0?e=1588204800&v=beta&t=voUzhmapGHIwZXMP0Lp4K8n3vwcuBrOihGFOkx2JVks'),
+   --6
+   ('mik', 'mik', 'mik@email.com', 'DESIGNER', 'https://athletics.baruch.cuny.edu/images/2015/9/22/MichaelDAmparo2015.jpg?width=300'),
+   --7
+   ('jim', 'jim', 'jim@email.com', 'MANUFACTURER', 'https://www.indiewire.com/wp-content/uploads/2018/09/shutterstock_5886251df-e1535987220890.jpg?w=780');
+   --8
 
 
 INSERT INTO 
    manufacturers (manufacturer_name, specialty) 
 VALUES
    ('Cotton emporium.', 'we do all things wool and cotton'),
+   --1
    ('Leather', 'Leather good');
+   --2
 
 
 INSERT INTO 
    design_companies (company_name) 
 VALUES
+   ('Lather Greats'),
+   --1
    ('Cool Designs'),
-   ('Lather Greats');
+   --2
+   ('INDEPENDENT');
+   --3
 
 INSERT INTO
    designers (user_id, design_company_id)
+   -- 1, 3, 4, 5, 7
 VALUES
    (1, 1),
+   -- 1
    (3, 2);
+   -- 2
 
 INSERT INTO
    manufacture_employee (employee_id, manufacture_id)
+   -- 2, 6, 8
 VALUES
    (2, 1),
+   -- 1
    (4, 2);
+   -- 2
 
 
 INSERT INTO 
-   product_design (design_file, designer_specs, designer_id, manufacturer_id)
+   product_design (designer_specs, designer_id, manufacturer_id, design_file)
 VALUES
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 1),
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 1, 2),
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 1),
-   ('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W', '{ "testingspecs": "asdfas" }' , 2, 2);
+   ('{ "testingspecs": "asdfas" }' , 1, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   ('{ "testingspecs": "asdfas" }' , 1, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   ('{ "testingspecs": "asdfas" }' , 2, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   ('{ "testingspecs": "asdfas" }' , 2, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W');
 
 
 INSERT INTO 
