@@ -12,7 +12,7 @@ const DesignsContainer = (props) => {
 
     const fetchAllDesigns = async () => {
         try {
-            const { data: { payload } } = await axios.get(`/api/products/designer/${1}`)
+            const { data: { payload } } = await axios.get(`/products/designer/${props.user.id}`)
             setProducts(payload)
             console.log(payload);
 
