@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
+    getProductsByStatus,
     getAllProducts,
     getAllProductsByDesigner,
     getAllProductsByDesignCompany,
@@ -79,6 +80,24 @@ router.get('/manufacturer/:id', async (req, res, next) => {
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieve all products by manufacturer',
+            err: true
+        }) 
+    }
+})
+
+router.get('/:type/:id/status/:status', async (req, res, next) => {
+    try {
+        let products = await getProductsByStatus(true, 'DESI GNER', 1)
+        res.json({
+            payload: products,
+            msg: 'Retrieved products by status',
+            err: false
+        })
+    } catch (error) {
+        console.log('get errord /:type/:id/status/:status\n', error)
+        res.status(500).json({
+            payload: null,
+            msg: 'Failed to retrieve products by status',
             err: true
         }) 
     }

@@ -39,7 +39,11 @@ const getUserByID = async (id) => await db.oneOrNone(`
 	WHERE users.id = $1
 `, [id])
 
-const getUserByUsername = async (username) => await db.oneOrNone('SELECT username, password_digest FROM users WHERE username = $1', [username])
+const getUserByUsername = async (username) => await db.oneOrNone(`
+	SELECT * 
+	FROM users 
+	WHERE username = $1
+`, [username])
 
 module.exports = {
 	addNewUser,
