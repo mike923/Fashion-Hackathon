@@ -47,7 +47,7 @@ const getAllProductsByManufacturer = async (id) => await db.any(`
     WHERE manufacturer_id = $1
 `, [id])
 
-const getProductsByStatus = async (status, id) => await db.any(`
+const getProductsByStatus = async (status, type, id) => await db.any(`
     SELECT *
     FROM product_design
     INNER JOIN designers
@@ -56,7 +56,12 @@ const getProductsByStatus = async (status, id) => await db.any(`
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
     ON manufacturer_id = manufacturers.id
-`, [id])
+    WHERE complete = $1
+    AND ${type === 'DESIGNER' 
+        ? `designers.id`
+        : `manufacturers.id`}
+        = $2
+`, [status, id])
 
 const updateDesignStatus = async (obj,id) => await db.one(`
     UPDATE designs
@@ -86,8 +91,9 @@ const getDesignsByDesign = async (id) => await db.any(`
 `, [id])
 
 module.exports = {
+    getProductsByStatus,
     getAllProducts,
     getAllProductsByDesigner,
-    getAllProductsByDesignCompany,
     getAllProductsByManufacturer,    
+    getAllProductsByDesignCompany,
 }

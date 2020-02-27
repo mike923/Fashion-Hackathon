@@ -9,7 +9,7 @@ const DesignsContainer = () => {
 
     const fetchAllDesigns = async () => {
         try {
-            const { data: { payload } } = await axios.get(`/api/products`)
+            const { data: { payload } } = await axios.get(`/products`)
             setProducts(payload)
             console.log(payload);
 
