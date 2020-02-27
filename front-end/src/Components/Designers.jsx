@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 // import userInputHook from './Hooks/UseInputHook'
 import DesignerTabs from './DesignerTabs';
 import DesignerCreateForm from './DesignerCreateForm';
-import DesignerProducts from './DesignerProducts';
+// import DesignerProducts from './DesignerProducts';
+import DesignerContainer from '../Containers/DesignsContainer'
+import DesignsContainer from '../Containers/DesignsContainer';
 
 const styles = {
     container: {
@@ -38,7 +40,7 @@ const Designers = () => {
 
             <DesignerTabs>
                 <div label="Products">
-                    <DesignerProducts />
+                <DesignsContainer/>
                 </div>
                 <div label="Create Design">
                     <DesignerCreateForm />

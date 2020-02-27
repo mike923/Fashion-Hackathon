@@ -18,7 +18,8 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg-promise": "^10.4.4",
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "tesseract.js": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
