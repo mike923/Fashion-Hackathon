@@ -93,7 +93,7 @@ VALUES
    ('Lather Greats');
 
 INSERT INTO
-   designers (designer_id, design_company_id)
+   designers (user_id, design_company_id)
 VALUES
    (1, 1),
    (3, 2);

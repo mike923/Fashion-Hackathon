@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
+    getProductByID,
     getProductsByStatus,
     getAllProducts,
     getAllProductsByDesigner,
@@ -87,19 +88,56 @@ router.get('/manufacturer/:id', async (req, res, next) => {
 
 router.get('/:type/:id/status/:status', async (req, res, next) => {
     try {
-        let products = await getProductsByStatus(true, 'DESI GNER', 1)
+        let products = await getProductsByStatus(req.params.status === 'complete', req.params.type.toUpperCase(), Number(req.params.id))
         res.json({
             payload: products,
             msg: 'Retrieved products by status',
             err: false
         })
     } catch (error) {
-        console.log('get errord /:type/:id/status/:status\n', error)
+        console.log('get error /:type/:id/status/:status\n', error)
         res.status(500).json({
             payload: null,
             msg: 'Failed to retrieve products by status',
             err: true
         }) 
+    }
+})
+
+router.get('/:id', async (req, res, next) => {
+    try {
+        let product = await getProductByID(Number(req.params.id))
+        res.json({
+            payload: product,
+            msg: 'Retrieved product by id',
+            err: false
+        })
+    } catch (error) {
+        console.log('get error /:id\n', error)
+        res.json({
+            payload: null,
+            msg: 'Failed to get product by id',
+            err: true
+        })
+    }
+})
+
+router.patch('/update/:id', async (req, res, next) => {
+    let product = {...req.body}
+    try {
+        let newProduct = ''
+        res.json({
+            payload: '',
+            msg: '',
+            err: false
+        })
+    } catch (error) {
+        console.log('get error /update/:id\n', error)
+        res.json({
+            payload: null,
+            msg: 'Failed to update product with id',
+            err: true
+        })
     }
 })
 
