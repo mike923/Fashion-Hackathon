@@ -3,34 +3,59 @@ const db = require('../config')
 const getAllProducts = async () => await db.any(`
     SELECT *
     FROM product_design
+    INNER JOIN designers
+    ON product_design.designer_id = designers.designer_id
+    INNER JOIN design_companies
+    ON design_companies.id = design_company_id
+    INNER JOIN manufacturers 
+    ON manufacturer_id = manufacturers.id
 `)
 
 const getAllProductsByDesigner = async (id) => await db.any(`
     SELECT *
     FROM product_design
+    INNER JOIN designers
+    ON product_design.designer_id = designers.designer_id
+    INNER JOIN design_companies
+    ON design_companies.id = design_company_id
+    INNER JOIN manufacturers 
+    ON manufacturer_id = manufacturers.id
     WHERE designer_id = $1
 `, [id])
 
 const getAllProductsByDesignCompany = async (id) => await db.any(`
-    SELECT *
+    SELECT *, product_design.id AS product_id
     FROM product_design
-    WHERE designer_id = $1
+    INNER JOIN designers
+    ON designers.id = product_design.designer_id
+    INNER JOIN design_companies
+    ON design_companies.id = design_company_id
+    INNER JOIN manufacturers 
+    ON manufacturer_id = manufacturers.id
+    WHERE design_company_id = $1
 `, [id])
 
 const getAllProductsByManufacturer = async (id) => await db.any(`
-    SELECT *
+    SELECT *, product_design.id AS product_id
     FROM product_design
+    INNER JOIN designers
+    ON designers.id = product_design.designer_id
+    INNER JOIN design_companies
+    ON design_companies.id = design_company_id
+    INNER JOIN manufacturers
+    ON manufacturers.id = manufacturer_id
     WHERE manufacturer_id = $1
 `, [id])
 
-const getDesignsByStatus = async (param,id) => await db.any(`
-    SELECT designs.id, designs.design_file,designs.colors,designs.pattern,
-    designs.height,designs.width,designs.designer_id,users.username,users.email, 
-    designs.complete
-    FROM designs
-    INNER JOIN users ON designs.designer_id = users.id
-    WHERE users.id = $1 AND complete = ${param}
-    ORDER BY designs.id DESC
+const getProductsByStatus = async (status, id) => await db.any(`
+    SELECT *
+    FROM product_design
+    INNER JOIN designers
+    ON product_design.designer_id = designers.designer_id
+    INNER JOIN design_companies
+    ON design_companies.id = design_company_id
+    INNER JOIN manufacturers 
+    ON manufacturer_id = manufacturers.id
 `, [id])
 
 const updateDesignStatus = async (obj,id) => await db.one(`
