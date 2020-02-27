@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import DesignerProducts from '../Components/DesignerProducts'
+import {loadManufacturers} from '../store/actions/userActions'
 import {connect} from 'react-redux'
 import axios from 'axios'
 
@@ -27,7 +28,7 @@ const DesignsContainer = (props) => {
     const fetchAllManufacturers = async () => {
         try {
             const { data: { payload } } = await axios.get(`/manufacturers/all`)
-            setManufacturers(payload)
+            props.loadManufacturers(payload)
             console.log(payload);
 
         } catch (error) {
@@ -55,4 +56,10 @@ const mapSateToProps =(state) =>{
     }
 }
 
-export default connect(mapSateToProps,null)(DesignsContainer)
+const mapDispatchToProps =(dispatch) =>{
+    return{
+        loadManufacturers: data => dispatch(loadManufacturers(data))
+    }
+}
+
+export default connect(mapSateToProps,mapDispatchToProps)(DesignsContainer)
