@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import DesignerProducts from '../Components/DesignerProducts'
+import {connect} from 'react-redux'
 import axios from 'axios'
 
-const DesignsContainer = () => {
+const DesignsContainer = (props) => {
+    console.log('user',props.user);
+    
 
     const [products, setProducts] = useState([]);
 
 
     const fetchAllDesigns = async () => {
         try {
-            const { data: { payload } } = await axios.get(`/api/products`)
+            const { data: { payload } } = await axios.get(`/api/products/designer/${1}`)
             setProducts(payload)
             console.log(payload);
 
@@ -31,4 +34,10 @@ const DesignsContainer = () => {
 
 }
 
-export default DesignsContainer
+const mapSateToProps =(state) =>{
+    return{
+        user: state.authReducer.user
+    }
+}
+
+export default connect(mapSateToProps,null)(DesignsContainer)
