@@ -5,6 +5,7 @@ import DesignerCreateForm from './DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
 import DesignsContainer from '../Containers/DesignsContainer';
 import Map from './Map';
+import { connect } from 'react-redux';
 
 const styles = {
     container: {
@@ -14,7 +15,7 @@ const styles = {
     }
 }
 
-const Designers = () => {
+const Designers = (props) => {
 
     // const [userId, setUser] = useState(0);
     const [bannerImg, setBannerimg] = useState('');
@@ -31,6 +32,8 @@ const Designers = () => {
         getBannerImage();
     }, [])
 
+  
+
     return (
         <div styles={styles}>
             <br />
@@ -46,7 +49,13 @@ const Designers = () => {
                     <DesignerCreateForm />
                 </div>
                 <div label="Manufacturers">
-                    List of all Manufacturers
+                    <ul>
+                    {
+                        props.designer.map( factory =>{
+                            return <li>{factory.manufacturer_name}</li>
+                        })
+                    }
+                    </ul>
                     <a href="/map">to map</a>
                 </div>
                 <div label='Map'>
@@ -57,4 +66,10 @@ const Designers = () => {
     )
 }
 
-export default Designers
+const mapStateToProps =(state) =>{
+    return{
+        designer: state.designerReducer.manufacturers
+    }
+}
+
+export default connect(mapStateToProps,null)( Designers)
