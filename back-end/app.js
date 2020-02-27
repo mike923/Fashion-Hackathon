@@ -10,6 +10,9 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const designsRouter = require("./routes/designs");
+const productsRouter = require("./routes/products");
+const designersRouter = require("./routes/designers");
+const manufacturersRouter = require("./routes/manufacturers");
 const materialsRouter = require("./routes/materials");
 
 const storage = multer.diskStorage({
@@ -51,7 +54,11 @@ app.use(passport.session());
 app.use("/api", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
-app.use("/api/products", upload.single('design_file'), designsRouter);
+app.use("/api/products", productsRouter);
+// app.use("/api/products", upload.single('design_file'), productsRouter);
+app.use("/api/designers", designersRouter);
+app.use("/api/manufacturers", manufacturersRouter);
+// app.use("/api/products", designsRouter);
 app.use("/api/materials", materialsRouter);
 
 
