@@ -1,6 +1,42 @@
+/* CSS Variables */
+:root {
+  --primary: #03C0C1;
+  --dark: rgb(10, 67, 100);
+  --light: #03FdFC;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
 .App {
     text-align: center;
+    box-sizing: border-box;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    background: white;
+    margin: 30px 50px;
+    line-height: 1.4;
   }
+
+  img {
+    max-width: 100%;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  .home-btn {
+    background: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+  }
+
+  /* .homeimg {
+    width: 100%;
+    height: 500px;
+    text-decoration: none;
+    border: 0;
+  } */
   
   .tab-list {
     border-bottom: 1px solid black;
@@ -29,13 +65,129 @@
     border-top: 1px solid rgba(255, 255, 255, .2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     height: 50px;
-    background: rgba(255, 255, 255, 0.8);
-    color: black;
+    background: rgba(3, 192, 193, 0.8);
+    text-transform: uppercase;
+    font-size: 15px;
+    box-shadow: var(--shadow);
+    color: var(--dark);
     position: sticky;
     top: 0;
-
   }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background: var(--light);
+  }
+
+  .top-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas:
+    'showcase showcase'
+    'top-box-a top-box-b';
+  }
+
+  .showcase {
+    grid-area: showcase;
+    width: 100%;
+    height: 500px;
+    text-decoration: none;
+    border: 0;
+    background: url(https://www.candlelightfashions.com/wp-content/uploads/2019/07/What-Is-the-Connection-between-Politics-and-Fashion-Trends.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+  }
+
+  .showcase h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--dark);
+    background: rgba(255, 255, 255, 0.5);
+  } 
   
+  .showcase p {
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+  }
+
+  .top-box {
+    background: var(--primary);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    color: white;
+    text-decoration: none;
+    /* box-shadow: var(--shadow); */
+    padding: 1.5rem;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px var(--shadow),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  }
+
+  .top-box .price {
+    font-size: 2.5rem;
+  }
+
+  .top-box-a {
+    grid-area: top-box-a;
+    background: rgb(212, 83, 36);
+  }
+
+  .top-box-b {
+    grid-area: top-box-b;
+    background: rgb(172, 45, 172);
+  }
+
+  .boxes {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .box {
+    background: var(--primary);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .info {
+    background: white;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding:3rem;
+  }
+
+  .portfolio {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .portfolio img {
+    width: 100%;
+    box-shadow: var(--shadow);
+  }
+
+  footer {
+    margin-top: 2rem;
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+  }
+
   .designerFormImg {
     display: block;
     margin-left: auto;
@@ -73,13 +225,8 @@
     background-color: royalblue;
   }
 
-  .homeimg {
-    width: 90%;
-    height: 500px;
-  }
-
   .bannerimg {
-    width: 99%;
+    width: 100%;
     height: 300px;
   }
 
