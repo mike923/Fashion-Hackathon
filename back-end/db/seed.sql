@@ -26,7 +26,7 @@ CREATE TABLE design_companies (
 
 CREATE TABLE designers (
    id SERIAL PRIMARY KEY,
-   designer_id INT NOT NULL REFERENCES users(id),
+   user_id INT NOT NULL REFERENCES users(id),
    design_company_id INT NOT NULL REFERENCES design_companies(id)
 );
 
