@@ -4,6 +4,7 @@ import NavbarContainer from "./NavbarContainer";
 import PublicContainer from './PublicContainer'
 import ManufacturersPortalContainer from '../Components/OldManufacturer/ManufacturersPortalContainer'
 import PortalContainer from './PortalContainer'
+import ProfileContainer from './ProfileContainer'
 
 
 export {
@@ -13,4 +14,5 @@ export {
     PublicContainer,
     ManufacturersPortalContainer,
     PortalContainer,
+    ProfileContainer,
 }

@@ -15,6 +15,7 @@ import {
     PrivateRoute, 
     PublicContainer,
     PortalContainer,
+    ProfileContainer,
 } from './Containers';
 
 class App extends Component {
@@ -28,7 +29,7 @@ class App extends Component {
                     <Route path='/signup' component={AuthContainer} />
                     <Route path='/map' component={Map} />
                     <Route path='/public' component={PublicContainer} />
-                    <Route path='/designer/public/:id' component={DesignerProfilePage} />
+                    <Route path='/designer/public/:id' component={ProfileContainer} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
                     <Route path='/type/:id/order' component={Orders} />
                     <Route path='/type/:id/product' component={Products} />

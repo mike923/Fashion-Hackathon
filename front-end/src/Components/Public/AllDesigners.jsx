@@ -18,8 +18,8 @@ const AllDesigners = ({designers, getAll}) => {
     return (
         <div className='public-designers'>
             <h1>Whose using A9</h1>
-            {designers.map(({user_id, username, avatar_url, company_name, email}) => (
-                <Link to={`/designer/public/${user_id}`} key={user_id} style={linkStyle}>
+            {designers.map(({designer_id, username, avatar_url, company_name, email}) => (
+                <Link to={`/designer/public/${designer_id}`} key={designer_id} style={linkStyle}>
                     <div className='designer-profile-info' style={{
                         display:'flex',
                         gap:'10px'
