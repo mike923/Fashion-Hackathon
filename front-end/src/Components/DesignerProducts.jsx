@@ -3,11 +3,10 @@ import '../App.css';
 
 const DesignerProducts = (props) => {
     const imageStyle = {
-        'border-style': 'solid',
-        'margin-right': '70%',
+        'borderStyle': 'solid',
+        'marginRight': '70%',
         'display': 'block',
-        'margin-left': 'auto',
-        'margin-right': 'auto',
+        'marginLeft': 'auto',
         'width': '50%'
     }
 

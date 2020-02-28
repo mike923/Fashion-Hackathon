@@ -1,48 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import '../App.css';
+import React, { useState, useEffect } from "react";
+import "../App.css";
 
-const ManufacturerOrders = ({manufacturerOrders}) => {
-    const imageStyle = {
-        'border-style': 'solid',
-        'margin-right': '70%',
-        'display': 'block',
-        'margin-left': 'auto',
-        'margin-right': 'auto',
-        'width': '50%'
-    }
+const ManufacturerOrders = ({ manufacturerOrders }) => {
 
-    if (!manufacturerOrders) {
+  if (!manufacturerOrders)
+    return <div>No orders yet. Create some new connections!</div>;
 
-        return <div>No orders yet. Create some new connections!</div>
-    }
-
-    return (
-        <div>
-            <br />
-            <ul>{
-                // this.displayShows()
-                manufacturerOrders.map((designer, i) => {
-
-                    return (
-                        <div className="card" key={i}>
-                            <li className="user-item">
-                                <p>
-                                    <img alt={i} src={designer.img_url} />
-                                    {designer.title} - {' '}
-                                    {designer.genre_name} - {' '}
-                                </p>
-                                <p>Being Watched By:
-                                    {/* {this.findUsersWhoBingedesigner(designer)} */}
-                                </p>
-                            </li>
-                        </div>
-                    )
-                })
-            }
-            </ul>
-
-        </div>
-    );
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column"
+      }}
+    >
+      <br />
+      <ul>
+        {manufacturerOrders.map(orders => {
+          return (
+            <div className="card" key={orders.id}>
+              <li
+                className="user-item"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "50vw"
+                }}
+                key={orders.product_id}
+              >
+                <p>
+                  <img alt={orders.design_file} src={orders.design_file} />
+                </p>
+                <p>Client Name: {orders.company_name}</p>
+                <p>Complete Status: {JSON.stringify(orders.complete)}</p>
+                <span>
+                  Design Specs:
+                  {Object.values(orders.designer_specs).map(el => {
+                    return <p key={orders.product_id}>{el}</p>;
+                  })}
+                </span>
+              </li>
+            </div>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default ManufacturerOrders;

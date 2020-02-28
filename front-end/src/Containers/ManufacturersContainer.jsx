@@ -3,22 +3,20 @@ import React, { useEffect, useState } from 'react'
 import ManufacturerOrders from '../Components/ManufacturerOrders'
 import ManufacturerMaterialRecipts from '../Components/ManufacturerMaterialRecipts';
 import ManufacturerDesignersList from '../Components/ManufacturerDesignersList';
-import axios from 'axios'
 import ManufacturerTabs from '../Components/ManufacturerTabs';
+import { connect } from 'react-redux';
+import axios from 'axios'
 
 
-const ManufacturersContainer = (props) => {    
+const ManufacturersContainer = ({ user }) => {
 
     const [manufacturerProducts, setManufacturersProducts] = useState([]);
 
-// console.log('user',props.user);
-
     const fetchAllManufacturers = async () => {
         try {
-            const { data: { payload } } = await axios.get(`/products/manufacturer/${props.user.user_id}`)
+            const { data: { payload } } = await axios.get(`/products/manufacturer/${user.manufacture_id}`)
             setManufacturersProducts(payload)
-            console.log('manu',payload);
-
+            console.log('manu', payload);
         } catch (error) {
             console.log(error);
         }
@@ -27,40 +25,30 @@ const ManufacturersContainer = (props) => {
 
     useEffect(() => {
         fetchAllManufacturers()
-    }, [])
+    }, [user])
 
-
-    // if (manufacturers.length) {
-    //     return <div>
-    //         <ul>
-    //         {
-    //             manufacturers.map(factory =>{
-    //                 return <Link>{factory.manufacturer_name}</Link>
-    //             })
-    //         }
-    //         </ul>
-    //     </div>
-    // } else {
-    //     return <div>No product results. Create some new designs!</div>
-    // }
-    return(
+    return (
         <ManufacturerTabs>
-        <div label="Orders">
-                <ManufacturerOrders manufacturerOrders={manufacturerProducts}/>
-            
-        </div>
-        <div label="Material Recipts">
-            <ManufacturerMaterialRecipts />
-        </div>
-        <div label="Designers">
-            List of all Designers
+            <div label="Orders">
+                <ManufacturerOrders manufacturerOrders={manufacturerProducts} />
+
+            </div>
+            <div label="Material Recipts">
+                <ManufacturerMaterialRecipts manufacturerOrders={manufacturerProducts} />
+            </div>
+            <div label="Designers">
+                List of all Designers
             <ManufacturerDesignersList />
-        </div>
-    </ManufacturerTabs>
+            </div>
+        </ManufacturerTabs>
     )
 
 }
 
+const mapSateToProps = (state) => {
+    return {
+        user: state.authReducer.user
+    }
+}
 
-
-export default ManufacturersContainer
+export default connect(mapSateToProps, null)(ManufacturersContainer)
