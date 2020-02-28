@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom'
 
 const linkStyle = {
     display: 'flex' ,
-    // alignItems:'center',
-    justifyContent:'center',
+    alignItems:'center',
+    // justifyContent:'flex-start',
     gap:'40px',
-    padding:'30px'
+    padding:'30px',
+    width:'40vw',
+    borderRadius:'5px',
+    background:'lightgrey',
+    marginTop:'10px',
+    height:'200px'
 }
 
 const AllDesigners = ({designers, getAll}) => {
@@ -16,29 +21,46 @@ const AllDesigners = ({designers, getAll}) => {
     }, [])
     
     return (
-        <div className='public-designers'>
+        <div 
+            className='public-designers' 
+            style={{
+                display:'flex',
+                alignItems:'center',
+                flexDirection:'column'
+            }}
+        >
             <h1>Whose using A9</h1>
             {designers.map(({designer_id, username, avatar_url, company_name, email}) => (
-                <Link to={`/designer/public/${designer_id}`} key={designer_id} style={linkStyle}>
-                    <div className='designer-profile-info' style={{
-                        display:'flex',
-                        gap:'10px'
-                    }}>
+                <Link to={`/private/designer/${designer_id}`} key={designer_id} style={linkStyle}>
+                    <div 
+                        className='designer-profile-info' 
+                        style={{
+                            display:'flex',
+                            gap:'10px',
+                            alignItems:'center',
+                            height:'185px',
+                            // width:'30vw',
+                        }}
+                    >
                         <img src={avatar_url}
                             alt={username}
                             style={{
                                 borderRadius: '70px',
-                                height: '140px',
-                                width: '140px'
+                                height: '240px',
+                                width: '140px',
+                                gap:'15px',
                             }}
                         />
-                        <p style={{fontSize:'30px'}}>{username}</p>
+                        <p style={{fontSize:'60px'}}>{username}</p>
                     </div>
-                    <div className='designer-meta-data' style={{
-                        display:'flex',
-                        justifyContent:'flex-end',
-                        flexDirection:'column'
-                    }}>
+                    <div 
+                        className='designer-meta-data' 
+                        style={{
+                            display:'flex',
+                            justifyContent:'flex-end',
+                            flexDirection:'column'
+                        }}
+                    >
                         <p>Company: {company_name}</p>
                         <p>Email: {email}</p>
                     </div>

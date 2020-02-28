@@ -5,7 +5,7 @@ import './App.css';
 import { 
     Home,
     Orders,
-    Products,
+    Product,
     DesignerProfilePage,
     Map,
 } from './Components'
@@ -28,11 +28,11 @@ class App extends Component {
                     <Route path='/login' component={AuthContainer} />
                     <Route path='/signup' component={AuthContainer} />
                     <Route path='/map' component={Map} />
-                    <Route path='/public' component={PublicContainer} />
-                    <Route path='/designer/public/:id' component={ProfileContainer} />
+                    <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
+                    <Route path='/public' component={PublicContainer} />
                     <Route path='/type/:id/order' component={Orders} />
-                    <Route path='/type/:id/product' component={Products} />
+                    <Route path='/type/:id/product' component={Product} />
                 </Switch>
             </div>
         );
