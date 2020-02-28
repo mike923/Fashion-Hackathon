@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Switch, Redirect } from 'react-router-dom'
 
-import { DesignerProfile, EmployeeProfile, ManufacturerProfile } from '../Components'
+import { DesignerProfile, EmployeeProfile, ManufacturerProfile, CompanyProfile } from '../Components'
 import { PrivateRoute } from './'
 
 const ProfileContainer = ({match: {params: {id, type}}}) => {
@@ -83,7 +83,7 @@ const ProfileContainer = ({match: {params: {id, type}}}) => {
                 />
                 <PrivateRoute 
                     path='/private/designcompany/:id' 
-                    render={() => <> /private/designcompany/:id </>} 
+                    render={() => <CompanyProfile {...profile} products={products} />} 
                 />
             </Switch>
         </div>

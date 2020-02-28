@@ -18,9 +18,11 @@ import DesignerProducts from './Designer/DesignerProducts'
 
 import DesignerProfile from './Profiles/DesignerProfile'
 import EmployeeProfile from './Profiles/EmployeeProfile'
+import CompanyProfile from './Profiles/CompanyProfile'
 import ManufacturerProfile from './Profiles/ManufacturerProfile'
 
 export {
+    CompanyProfile,
     EmployeeProfile,
     DesignerProfile,
     ManufacturerProfile,
