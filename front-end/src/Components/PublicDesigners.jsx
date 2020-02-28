@@ -3,33 +3,48 @@ import { Link } from 'react-router-dom'
 
 const linkStyle = {
     display: 'flex' ,
-    // alignItems:'center',
-    justifyContent:'center',
+    alignItems:'center',
+    // justifyContent:'flex-start',
     gap:'40px',
-    padding:'30px'
+    padding:'30px',
+    width:'40vw',
+    borderRadius:'5px',
+    background:'lightgrey',
+    marginTop:'10px',
+    height:'200px'
 }
 
 const PublicDesigners = ({ allDesigners }) => {
     return (
-        <div className='public-designers'>
+        <div className='public-designers' 
+        style={{
+            display:'flex',
+            alignItems:'center',
+            flexDirection:'column'
+        }}>
         <h1>Whose using A9</h1>
             {
                 allDesigners.map(designer => {
                     return (
                         <Link to={`/designer/public/${designer.user_id}`} key={designer.user_id} style={linkStyle}>
-                            <div className='designer-profile-info' style={{
+                            <div className='designer-profile-info' 
+                            style={{
                                 display:'flex',
-                                gap:'10px'
+                                gap:'10px',
+                                alignItems:'center',
+                                height:'185px',
+                                // width:'30vw',
                             }}>
                                 <img src={designer.avatar_url}
                                     alt={designer.username}
                                     style={{
                                         borderRadius: '70px',
-                                        height: '140px',
-                                        width: '140px'
+                                        height: '240px',
+                                        width: '140px',
+                                        gap:'15px',
                                     }}
                                 />
-                                <p style={{fontSize:'30px'}}>{designer.username}</p>
+                                <p style={{fontSize:'60px'}}>{designer.username}</p>
                             </div>
                             <div className='designer-meta-data' style={{
                                 display:'flex',
