@@ -32,7 +32,7 @@ const Designers = (props) => {
         getBannerImage();
     }, [])
 
-  
+
 
     return (
         <div styles={styles}>
@@ -43,18 +43,18 @@ const Designers = (props) => {
 
             <DesignerTabs>
                 <div label="Products">
-                <DesignsContainer/>
+                    <DesignsContainer />
                 </div>
                 <div label="Create Design">
                     <DesignerCreateForm />
                 </div>
                 <div label="Manufacturers">
                     <ul>
-                    {
-                        props.designer.map( factory =>{
-                            return <li>{factory.manufacturer_name}</li>
-                        })
-                    }
+                        {
+                            props.designer.map(factory => {
+                                return <li>{factory.manufacturer_name}</li>
+                            })
+                        }
                     </ul>
                     <a href="/map">to map</a>
                 </div>
@@ -62,14 +62,18 @@ const Designers = (props) => {
                     <Map />
                 </div>
             </DesignerTabs>
+            {/* footer */}
+            <footer>
+                <p>A9 App &copy; 2020</p>
+            </footer>
         </div>
     )
 }
 
-const mapStateToProps =(state) =>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         designer: state.designerReducer.manufacturers
     }
 }
 
-export default connect(mapStateToProps,null)( Designers)
+export default connect(mapStateToProps, null)(Designers)

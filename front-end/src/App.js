@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom'
 import { AuthContainer, NavbarContainer, PrivateRoute,PublicContainer } from './Containers';
 import DesignerPortalContainer from './Containers/DesignerPortalContainer';
 import DesignerProfile from './Components/DesignerProfilePage';
+import DesignerPortal from './Components/OldDesigner/Designers'
 
 class App extends Component {
     render() {
@@ -26,7 +27,8 @@ class App extends Component {
                     <Route path='/map' component={MapContainer} />
                     <Route path='/designer/public/:id' component={DesignerProfile} />
                     <Route path='/designer/public' component={PublicContainer} />
-                    <PrivateRoute path='/designer/portal' component={DesignerPortalContainer} />
+                    <Route path='/designer/portal' component={DesignerPortalContainer} />
+                    {/* <PrivateRoute path='/designer/portal' component={DesignerPortalContainer} /> */}
                     <Route path='/type/manufacturer' component={Manufacturers} />
                     <Route path='/type/:id/order' component={Orders} />
                     <Route path='/type/:id/product' component={Products} />
