@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css';
 
-const ManufacturerOrders = () => {
+const ManufacturerOrders = ({manufacturerOrders}) => {
     const imageStyle = {
         'border-style': 'solid',
         'margin-right': '70%',
@@ -11,21 +11,7 @@ const ManufacturerOrders = () => {
         'width': '50%'
     }
 
-    const [designers, setDesigners] = useState([]);
-
-
-    const getDesigners = () => {
-        const isTrue = []
-        setDesigners(isTrue)
-    }
-
-    useEffect(() => {
-        console.log('Hooks updated')
-        getDesigners();
-    }, [])
-
-
-    if (true) {
+    if (!manufacturerOrders) {
 
         return <div>No orders yet. Create some new connections!</div>
     }
@@ -35,7 +21,7 @@ const ManufacturerOrders = () => {
             <br />
             <ul>{
                 // this.displayShows()
-                designers.map((designer, i) => {
+                manufacturerOrders.map((designer, i) => {
 
                     return (
                         <div className="card" key={i}>
