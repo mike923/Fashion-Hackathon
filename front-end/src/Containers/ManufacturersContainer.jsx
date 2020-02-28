@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react'
 import ManufacturerOrders from '../Components/ManufacturerOrders'
 import ManufacturerMaterialRecipts from '../Components/ManufacturerMaterialRecipts';
 import ManufacturerDesignersList from '../Components/ManufacturerDesignersList';
-import axios from 'axios'
 import ManufacturerTabs from '../Components/ManufacturerTabs';
 import { connect } from 'react-redux';
+import axios from 'axios'
 
 
-const ManufacturersContainer = ({user}) => {    
+const ManufacturersContainer = ({ user }) => {
 
     const [manufacturerProducts, setManufacturersProducts] = useState([]);
 
@@ -16,7 +16,7 @@ const ManufacturersContainer = ({user}) => {
         try {
             const { data: { payload } } = await axios.get(`/products/manufacturer/${user.manufacture_id}`)
             setManufacturersProducts(payload)
-            console.log('manu',payload);
+            console.log('manu', payload);
         } catch (error) {
             console.log(error);
         }
@@ -27,28 +27,28 @@ const ManufacturersContainer = ({user}) => {
         fetchAllManufacturers()
     }, [user])
 
-    return(
+    return (
         <ManufacturerTabs>
-        <div label="Orders">
-                <ManufacturerOrders manufacturerOrders={manufacturerProducts}/>
-            
-        </div>
-        <div label="Material Recipts">
-            <ManufacturerMaterialRecipts manufacturerOrders={manufacturerProducts}/>
-        </div>
-        <div label="Designers">
-            List of all Designers
+            <div label="Orders">
+                <ManufacturerOrders manufacturerOrders={manufacturerProducts} />
+
+            </div>
+            <div label="Material Recipts">
+                <ManufacturerMaterialRecipts manufacturerOrders={manufacturerProducts} />
+            </div>
+            <div label="Designers">
+                List of all Designers
             <ManufacturerDesignersList />
-        </div>
-    </ManufacturerTabs>
+            </div>
+        </ManufacturerTabs>
     )
 
 }
 
-const mapSateToProps =(state) =>{
-    return{
+const mapSateToProps = (state) => {
+    return {
         user: state.authReducer.user
     }
 }
 
-export default connect(mapSateToProps,null)(ManufacturersContainer)
+export default connect(mapSateToProps, null)(ManufacturersContainer)

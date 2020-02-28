@@ -1,49 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import '../App.css';
 
-const ManufacturerMaterialRecipts = ({manufacturerOrders}) => {
-    const imageStyle = {
-        // 'marginRight': '70%',
-        // 'display': 'flex',
-        // 'marginLeft': 'auto',
-        // 'marginRight': 'auto',
-        // 'width': '50%',
-        // 'gap':'20px',
-        // 'flexDirection':'flex'
-    }
-
-    const [designers, setDesigners] = useState([]);
-
-
-    const getDesigners = () => {
-        const isTrue = []
-        setDesigners(isTrue)
-    }
-
-    useEffect(() => {
-        console.log('Hooks updated')
-        getDesigners();
-    }, [])
-
+const ManufacturerMaterialRecipts = ({ manufacturerOrders }) => {
 
     if (!manufacturerOrders.length) {
         return <div>No recipts yet. Create some new connections!</div>
     }
 
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column'
+        }}>
             <br />
             <ul>{
                 manufacturerOrders.map(designer => {
                     return (
                         <div className="card" key={designer.company_name} style={{
-                            display:'flex',
-                            flexDirection:'column'
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '50vw'
                         }}>
                             <li className="order-info">
                                 <p>Client Name: {designer.company_name}</p>
                                 <div>
-                                Materials used: 
+                                    Materials used:
                                 <p> {designer.manufacturer_specs}</p>
                                 </div>
 
