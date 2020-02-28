@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-import '../App.css';
+import '../../App.css';
 
 class DesignerCreateForm extends Component {
   state = {
@@ -14,7 +14,7 @@ class DesignerCreateForm extends Component {
 
 
   handleSubmit = e => {
-    const { design_file } = this.state
+    const { imageFile } = this.state
     e.preventDefault()
 
     const data = new FormData()
@@ -36,7 +36,7 @@ class DesignerCreateForm extends Component {
 
   handleInput = e => this.setState({ [e.target.name]: e.target.value })
 
-  setImgUrl = e => this.setState({ image_file: e.target.files[0] })
+  setImgUrl = e => this.setState({ imageFile: e.target.files[0] })
 
 
   render() {
