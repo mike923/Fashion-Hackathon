@@ -5,7 +5,7 @@ import Products from './Products'
 import Designers from './OldDesigner/Designers'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
-import Manufacturers from './Manufacturers'
+import Manufacturers from './ManufacturersPortal'
 
 export {
     Home,

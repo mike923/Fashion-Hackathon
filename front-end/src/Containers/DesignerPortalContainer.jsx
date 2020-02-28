@@ -45,7 +45,7 @@ const DesignerPortalContainer = ({user, loadManufacturers}) => {
     )
 }
 
-const mapSateToProps = ({authReducer: {user}}) => {return {user}}
+const mapStateToProps = ({authReducer: {user}}) => {return {user}}
 
 
-export default connect(mapSateToProps)(DesignerPortalContainer)
+export default connect(mapStateToProps)(DesignerPortalContainer)
