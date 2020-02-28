@@ -12,10 +12,11 @@ const linkStyle = {
 const PublicDesigners = ({ allDesigners }) => {
     return (
         <div className='public-designers'>
+        <h1>Whose using A9</h1>
             {
                 allDesigners.map(designer => {
                     return (
-                        <Link to={`/designers/${designer.user_id}`} key={designer.user_id} style={linkStyle}>
+                        <Link to={`/designer/public/${designer.user_id}`} key={designer.user_id} style={linkStyle}>
                             <div className='designer-profile-info' style={{
                                 display:'flex',
                                 gap:'10px'
