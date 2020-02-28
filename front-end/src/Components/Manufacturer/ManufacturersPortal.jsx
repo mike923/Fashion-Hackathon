@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, Switch, Route } from 'react-router-dom'
-import ManufacturerOrders from './ManufacturerOrders'
-import ManufacturerMaterialRecipts from './ManufacturerMaterialRecipts'
-import ManufacturerDesignersList from './ManufacturerDesignersList'
+import { 
+    ManufacturerOrders, 
+    ManufacturerMaterialRecipts, 
+    ManufacturerDesignersList 
+} from '../'
 
 const styles = {
     container: {

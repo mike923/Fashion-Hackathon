@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Switch, Route } from 'react-router-dom'
-import AllManufacturers from '../Components/AllManufacturers'
-import AllDesigners from '../Components/AllDesigners'
-import AllProducts from '../Components/AllProducts'
+import {
+    AllManufacturers,
+    AllDesigners,
+    AllProducts,
+} from '../Components'
 
 const PublicContainer = (props) => {
     const [manufacturers, setmanufacturers] = useState([])

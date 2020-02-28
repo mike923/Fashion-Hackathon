@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import '../App.css';
 
 const DesignerCreateForm = () => {
     const [imgUrl, setImgUrl] = useState('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRa9NQl0OadsMFUDS-0ycSNaU7OJiBvgefKvC8m7SLkAph1V7ya')

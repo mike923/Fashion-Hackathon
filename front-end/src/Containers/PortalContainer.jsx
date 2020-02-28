@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import DesignerPortal from '../Components/DesignerPortal'
-import ManufacturersPortal from '../Components/ManufacturersPortal'
-import {connect} from 'react-redux'
 import axios from 'axios'
+import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+
+import { ManufacturersPortal, DesignerPortal } from '../Components'
 
 const PortalContainer = ({user}) => {
     console.log('user', user);

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-
 import { Navbar } from '../Components'
 import { SET_LOADING, SET_USER, LOGOUT } from '../store/actions/actionTypes'
 

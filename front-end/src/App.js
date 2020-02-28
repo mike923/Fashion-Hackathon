@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import './App.css';
 
 import { 
     Home,
     Orders,
     Products,
+    DesignerProfilePage,
+    Map,
 } from './Components'
-
-import MapContainer from './Components/Map'
-import { Switch, Route } from 'react-router-dom'
 import { 
     AuthContainer, 
     NavbarContainer, 
@@ -16,7 +16,6 @@ import {
     PublicContainer,
     PortalContainer,
 } from './Containers';
-import DesignerProfile from './Components/DesignerProfilePage';
 
 class App extends Component {
     render() {
@@ -27,9 +26,9 @@ class App extends Component {
                     <Route exact path='/' component={Home} />
                     <Route path='/login' component={AuthContainer} />
                     <Route path='/signup' component={AuthContainer} />
-                    <Route path='/map' component={MapContainer} />
+                    <Route path='/map' component={Map} />
                     <Route path='/public' component={PublicContainer} />
-                    <Route path='/designer/public/:id' component={DesignerProfile} />
+                    <Route path='/designer/public/:id' component={DesignerProfilePage} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
                     <Route path='/type/:id/order' component={Orders} />
                     <Route path='/type/:id/product' component={Products} />

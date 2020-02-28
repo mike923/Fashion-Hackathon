@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-// import {Link} from 'react-router-dom'
-import ManufacturersPortal from '../ManufacturersPortal'
-import { connect } from 'react-redux';
 import axios from 'axios'
+import { connect } from 'react-redux';
 
+import { ManufacturersPortal } from '../'
 
 const ManufacturerPortalContainer = ({ user }) => {
     const [manufacturerProducts, setManufacturersProducts] = useState([]);

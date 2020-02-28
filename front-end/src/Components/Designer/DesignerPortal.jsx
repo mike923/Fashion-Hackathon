@@ -3,7 +3,7 @@ import {Link, Switch, Route} from 'react-router-dom'
 
 import DesignerProducts from './DesignerProducts'
 import DesignerCreateForm from './DesignerCreateForm'
-import Map from './Map'
+import Map from '../Map'
 
 const styles = {
     container: {

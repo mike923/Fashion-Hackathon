@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from "../A9Logo.png"
+import Logo from "../../images/A9Logo.png"
 
 const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
     <nav>
