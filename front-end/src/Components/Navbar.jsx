@@ -8,14 +8,14 @@ const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
         <h3>Fashion Design</h3>
         <ul className='nav-links'>
             <Link style={navStyle} to="/"><strong><li>Home</li></strong></Link>
-            <Link style={navStyle} to="/designer/public"><strong><li>Designers</li></strong></Link>
-            <Link style={navStyle} to="/users/type/:id/product"><strong><li>Products</li></strong></Link>
+            <Link style={navStyle} to="/public/designers"><strong><li>Designers</li></strong></Link>
+            <Link style={navStyle} to="/public/products"><strong><li>Products</li></strong></Link>
+            <Link style={navStyle} to="/public/manufacturers"><strong><li>Manufacturers</li></strong></Link>
 
             {isUserLoggedIn
                 ? (<>
                     <Link style={navStyle} to="/portal"><strong><li>Portal</li></strong></Link>
                     <Link style={navStyle} to="/order"><strong><li>Orders</li></strong></Link>
-                    <Link style={navStyle} to="/users/type/manufacturer"><strong><li>Manufacturers</li></strong></Link>
                     <Link to="/" onClick={logoutUser}><strong><li>Log-out</li></strong></Link>
                 </>) : (<>
                     <Link style={navStyle} to="/login"><strong><li>Log-In</li></strong></Link>

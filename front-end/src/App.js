@@ -28,8 +28,8 @@ class App extends Component {
                     <Route path='/login' component={AuthContainer} />
                     <Route path='/signup' component={AuthContainer} />
                     <Route path='/map' component={MapContainer} />
+                    <Route path='/public' component={PublicContainer} />
                     <Route path='/designer/public/:id' component={DesignerProfile} />
-                    <Route path='/designer/public' component={PublicContainer} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
                     <Route path='/type/:id/order' component={Orders} />
                     <Route path='/type/:id/product' component={Products} />
