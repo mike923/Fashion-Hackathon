@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // import userInputHook from './Hooks/UseInputHook'
 import ManufacturerContainer from '../Containers/ManufacturersContainer'
-import { connect } from 'react-redux';
 
 const styles = {
     container: {
@@ -23,12 +22,9 @@ const Manufacturers = (props) => {
     }
 
     useEffect(() => {
-        console.log('Hooks updated')
         getBannerImage();
     }, [])
-
-    console.log('lol',props.user);
-    
+ 
     return (
         <div styles={styles}>
             <br />
@@ -36,16 +32,12 @@ const Manufacturers = (props) => {
 
             <h1>Manufactures Portal</h1>
 
-            <ManufacturerContainer user={props.user}/>
+            <ManufacturerContainer/>
 
         </div>
     )
 }
 
-const mapSateToProps =(state) =>{
-    return{
-        user: state.authReducer.user
-    }
-}
 
-export default connect(mapSateToProps,null)( Manufacturers)
+
+export default Manufacturers

@@ -20,20 +20,17 @@ const ManufacturerOrders = ({manufacturerOrders}) => {
         <div>
             <br />
             <ul>{
-                // this.displayShows()
-                manufacturerOrders.map((designer, i) => {
-
+                manufacturerOrders.map(orders => {
                     return (
-                        <div className="card" key={i}>
+                        <div className="card" key={orders.id}>
                             <li className="user-item">
                                 <p>
-                                    <img alt={i} src={designer.img_url} />
-                                    {designer.title} - {' '}
-                                    {designer.genre_name} - {' '}
+                                    <img alt={orders.design_file} src={orders.design_file} />
+                                    {orders.title} - {' '}
+                                    {orders.genre_name} - {' '}
                                 </p>
-                                <p>Being Watched By:
-                                    {/* {this.findUsersWhoBingedesigner(designer)} */}
-                                </p>
+                                <p>Status: {JSON.stringify(orders.complete)}</p>
+                                <p>Design Company: {orders.company_name}</p>
                             </li>
                         </div>
                     )
