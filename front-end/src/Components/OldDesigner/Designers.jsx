@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import DesignerTabs from './DesignerTabs';
 import DesignerCreateForm from '../DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
-import DesignsContainer from '../../Containers/DesignerPortalContainer';
+import DesignsContainer from './DesignerPortalContainer';
 import Map from '../Map';
 import { connect } from 'react-redux';
 

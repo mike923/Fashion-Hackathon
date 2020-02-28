@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import {Link} from 'react-router-dom'
-import ManufacturersPortal from '../Components/ManufacturersPortal'
+import ManufacturersPortal from '../ManufacturersPortal'
 import { connect } from 'react-redux';
 import axios from 'axios'
 

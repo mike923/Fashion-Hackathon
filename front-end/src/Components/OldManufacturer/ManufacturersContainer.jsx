@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 // import {Link} from 'react-router-dom'
-import ManufacturerOrders from '../Components/ManufacturerOrders'
-import ManufacturerMaterialRecipts from '../Components/ManufacturerMaterialRecipts';
-import ManufacturerDesignersList from '../Components/ManufacturerDesignersList';
+import ManufacturerOrders from '../ManufacturerOrders'
+import ManufacturerMaterialRecipts from '../ManufacturerMaterialRecipts';
+import ManufacturerDesignersList from '../ManufacturerDesignersList';
 import ManufacturerTabs from '../Components/ManufacturerTabs';
 import { connect } from 'react-redux';
 import axios from 'axios'

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Link, Switch, Route} from 'react-router-dom'
 
 import DesignerProducts from './DesignerProducts'

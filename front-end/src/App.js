@@ -31,7 +31,6 @@ class App extends Component {
                     <Route path='/designer/public/:id' component={DesignerProfile} />
                     <Route path='/designer/public' component={PublicContainer} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
-                    {/* <Route path='/manufacturer/portal' component={ManufacturersPortalContainer} /> */}
                     <Route path='/type/:id/order' component={Orders} />
                     <Route path='/type/:id/product' component={Products} />
                 </Switch>
