@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import './App.css';
 
 import { 
     Home,
     Orders,
-    Products,
-    Manufacturers,
+    Product,
+    DesignerProfilePage,
+    Map,
 } from './Components'
-
-import MapContainer from './Components/Map'
-import { Switch, Route } from 'react-router-dom'
-import { AuthContainer, NavbarContainer, PrivateRoute,PublicContainer } from './Containers';
-import DesignerPortalContainer from './Containers/DesignerPortalContainer';
-import DesignerProfile from './Components/DesignerProfilePage';
+import { 
+    AuthContainer, 
+    NavbarContainer, 
+    PrivateRoute, 
+    PublicContainer,
+    PortalContainer,
+    ProfileContainer,
+} from './Containers';
 
 class App extends Component {
     render() {
@@ -23,13 +27,12 @@ class App extends Component {
                     <Route exact path='/' component={Home} />
                     <Route path='/login' component={AuthContainer} />
                     <Route path='/signup' component={AuthContainer} />
-                    <Route path='/map' component={MapContainer} />
-                    <Route path='/designer/public/:id' component={DesignerProfile} />
-                    <Route path='/designer/public' component={PublicContainer} />
-                    <PrivateRoute path='/designer/portal' component={DesignerPortalContainer} />
-                    <Route path='/type/manufacturer' component={Manufacturers} />
+                    <Route path='/map' component={Map} />
+                    <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
+                    <PrivateRoute path='/portal' component={PortalContainer} />
+                    <Route path='/public' component={PublicContainer} />
                     <Route path='/type/:id/order' component={Orders} />
-                    <Route path='/type/:id/product' component={Products} />
+                    <Route path='/type/:id/product' component={Product} />
                 </Switch>
             </div>
         );
