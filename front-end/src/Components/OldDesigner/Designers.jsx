@@ -61,6 +61,9 @@ const Designers = (props) => {
                 <div label='Map'>
                     <Map />
                 </div>
+                <div label='Classification'>
+                     testing
+                </div>
             </DesignerTabs>
             {/* footer */}
             <footer>

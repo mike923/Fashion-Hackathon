@@ -27,7 +27,7 @@ class App extends Component {
                     <Route path='/map' component={MapContainer} />
                     <Route path='/designer/public/:id' component={DesignerProfile} />
                     <Route path='/designer/public' component={PublicContainer} />
-                    <Route path='/designer/portal' component={DesignerPortalContainer} />
+                    <Route path='/designer/portal' component={DesignerPortal} />
                     {/* <PrivateRoute path='/designer/portal' component={DesignerPortalContainer} /> */}
                     <Route path='/type/manufacturer' component={Manufacturers} />
                     <Route path='/type/:id/order' component={Orders} />
