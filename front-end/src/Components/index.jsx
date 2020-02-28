@@ -1,6 +1,6 @@
 import Map from './Map'
 import Orders from './Orders'
-import Products from './Products'
+import Product from './Product'
 import LoginForm from './Auth/LoginForm'
 import SignupForm from './Auth/SignupForm'
 import Home from './Public/Home'
@@ -15,10 +15,15 @@ import ManufacturerOrders from './Manufacturer/ManufacturerOrders'
 import DesignerCreateForm from './Designer/DesignerCreateForm'
 import DesignerPortal from './Designer/DesignerPortal'
 import DesignerProducts from './Designer/DesignerProducts'
-import DesignerProfilePage from './Designer/DesignerProfilePage'
+
+import DesignerProfile from './Profiles/DesignerProfile'
+import EmployeeProfile from './Profiles/EmployeeProfile'
+import ManufacturerProfile from './Profiles/ManufacturerProfile'
 
 export {
-    DesignerProfilePage,
+    EmployeeProfile,
+    DesignerProfile,
+    ManufacturerProfile,
     DesignerProducts,
     DesignerPortal,
     DesignerCreateForm,
@@ -33,7 +38,7 @@ export {
     Home,
     Orders,
     Navbar,
-    Products,
+    Product,
     LoginForm,
     SignupForm,
 }

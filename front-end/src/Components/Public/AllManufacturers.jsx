@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const AllManufacturers = ({manufacturers, getAll}) => {
     useEffect(() => {
@@ -8,11 +9,12 @@ const AllManufacturers = ({manufacturers, getAll}) => {
     
     return (
         <div>
-            {manufacturers.map(({id, manufacturer_name, specialty}) => (<>
-                {id}
-                <h1>{manufacturer_name}</h1>
-                {specialty}
-            </>))}
+            {manufacturers.map(({id, manufacturer_name, specialty}) => (
+                <Link to={`/private/manufacturer/${id}`}>
+                    <h1>{manufacturer_name}</h1>
+                    {specialty}
+                </Link>
+            ))}
         </div>
     )
 }

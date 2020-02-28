@@ -5,7 +5,7 @@ const getAllManufacturers = async () => await db.any(`
     FROM manufacturers
 `)
 
-const getCompanyByID = async (id) => await db.any(`
+const getCompanyByID = async (id) => await db.one(`
     SELECT * 
 	FROM manufacturers
 	WHERE id = $1
