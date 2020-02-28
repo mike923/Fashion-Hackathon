@@ -16,11 +16,10 @@ import {
 import MapContainer from './Components/Map'
 
 import { Switch, Route } from 'react-router-dom'
-import { AuthContainer, NavbarContainer } from './Containers';
+import { AuthContainer, NavbarContainer, PrivateRoute,PublicContainer } from './Containers';
 import DesignsContainer from './Containers/DesignsContainer';
-
+import DesignerProfile from './Components/DesignerProfilePage';
 class App extends Component {
-
   render() {
     return (
       <div className="App">
@@ -30,10 +29,12 @@ class App extends Component {
           <Route path='/login' component={AuthContainer} />
           <Route path='/signup' component={AuthContainer} />
           <Route path='/map' component={MapContainer} />
-          <Route path='/users/designer' component={DesignsContainer} />
-          <Route path='/users/type/manufacturer' component={Manufacturers} />
-          <Route path='/users/type/:id/order' component={Orders} />
-          <Route path='/users/type/:id/product' component={Products} />
+          <Route path='/designer/public/:id' component={DesignerProfile} />
+          <Route path='/designer/public' component={PublicContainer} />
+          <PrivateRoute path='/designer/portal' component={DesignsContainer} />
+          <Route path='/type/manufacturer' component={Manufacturers} />
+          <Route path='/type/:id/order' component={Orders} />
+          <Route path='/type/:id/product' component={Products} />
         </Switch>
       </div>
     );
