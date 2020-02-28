@@ -22,17 +22,17 @@ const ManufacturersPortal = ({manufacturerProducts}) => {
             <h1>Manufactures Portal</h1>
             <div className="tabs">
                 <ol className="tab-list">
-                    <Link to="/manufacturer/portal/Orders" onClick={() => setTab(0)}>
+                    <Link to="/portal/Orders" onClick={() => setTab(0)}>
                         <li className={'tab-list-item' + (tab === 0 ? ' tab-list-active' : '')} >
                             Orders
                         </li>
                     </Link>
-                    <Link to="/manufacturer/portal/Material/Recipts" onClick={() => setTab(1)}>
+                    <Link to="/portal/Material/Recipts" onClick={() => setTab(1)}>
                         <li className={'tab-list-item' + (tab === 1 ? ' tab-list-active' : '')} >
                             Material Recipts
                         </li>
                     </Link>
-                    <Link to="/manufacturer/portal/Designers" onClick={() => setTab(2)}>
+                    <Link to="/portal/Designers" onClick={() => setTab(2)}>
                         <li className={'tab-list-item' + (tab === 2 ? ' tab-list-active' : '')} >
                             Designers
                         </li>
@@ -41,15 +41,15 @@ const ManufacturersPortal = ({manufacturerProducts}) => {
                 <div className="tab-content">
                     <Switch>
                         <Route 
-                            path="/manufacturer/portal/Orders" 
+                            path="/portal/Orders" 
                             render={() => <ManufacturerOrders manufacturerOrders={manufacturerProducts} />}
                         />
                         <Route 
-                            path="/manufacturer/portal/Material/Recipts" 
+                            path="/portal/Material/Recipts" 
                             render={() => <ManufacturerMaterialRecipts manufacturerOrders={manufacturerProducts} />}
                         />
                         <Route 
-                            path="/manufacturer/portal/Designers" 
+                            path="/portal/Designers" 
                             render={() => <ManufacturerDesignersList />}
                         />
                     </Switch>

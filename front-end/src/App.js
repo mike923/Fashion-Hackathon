@@ -5,7 +5,6 @@ import {
     Home,
     Orders,
     Products,
-    Manufacturers,
 } from './Components'
 
 import MapContainer from './Components/Map'
@@ -15,9 +14,8 @@ import {
     NavbarContainer, 
     PrivateRoute, 
     PublicContainer,
-    ManufacturersPortalContainer,
+    PortalContainer,
 } from './Containers';
-import DesignerPortalContainer from './Containers/DesignerPortalContainer';
 import DesignerProfile from './Components/DesignerProfilePage';
 
 class App extends Component {
@@ -32,8 +30,8 @@ class App extends Component {
                     <Route path='/map' component={MapContainer} />
                     <Route path='/designer/public/:id' component={DesignerProfile} />
                     <Route path='/designer/public' component={PublicContainer} />
-                    <PrivateRoute path='/designer/portal' component={DesignerPortalContainer} />
-                    <Route path='/manufacturer/portal' component={ManufacturersPortalContainer} />
+                    <PrivateRoute path='/portal' component={PortalContainer} />
+                    {/* <Route path='/manufacturer/portal' component={ManufacturersPortalContainer} /> */}
                     <Route path='/type/:id/order' component={Orders} />
                     <Route path='/type/:id/product' component={Products} />
                 </Switch>
