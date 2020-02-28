@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import ManufacturerOrders from '../Components/ManufacturerOrders'
 import ManufacturerMaterialRecipts from '../Components/ManufacturerMaterialRecipts';
 import ManufacturerDesignersList from '../Components/ManufacturerDesignersList';
-import {connect} from 'react-redux'
 import axios from 'axios'
 import ManufacturerTabs from '../Components/ManufacturerTabs';
 
 
 const ManufacturersContainer = (props) => {    
 
-    const [manufacturers, setManufacturers] = useState([]);
+    const [manufacturerProducts, setManufacturersProducts] = useState([]);
 
+// console.log('user',props.user);
 
     const fetchAllManufacturers = async () => {
         try {
-            const { data: { payload } } = await axios.get(`/manufacturers/all`)
-            setManufacturers(payload)
-            console.log(payload);
+            const { data: { payload } } = await axios.get(`/products/manufacturer/${props.user.user_id}`)
+            setManufacturersProducts(payload)
+            console.log('manu',payload);
 
         } catch (error) {
             console.log(error);
@@ -46,7 +46,7 @@ const ManufacturersContainer = (props) => {
     return(
         <ManufacturerTabs>
         <div label="Orders">
-                <ManufacturerOrders />
+                <ManufacturerOrders manufacturerOrders={manufacturerProducts}/>
             
         </div>
         <div label="Material Recipts">
@@ -61,10 +61,6 @@ const ManufacturersContainer = (props) => {
 
 }
 
-const mapSateToProps =(state) =>{
-    return{
-        user: state.authReducer.user
-    }
-}
 
-export default connect(mapSateToProps,null)(ManufacturersContainer)
+
+export default ManufacturersContainer
