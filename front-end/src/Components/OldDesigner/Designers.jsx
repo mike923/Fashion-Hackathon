@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 // import userInputHook from './Hooks/UseInputHook'
 import DesignerTabs from './DesignerTabs';
-import DesignerCreateForm from './DesignerCreateForm';
+import DesignerCreateForm from '../DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
-import DesignsContainer from '../Containers/DesignsContainer';
-import Map from './Map';
+import DesignsContainer from '../../Containers/DesignsContainer';
+import Map from '../Map';
 import { connect } from 'react-redux';
 
 const styles = {

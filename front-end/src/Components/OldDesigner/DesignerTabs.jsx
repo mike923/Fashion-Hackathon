@@ -49,6 +49,7 @@ class DesignerTabs extends Component {
         </ol>
         <div className="tab-content">
           {children.map((child) => {
+              console.log(child)
             if (child.props.label !== activeTab) return undefined;
             return child.props.children;
           })}
