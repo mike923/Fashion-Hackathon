@@ -8,7 +8,7 @@ const linkStyle = {
     gap:'40px',
     padding:'30px',
     width:'40vw',
-    borderRadius:'5px',
+    borderRadius:'30px',
     background:'lightgrey',
     marginTop:'10px',
     height:'200px'
