@@ -14,7 +14,7 @@ const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
             {isUserLoggedIn
                 ? (
                     <>
-                        <Link style={navStyle} to="/users/designer/portal"><strong><li>Designer</li></strong></Link>
+                        <Link style={navStyle} to="/designer/portal"><strong><li>Designer</li></strong></Link>
                         <Link style={navStyle} to="/order"><strong><li>Orders</li></strong></Link>
                         <Link style={navStyle} to="/users/type/manufacturer"><strong><li>Manufacturers</li></strong></Link>
 
