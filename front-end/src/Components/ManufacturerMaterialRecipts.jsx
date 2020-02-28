@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css';
 
-const ManufacturerMaterialRecipts = () => {
+const ManufacturerMaterialRecipts = ({manufacturerOrders}) => {
     const imageStyle = {
-        'border-style': 'solid',
-        'margin-right': '70%',
-        'display': 'block',
-        'margin-left': 'auto',
-        'margin-right': 'auto',
-        'width': '50%'
+        // 'marginRight': '70%',
+        // 'display': 'flex',
+        // 'marginLeft': 'auto',
+        // 'marginRight': 'auto',
+        // 'width': '50%',
+        // 'gap':'20px',
+        // 'flexDirection':'flex'
     }
 
     const [designers, setDesigners] = useState([]);
@@ -25,8 +26,7 @@ const ManufacturerMaterialRecipts = () => {
     }, [])
 
 
-    if (true) {
-
+    if (!manufacturerOrders.length) {
         return <div>No recipts yet. Create some new connections!</div>
     }
 
@@ -34,20 +34,19 @@ const ManufacturerMaterialRecipts = () => {
         <div>
             <br />
             <ul>{
-                // this.displayShows()
-                designers.map((designer, i) => {
-
+                manufacturerOrders.map(designer => {
                     return (
-                        <div className="card" key={i}>
-                            <li className="user-item">
-                                <p>
-                                    <img alt={i} src={designer.img_url} />
-                                    {designer.title} - {' '}
-                                    {designer.genre_name} - {' '}
-                                </p>
-                                <p>Being Watched By:
-                                    {/* {this.findUsersWhoBingedesigner(designer)} */}
-                                </p>
+                        <div className="card" key={designer.company_name} style={{
+                            display:'flex',
+                            flexDirection:'column'
+                        }}>
+                            <li className="order-info">
+                                <p>Client Name: {designer.company_name}</p>
+                                <div>
+                                Materials used: 
+                                <p> {designer.manufacturer_specs}</p>
+                                </div>
+
                             </li>
                         </div>
                     )

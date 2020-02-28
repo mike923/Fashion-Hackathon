@@ -3,19 +3,15 @@ import '../App.css';
 
 const ManufacturerOrders = ({manufacturerOrders}) => {
     const imageStyle = {
-        'border-style': 'solid',
-        'margin-right': '70%',
+        'marginRight': '70%',
         'display': 'block',
-        'margin-left': 'auto',
-        'margin-right': 'auto',
+        'marginLeft': 'auto',
+        'marginRight': 'auto',
         'width': '50%'
     }
 
-    if (!manufacturerOrders) {
-
-        return <div>No orders yet. Create some new connections!</div>
-    }
-
+    if (!manufacturerOrders) return <div>No orders yet. Create some new connections!</div>
+ 
     return (
         <div>
             <br />
@@ -23,14 +19,18 @@ const ManufacturerOrders = ({manufacturerOrders}) => {
                 manufacturerOrders.map(orders => {
                     return (
                         <div className="card" key={orders.id}>
-                            <li className="user-item">
+                            <li className="user-item" style={imageStyle} key={orders.product_id}>
                                 <p>
                                     <img alt={orders.design_file} src={orders.design_file} />
-                                    {orders.title} - {' '}
-                                    {orders.genre_name} - {' '}
                                 </p>
-                                <p>Status: {JSON.stringify(orders.complete)}</p>
-                                <p>Design Company: {orders.company_name}</p>
+                                <p>Client Name: {orders.company_name}</p>
+                                <p>Complete Status: {JSON.stringify(orders.complete)}</p>
+                                <span>Design Specs:{
+                                    Object.values(orders.designer_specs).map( el =>{
+                                        return <p key={orders.product_id}>{el}</p>
+                                    })
+                                }
+                                </span>
                             </li>
                         </div>
                     )

@@ -16,6 +16,7 @@ const ManufacturersContainer = ({user}) => {
         try {
             const { data: { payload } } = await axios.get(`/products/manufacturer/${user.manufacture_id}`)
             setManufacturersProducts(payload)
+            console.log('manu',payload);
         } catch (error) {
             console.log(error);
         }
@@ -33,7 +34,7 @@ const ManufacturersContainer = ({user}) => {
             
         </div>
         <div label="Material Recipts">
-            <ManufacturerMaterialRecipts />
+            <ManufacturerMaterialRecipts manufacturerOrders={manufacturerProducts}/>
         </div>
         <div label="Designers">
             List of all Designers
