@@ -27,7 +27,7 @@ const getUserByUsername = async (username) => await db.oneOrNone(
 `
 SELECT 
 		users.id AS user_id,
-		username, avatar_url, email, account_type,password_digest,
+		username, password_digest, avatar_url, email, account_type,
 		design_company_id, company_name,
 		manufacture_id, manufacturer_name, specialty,
 		designers.id AS designer_id,
