@@ -2,7 +2,7 @@ const db = require('../config')
 
 const getAllMaterials = async () => await db.any('SELECT * FROM materials')
 
-const getMaterialsByDesign = async (id) => await db.any(`
+const getMaterialsByDesign = async (id) => await db.one(`
     SELECT manufacturer_id, product_id,
         JSON_OBJECT_AGG(
             material, percentage_used

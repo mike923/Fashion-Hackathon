@@ -32,7 +32,7 @@ class App extends Component {
                     <PrivateRoute path='/portal' component={PortalContainer} />
                     <Route path='/public' component={PublicContainer} />
                     <Route path='/type/:id/order' component={Orders} />
-                    <Route path='/type/:id/product' component={Product} />
+                    {/* <Route path='/public/product' component={Product} /> */}
                 </Switch>
             </div>
         );
