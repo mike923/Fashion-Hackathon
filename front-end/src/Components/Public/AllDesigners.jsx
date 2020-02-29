@@ -30,8 +30,8 @@ const AllDesigners = ({designers, getAll}) => {
             }}
         >
             <h1>Whose using A9</h1>
-            {designers.map(({designer_id, username, avatar_url, company_name, email}) => (
-                <Link to={`/private/designer/${designer_id}`} key={designer_id} style={linkStyle}>
+            {designers.map(({designer_id, username, avatar_url, company_name, email}, i) => (
+                <Link to={`/private/designer/${designer_id}`} key={i} style={linkStyle}>
                     <div 
                         className='designer-profile-info' 
                         style={{
