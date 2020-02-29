@@ -29,7 +29,7 @@ const AllDesigners = ({designers, getAll}) => {
                 flexDirection:'column'
             }}
         >
-            <h1>Whose using A9</h1>
+            <h1>Who is using A9</h1>
             {designers.map(({designer_id, username, avatar_url, company_name, email}, i) => (
                 <Link to={`/private/designer/${designer_id}`} key={i} style={linkStyle}>
                     <div 

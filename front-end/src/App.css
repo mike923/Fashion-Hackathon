@@ -329,3 +329,15 @@
     height: 50px;
     border: 1px solid black;
   }
+
+  .product-card{
+    border: 1px solid black;
+    width: 40vw;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  .designer-profile {
+    height: 400px;
+    width: 20vw;
+  }
