@@ -68,23 +68,38 @@ const DesignerPortal = ({products, manufacturers}) => {
                     <Switch>
                         <Route 
                             path="/portal/Products" 
-                            render={() => <Products products={products} />}
+                            render={() => {
+                                setTab(0)
+                                return <Products products={products} />
+                            }}
                         />
                         <Route 
                             path="/portal/Create" 
-                            render={() => <DesignerCreateForm />}
+                            render={() => {
+                                setTab(1)
+                                return <DesignerCreateForm />
+                            }}
                         />
                         <Route 
                             path="/portal/Manufacturers" 
-                            render={() => <Manufacturers manufacturers={manufacturers}/>}
+                            render={() => {
+                                setTab(2)
+                                return <Manufacturers manufacturers={manufacturers}/>
+                            }}
                         />
                         <Route 
                             path="/portal/Map" 
-                            render={() => <Map />}
+                            render={() => {
+                                setTab(3)
+                                return <Map />
+                            }}
                         />
                         <Route 
                             path="/portal/Classification" 
-                            render={() => <P5Wrapper sketch={Sketch} />}
+                            render={() => {
+                                setTab(4)
+                                return <P5Wrapper sketch={Sketch} />
+                            }}
                         />
                     </Switch>
                 </div>
