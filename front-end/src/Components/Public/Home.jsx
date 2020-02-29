@@ -5,7 +5,6 @@ import { faCrow } from '@fortawesome/free-solid-svg-icons'
 import { faCube } from '@fortawesome/free-solid-svg-icons'
 import { faCompress } from '@fortawesome/free-solid-svg-icons'
 
-
 const Home = () => {
 
     const commentIcon = <FontAwesomeIcon color='blue' size='6x' icon={faComments} />
@@ -18,7 +17,7 @@ const Home = () => {
     return (
         <div className="wrapper">
             <br />
-            {/* <img className='homeimg' alt='' src='https://www.candlelightfashions.com/wp-content/uploads/2019/07/What-Is-the-Connection-between-Politics-and-Fashion-Trends.jpg' /> */}
+            {/* <img className='homeimg' alt='' src={homepageimg} /> */}
 
             {/* top boxes */}
             <section className='top-container'>
