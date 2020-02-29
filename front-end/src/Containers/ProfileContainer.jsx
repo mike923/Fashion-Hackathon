@@ -1,73 +1,52 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Switch, Redirect } from 'react-router-dom'
+import { Switch, Redirect, Route} from 'react-router-dom'
 
-import { DesignerProfile, EmployeeProfile, ManufacturerProfile, CompanyProfile } from '../Components'
-import { PrivateRoute } from './'
+import { AllManufacturers, DesignerProfile, EmployeeProfile, ManufacturerProfile, CompanyProfile } from '../Components'
+import { PrivateRoute, ProductContainer } from './'
+import { connect } from 'react-redux'
 
-const ProfileContainer = ({match: {params: {id, type}}}) => {
-    // This contains all the backend connections for four different types of users.
-    // This would make all the request to the backend to find a certain typ of user
-    // The four being designers, manufacturers, design companies, and manufacturer employee
-    // This displays that individuals personal page which is all private since we want users to be logged in
-
+const ProfileContainer = (props) => {
     const [profile, setprofile] = useState({})
     const [products, setproducts] = useState([])
-    let productType = type
-    let productTypeID = id
+    const [manufacturers, setmanufacturers] = useState([])
 
     useEffect(() => {
-        (async () => {
-            try {
-                await getProfile(type, id)
-                productTypeID = profile.manufacture_id ? profile.manufacture_id : productTypeID
-                await getProducts(productType, productTypeID)
-            } catch (error) {
-                console.log('usereffect error')
-            }
-        })()
+        getProfile()
+        getProducts()
         return () => {
             setprofile({})
             setproducts([])
         }
     }, [])
 
-    switch (type) {
-        case 'employee':
-            type = 'manufacturers/employee'
-            productType = 'manufacturer'
-            break;
-        case 'designcompany':
-            type = 'designers/company'
-            productType = 'design/company'
-            break;
-        case 'manufacturer':
-            type = 'manufacturers'
-            break;
-        case 'designer':
-            type = 'designers'
-            break;
-        default:
-            return <Redirect to="/" />
-    }
-
     const getProfile = async (type, id) => {
         try {
-            let { data: { payload } } = await axios.get(`/${type}/${id}`)
+            let { data: { payload } } = await axios.get(`/designers/${props.user.designer_id}`)
             console.log('profile', payload)
             setprofile(payload)
         } catch (error) {
-            console.log(`error retrieving ${type} with id${id}`)
+            console.log(`error retrieving ${type} with id${id}`, error)
         }
     }
 
     const getProducts = async (type, id) => {
         try {
-            let { data: { payload } } = await axios.get(`/products/${type}/${id}`)
+            let { data: { payload } } = await axios.get(`/products/designer/${props.user.designer_id}`)
             console.log('products ', type, id, payload)
             setproducts(payload)
         } catch (error) {
             console.log(`error retrieving products for ${type} with id${id}`)
+        }
+    }
+
+    const getAll = async () => {
+        try {
+            const {data : {payload}} = await axios.get(`/manufacturers/all`)
+            console.log(`all `, payload)
+            setmanufacturers(payload)
+        } catch (error) {
+            console.log(`error retrieving all `)
         }
     }
 
@@ -79,10 +58,6 @@ const ProfileContainer = ({match: {params: {id, type}}}) => {
                     render={() => <EmployeeProfile {...profile} products={products} />} 
                 />
                 <PrivateRoute 
-                    path='/private/designer/:id' 
-                    render={() => <DesignerProfile {...profile} products={products} />} 
-                />
-                <PrivateRoute 
                     path='/private/manufacturer/:id' 
                     render={() => <ManufacturerProfile {...profile} products={products} />} 
                 />
@@ -90,9 +65,29 @@ const ProfileContainer = ({match: {params: {id, type}}}) => {
                     path='/private/designcompany/:id' 
                     render={() => <CompanyProfile {...profile} products={products} />} 
                 />
+                <PrivateRoute 
+                    path="/products/:id" 
+                    render={(props) => <ProductContainer {...props} />} 
+                />
+                <PrivateRoute 
+                    path='/products' 
+                    render={() => <DesignerProfile {...profile} products={products} />} 
+                />
+                <Route 
+                    path="/manufacturers" 
+                    render={() => <AllManufacturers manufacturers={manufacturers} getAll={getAll} />} 
+                />
+                <PrivateRoute 
+                    path='/' 
+                    render={() => <DesignerProfile {...profile} products={products} />} 
+                />
             </Switch>
         </div>
     )
 }
 
-export default ProfileContainer
+const mapStateToProps = ({ authReducer,  }) => {
+    return { ...authReducer }
+}
+
+export default connect(mapStateToProps)(ProfileContainer)

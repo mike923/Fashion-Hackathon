@@ -39,19 +39,23 @@ const PublicContainer = (props) => {
         <div>
             <Switch>
                 <Route 
-                    path="/public/manufacturers" 
+                    path="/manufacturers" 
                     render={() => <AllManufacturers manufacturers={manufacturers} getAll={getAll} />} 
                 />
                 <Route 
-                    path="/public/designers" 
+                    path="/designers" 
                     render={() => <AllDesigners designers={designers} getAll={getAll} />} 
                 />
                 <Route 
-                    path="/public/products/:id" 
+                    path="/products/:id" 
                     render={(props) => <ProductContainer {...props} />} 
                 />
                 <Route 
-                    path="/public/products" 
+                    path="/products" 
+                    render={() => <AllProducts products={products} getAll={getAll} />} 
+                />
+                <Route 
+                    path="/" 
                     render={() => <AllProducts products={products} getAll={getAll} />} 
                 />
             </Switch>
