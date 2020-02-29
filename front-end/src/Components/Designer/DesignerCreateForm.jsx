@@ -7,6 +7,7 @@ import { loadTechPack } from "../../store/actions/userActions";
 import P5Wrapper from 'react-p5-wrapper';
 import {setLabels} from '../../store/actions/userActions'
 import sketch from '../../p5classification/sketch'
+import TechPack from '../TechPack'
 
 class DesignerCreateForm extends Component {
   state = {
@@ -82,7 +83,9 @@ class DesignerCreateForm extends Component {
         <Modal
           show={this.state.show}
           onClose={this.showModal}
-        />
+        >
+        <TechPack/>
+        </Modal>
         <div className="upload-photo">
         <P5Wrapper setLabels={this.props.setLabels} sketch={sketch} />
           {/* <img src={design_file} alt="default image" className="design_file" /> */}

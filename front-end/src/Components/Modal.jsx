@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 class Modal extends React.Component {
 
     onClose = e => {
@@ -7,8 +6,7 @@ class Modal extends React.Component {
     }
 
     render() {
-        const { techPack } = this.props
-        console.log('techpack', techPack);
+      
         if (!this.props.show) {
             return null
         }
@@ -19,11 +17,6 @@ class Modal extends React.Component {
                     <button onClick={this.onClose} className='toggle-button'>
                         Close
                     </button>
-                    <div>
-                        <img src={techPack.design_file} alt="" />
-                        <div>{techPack.id}</div>
-                      
-                    </div>
                 </div>
             </div>
         )
@@ -31,10 +24,6 @@ class Modal extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        techPack: state.inputReducer.tech_pack
-    }
-}
 
-export default connect(mapStateToProps)(Modal)
+
+export default Modal
