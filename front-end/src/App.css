@@ -290,3 +290,7 @@
   
   .newShow {color: orange;}
   
+  .create-form-input{
+    width: 30vw;
+    height: 20px;
+  }
