@@ -59,7 +59,7 @@ class DesignerCreateForm extends Component {
       console.log(payload);
 
 
-      this.setState({ design_file: payload[0].design_file });
+      this.setState({ design_file: payload.design_file });
     } catch (error) {
       console.log("upload error", error);
     }
@@ -88,9 +88,9 @@ class DesignerCreateForm extends Component {
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <form onSubmit={this.handleSubmit}>
-          <button onClick={this.showModal}>Show Modal</button>
           <div className="design-specs">
             <select name="manufacturer_id" id="manufacturer-select" onChange={this.handleInput}>
+            <option>Select A Manufacturer</option>
               {manufacturers.map(factory => {
                 return (
                   <option name='manufacturer_id'
@@ -145,7 +145,7 @@ class DesignerCreateForm extends Component {
               placeholder="Thigh"
             />
           </div>
-          <button>submit</button>
+          <button onClick={this.showModal}>submit</button>
         </form>
       </div>
     );
