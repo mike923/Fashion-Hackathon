@@ -33,14 +33,15 @@ class DesignerCreateForm extends Component {
     const { imageFile, manufacturer_id, above_bust, under_bust, across_back,
       thigh,
     } = this.state;
-    const { user,loadTechPack } = this.props
+    const { user,loadTechPack,labels } = this.props
     e.preventDefault();
 
     const designer_specs = {
       above_bust,
       under_bust,
       across_back,
-      thigh
+      thigh,
+      labels
     }
 
     //creating new FormData object to submit
@@ -152,8 +153,8 @@ class DesignerCreateForm extends Component {
   }
 }
 
-const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user } }) => {
-  return { manufacturers, user };
+const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user },inputReducer:{labels} }) => {
+  return { manufacturers, user,labels };
 };
 
 const mapDispatchToProps = (dispatch) => {
