@@ -291,6 +291,24 @@
   .newShow {color: orange;}
   
   .create-form-input{
-    width: 30vw;
+    width: 39vw;
     height: 20px;
+    border-radius: 5px;
+    border: .5px solid black;
+  }
+  .design-specs{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    border:  1px solid black;
+    height: 400px;
+    gap: 10px;
+  }
+  .upload-form{
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: 500px;
+    align-items: center;
+    grid-column-gap: 250px;
+    border: 1px solid black;
   }
