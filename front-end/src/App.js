@@ -16,6 +16,7 @@ import {
     PublicContainer,
     PortalContainer,
     ProfileContainer,
+    OrderContainer,
 } from './Containers';
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
                     <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
                     <Route path='/public' component={PublicContainer} />
-                    <Route path='/type/:id/order' component={Orders} />
+                    <PrivateRoute path='/orders' component={OrderContainer} />
                     {/* <Route path='/public/product' component={Product} /> */}
                 </Switch>
             </div>

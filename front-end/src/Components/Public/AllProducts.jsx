@@ -9,7 +9,7 @@ const AllProducts = ({products, getAll}) => {
     
     return (
         <div>
-            {products.map(Product)}
+            {products.map((product, i) => <Product {...product} key={i} />)}
         </div>
     )
 }
