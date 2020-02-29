@@ -6,6 +6,11 @@ import { DesignerProfile, EmployeeProfile, ManufacturerProfile, CompanyProfile }
 import { PrivateRoute } from './'
 
 const ProfileContainer = ({match: {params: {id, type}}}) => {
+    // This contains all the backend connections for four different types of users.
+    // This would make all the request to the backend to find a certain typ of user
+    // The four being designers, manufacturers, design companies, and manufacturer employee
+    // This displays that individuals personal page which is all private since we want users to be logged in
+
     const [profile, setprofile] = useState({})
     const [products, setproducts] = useState([])
     let productType = type

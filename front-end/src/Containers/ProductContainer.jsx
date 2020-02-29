@@ -4,6 +4,9 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 const ProductContainer = ({match : {params}}) => {
+    // This contains all the backend connnecitons regarding a particular products page.
+    // In a full build this is where our product wiki would be.
+
     const [product, setproduct] = useState({})
     const [materials, setmaterials] = useState({})
 

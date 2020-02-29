@@ -6,6 +6,8 @@ import { Redirect } from 'react-router-dom'
 import { ManufacturersPortal, DesignerPortal } from '../Components'
 
 const PortalContainer = ({user}) => {
+    // This contains all the backend connnections regarding the portal page for either a designer or manufacturers.
+
     console.log('user', user);
     const [products, setProducts] = useState([]);
     const [manufacturers, setManufacturers] = useState([]);
