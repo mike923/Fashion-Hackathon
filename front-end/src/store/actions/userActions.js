@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, LOAD_USER, LOGIN_USER, LOGOUT,LOAD_MANUFACTURERS, LOAD_TECH_PACK, SET_LABELS } from './actionTypes';
+import { RECEIVE_USERS, LOAD_USER, LOGIN_USER, LOGOUT,LOAD_MANUFACTURERS, LOAD_TECH_PACK, SET_LABELS, SET_IMG } from './actionTypes';
 
 
 export const fetchUsers = (payload) => {
@@ -25,6 +25,13 @@ export const setUser = (payload) => {
 export const setLabels = (payload) => {
     return {
         type: SET_LABELS,
+        payload
+    }
+}
+
+export const setImg = (payload) => {
+    return {
+        type: SET_IMG,
         payload
     }
 }

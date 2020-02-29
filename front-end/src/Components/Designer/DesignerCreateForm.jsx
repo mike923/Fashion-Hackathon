@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Modal from '../Modal'
 import { loadTechPack } from "../../store/actions/userActions";
 import P5Wrapper from 'react-p5-wrapper';
-import {setLabels} from '../../store/actions/userActions'
+import {setLabels, setImg} from '../../store/actions/userActions'
 import sketch from '../../p5classification/sketch'
 
 class DesignerCreateForm extends Component {
@@ -57,7 +57,7 @@ class DesignerCreateForm extends Component {
       //loading returned payload into redux storte
       loadTechPack(payload)
       console.log(payload);
-
+      // this.props.setImg(payload.design_file)
 
       this.setState({ design_file: payload[0].design_file });
     } catch (error) {
@@ -67,7 +67,11 @@ class DesignerCreateForm extends Component {
 
   handleInput = e => this.setState({ [e.target.name]: e.target.value });
 
-  setImgUrl = e => this.setState({ imageFile: e.target.files[0] });
+  setImgUrl = e => {
+    console.log(e.target.files[0])
+    // this.props.setImg(e.target.files[0])
+    this.setState({ imageFile: e.target.files[0] })
+  };
 
   showModal = e => this.setState({ show: !this.state.show })
 
@@ -83,7 +87,7 @@ class DesignerCreateForm extends Component {
           onClose={this.showModal}
         />
         <div className="upload-photo">
-        <P5Wrapper setLabels={this.props.setLabels} sketch={sketch} />
+        {this.props.image ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> : ''}
           {/* <img src={design_file} alt="default image" className="design_file" /> */}
           <input type="file" onChange={this.setImgUrl} />
         </div>
@@ -152,14 +156,15 @@ class DesignerCreateForm extends Component {
   }
 }
 
-const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user } }) => {
-  return { manufacturers, user };
+const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user }, inputReducer: { image } }) => {
+  return { manufacturers, user, image };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loadTechPack: data => dispatch(loadTechPack(data)),
-    setLabels: (labels) => dispatch(setLabels(labels)) 
+    setLabels: (labels) => dispatch(setLabels(labels)),
+    setImg: (img) => dispatch(setImg(img))
   }
 }
 
