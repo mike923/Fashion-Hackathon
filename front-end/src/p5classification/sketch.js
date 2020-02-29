@@ -4,20 +4,34 @@ import * as ml5 from 'ml5'
 let video;
 let mobilenet;
 let label = '';
+let time = false;
+let allLabels = {};
+let setLabels;
 
 export default function sketch(p) {
+
+	p.myCustomRedrawAccordingToNewPropsHandler = (newProps) => {
+		console.log(newProps)
+		setLabels = newProps.setLabels
+	}
 
 	// mobilenet.predict()
 	const modelReady = () => {
 		console.log('Model is ready')
 		console.log('ml5 version:2', ml5.version);
+		setTimeout(() => {
+			time = true
+			console.log(allLabels, setLabels)
+			setLabels(allLabels)
+		}, 10000)
 		mobilenet.predict(gotResults)
 	}
 
 	const gotResults = (error, results) => {
 		if (error) {
 			// console.error(error);
-		} else {
+		} else if (!time) {
+			results.forEach(({label}) => allLabels[label] = true);
 			// console.log(results);
 			label = results[0].label;
 			// let prop = results[0].probability;
@@ -26,7 +40,7 @@ export default function sketch(p) {
 	}
 
 	p.setup = function () {
-		p.createCanvas(640, 550);
+		p.createCanvas(500, 480);
 		video = p.createCapture(p5.VIDEO);
 		video.hide();
 		p.background(0);
