@@ -9,6 +9,10 @@ let allLabels = {};
 
 export default function sketch(p) {
 
+	p.myCustomRedrawAccordingToNewPropsHandler = (newProps) => {
+		console.log(newProps)
+	}
+
 	// mobilenet.predict()
 	const modelReady = () => {
 		console.log('Model is ready')

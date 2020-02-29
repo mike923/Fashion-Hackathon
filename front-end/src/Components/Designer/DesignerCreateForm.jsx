@@ -67,7 +67,7 @@ class DesignerCreateForm extends Component {
     return (
       <div className="upload-form">
         <div className="upload-photo">
-        <P5Wrapper sketch={sketch} />
+        <P5Wrapper setLabels={this.props.setLabels} sketch={sketch} />
           {/* <img src={design_file} alt="default image" className="design_file" /> */}
           <input type="file" onChange={this.setImgUrl} />
         </div>
