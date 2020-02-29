@@ -6,6 +6,7 @@ import {
     AllDesigners,
     AllProducts,
 } from '../Components'
+import { ProductContainer } from './'
 
 const PublicContainer = (props) => {
     const [manufacturers, setmanufacturers] = useState([])
@@ -44,6 +45,10 @@ const PublicContainer = (props) => {
                 <Route 
                     path="/public/designers" 
                     render={() => <AllDesigners designers={designers} getAll={getAll} />} 
+                />
+                <Route 
+                    path="/public/products/:id" 
+                    render={(props) => <ProductContainer {...props} />} 
                 />
                 <Route 
                     path="/public/products" 

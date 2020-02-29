@@ -20,7 +20,7 @@ const getAllProductsByDesigner = async (id) => await db.any(`
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers 
     ON manufacturer_id = manufacturers.id
-    WHERE user_id = $1
+    WHERE designer_id = $1
 `, [id])
 
 const getAllProductsByDesignCompany = async (id) => await db.any(`
@@ -74,7 +74,13 @@ const updateProductStatus = async (product) => await db.one(`
 `, product)
 
 const getProductByID = async (id) => await db.one(`
-    SELECT *, product_design.id AS product_id
+    SELECT 
+        product_design.id AS product_id,
+        design_file, designer_specs, manufacturer_specs, complete, designer_id, manufacturer_id,
+        user_id, design_company_id, 
+        company_name, 
+        manufacturer_name, specialty,
+        username, avatar_url
     FROM product_design
     INNER JOIN designers
     ON designers.id = designer_id
@@ -82,7 +88,9 @@ const getProductByID = async (id) => await db.one(`
     ON design_companies.id = design_company_id
     INNER JOIN manufacturers
     ON manufacturers.id = manufacturer_id
-    WHERE product_id = $1
+    INNER JOIN users
+    ON users.id = user_id
+    WHERE product_design.id = $1
 `, [id])
 
 const addNewDesign = async (design) => await db.any(`

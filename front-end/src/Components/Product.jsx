@@ -16,7 +16,7 @@ const Product = ({
     specialty, 
     user_id,
 }) => (
-    <Link >
+    <Link to={`/public/products/${product_id}`}>
         <h1>product_id: {product_id}</h1>
         <p>
             company_name: {company_name} <br/>

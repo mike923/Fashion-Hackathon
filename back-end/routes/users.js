@@ -27,7 +27,7 @@ router.get('/:id', async (req, res, next) => {
         let user = await getUserByID(req.params.id)
         res.json({
             payload: user,
-            msg: 'Retrieved all user',
+            msg: `Retrieved user by id:${req.params.id}`,
             err: false
         })
     } catch (error) {
