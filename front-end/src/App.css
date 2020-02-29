@@ -291,6 +291,41 @@
   .newShow {color: orange;}
   
   .create-form-input{
+    width: 39vw;
+    height: 50px;
+    border-radius: 5px;
+    border: .5px solid black;
+  }
+  .design-specs{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    border:  1px solid black;
+    height: 400px;
+    gap: 10px;
+    padding: 5px;
+  }
+  .upload-form{
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: 500px;
+    align-items: center;
+    grid-column-gap: 250px;
+    border: 1px solid black;
+  }
+
+  .design_file{
+    border:  1px solid black;
     width: 30vw;
-    height: 20px;
+  }
+  .upload-photo{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+  }
+
+  #manufacturer-select{
+    height: 50px;
+    border: 1px solid black;
   }
