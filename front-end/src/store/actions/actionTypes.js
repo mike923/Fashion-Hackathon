@@ -8,4 +8,4 @@ export const LOAD_USER = 'LOAD_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 
-export const LOAD_TECH_PACK
+export const LOAD_TECH_PACK = 'LOAD_TECH_PACK'

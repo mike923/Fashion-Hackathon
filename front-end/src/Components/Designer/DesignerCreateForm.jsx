@@ -3,6 +3,7 @@ import axios from "axios";
 import "../../App.css";
 import { connect } from "react-redux";
 import Modal from '../Modal'
+import { loadTechPack } from "../../store/actions/userActions";
 class DesignerCreateForm extends Component {
   state = {
     design_file:
@@ -28,7 +29,7 @@ class DesignerCreateForm extends Component {
     const { imageFile, manufacturer_id, above_bust, under_bust, across_back,
       thigh,
     } = this.state;
-    const { user } = this.props
+    const { user,loadTechPack } = this.props
     e.preventDefault();
 
     const designer_specs = {
@@ -38,6 +39,7 @@ class DesignerCreateForm extends Component {
       thigh
     }
 
+    //creating new FormData object to submit
     const data = new FormData();
     data.append("design_file", imageFile);
     data.append("designer_specs", JSON.stringify(designer_specs));
@@ -47,7 +49,12 @@ class DesignerCreateForm extends Component {
       const {
         data: { payload }
       } = await axios.post(`/productImg`, data);
+      
+      //loading returned payload into redux storte
+      loadTechPack(payload)
       console.log(payload);
+
+
       this.setState({ design_file: payload[0].design_file });
     } catch (error) {
       console.log("upload error", error);
@@ -57,17 +64,20 @@ class DesignerCreateForm extends Component {
   handleInput = e => this.setState({ [e.target.name]: e.target.value });
 
   setImgUrl = e => this.setState({ imageFile: e.target.files[0] });
+
   showModal = e => this.setState({ show: !this.state.show })
+
+
   render() {
     console.log("state", this.state);
     const { manufacturers } = this.props;
     const { design_file } = this.state;
     return (
       <div className="upload-form">
-      <Modal
-        show={this.state.show}
-        onClose={this.showModal}
-      />
+        <Modal
+          show={this.state.show}
+          onClose={this.showModal}
+        />
         <div className="upload-photo">
           <img src={design_file} alt="default image" className="design_file" />
           <input type="file" onChange={this.setImgUrl} />
@@ -141,4 +151,10 @@ const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { us
   return { manufacturers, user };
 };
 
-export default connect(mapStateToProps)(DesignerCreateForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadTechPack: data => dispatch(loadTechPack(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DesignerCreateForm);
