@@ -22,14 +22,14 @@ const AllDesigners = ({designers, getAll}) => {
     
     return (
         <div 
-            className='public-designers' 
+            className='public-designers'
             style={{
                 display:'flex',
                 alignItems:'center',
                 flexDirection:'column'
             }}
         >
-            <h1>Whose using A9</h1>
+            <h1>A9 Fashion Designers</h1>
             {designers.map(({designer_id, username, avatar_url, company_name, email}, i) => (
                 <Link to={`/private/designer/${designer_id}`} key={i} style={linkStyle}>
                     <div 
