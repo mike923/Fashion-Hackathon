@@ -4,6 +4,8 @@ import {Link, Switch, Route} from 'react-router-dom'
 import DesignerProducts from './DesignerProducts'
 import DesignerCreateForm from './DesignerCreateForm'
 import Map from '../Map'
+import P5Wrapper from 'react-p5-wrapper';
+import Sketch from '../../p5classification/sketch'
 
 const styles = {
     container: {
@@ -20,14 +22,14 @@ const Products = ({products}) => products.length
 const Manufacturers = ({manufacturers}) => (
     <>
         <ul>
-            {manufacturers.map(factory => <li>{factory.manufacturer_name}</li>)}
+            {manufacturers.map((factory, i) => <li key={i}>{factory.manufacturer_name}</li>)}
         </ul>
         <a href="/map">to map</a>
     </>
 )
 
 const DesignerPortal = ({products, manufacturers}) => {
-    const [tab, setTab] = useState(0)
+    const [tab, setTab] = useState(null)
 
     return (
         <div styles={styles}>
@@ -56,6 +58,11 @@ const DesignerPortal = ({products, manufacturers}) => {
                             Map
                         </li>
                     </Link>
+                    <Link to="/portal/Classification" onClick={() => setTab(4)}>
+                        <li className={'tab-list-item' + (tab === 4 ? ' tab-list-active' : '')} >
+                            Classification
+                        </li>
+                    </Link>
                 </ol>
                 <div className="tab-content">
                     <Switch>
@@ -74,6 +81,10 @@ const DesignerPortal = ({products, manufacturers}) => {
                         <Route 
                             path="/portal/Map" 
                             render={() => <Map />}
+                        />
+                        <Route 
+                            path="/portal/Classification" 
+                            render={() => <P5Wrapper sketch={Sketch} />}
                         />
                     </Switch>
                 </div>

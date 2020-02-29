@@ -5,6 +5,9 @@ import DesignerCreateForm from '../DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
 import DesignsContainer from './DesignerPortalContainer';
 import Map from '../Map';
+import P5Wrapper from 'react-p5-wrapper';
+import Sketch from '../../p5classification/sketch'
+
 import { connect } from 'react-redux';
 
 const styles = {
@@ -32,7 +35,7 @@ const Designers = (props) => {
         getBannerImage();
     }, [])
 
-  
+
 
     return (
         <div styles={styles}>
@@ -43,33 +46,40 @@ const Designers = (props) => {
 
             <DesignerTabs>
                 <div label="Products">
-                <DesignsContainer/>
+                    <DesignsContainer />
                 </div>
                 <div label="Create Design">
                     <DesignerCreateForm />
                 </div>
                 <div label="Manufacturers">
                     <ul>
-                    {
-                        props.designer.map( factory =>{
-                            return <li>{factory.manufacturer_name}</li>
-                        })
-                    }
+                        {
+                            props.designer.map(factory => {
+                                return <li>{factory.manufacturer_name}</li>
+                            })
+                        }
                     </ul>
                     <a href="/map">to map</a>
                 </div>
                 <div label='Map'>
                     <Map />
                 </div>
+                <div label='Classification'>
+                <P5Wrapper sketch={Sketch} />
+                </div>
             </DesignerTabs>
+            {/* footer */}
+            <footer>
+                <p>A9 App &copy; 2020</p>
+            </footer>
         </div>
     )
 }
 
-const mapStateToProps =(state) =>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         designer: state.designerReducer.manufacturers
     }
 }
 
-export default connect(mapStateToProps,null)( Designers)
+export default connect(mapStateToProps, null)(Designers)

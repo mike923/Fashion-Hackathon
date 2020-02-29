@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../../App.css";
-import { Multiselect } from "multiselect-react-dropdown";
 import { connect } from "react-redux";
 
 class DesignerCreateForm extends Component {
@@ -82,11 +81,6 @@ class DesignerCreateForm extends Component {
                 );
               })}
             </select>
-            <Multiselect
-              options={this.state.colors}
-              selectedValues={this.state.selectedValue}
-              displayValue="name"
-            />
             <input
               type="text"
               name="bust"
