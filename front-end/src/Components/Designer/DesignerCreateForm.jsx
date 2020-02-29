@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../App.css";
 import { connect } from "react-redux";
+import P5Wrapper from 'react-p5-wrapper';
+import {setLabels} from '../../store/actions/userActions'
+import sketch from '../../p5classification/sketch'
 
 class DesignerCreateForm extends Component {
   state = {
@@ -64,7 +67,8 @@ class DesignerCreateForm extends Component {
     return (
       <div className="upload-form">
         <div className="upload-photo">
-          <img src={design_file} alt="default image" className="design_file" />
+        <P5Wrapper sketch={sketch} />
+          {/* <img src={design_file} alt="default image" className="design_file" /> */}
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <form onSubmit={this.handleSubmit}>
@@ -135,4 +139,8 @@ const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { us
   return { manufacturers, user };
 };
 
-export default connect(mapStateToProps)(DesignerCreateForm);
+const mapDispatchToProps = (dispatch) => {
+	return { setLabels: (labels) => dispatch(setLabels(labels)) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DesignerCreateForm);

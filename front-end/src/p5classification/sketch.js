@@ -26,7 +26,7 @@ export default function sketch(p) {
 	}
 
 	p.setup = function () {
-		p.createCanvas(640, 550);
+		p.createCanvas(500, 480);
 		video = p.createCapture(p5.VIDEO);
 		video.hide();
 		p.background(0);
