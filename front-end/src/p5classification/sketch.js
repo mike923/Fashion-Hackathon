@@ -4,6 +4,8 @@ import * as ml5 from 'ml5'
 let video;
 let mobilenet;
 let label = '';
+let time = false;
+let allLabels = {};
 
 export default function sketch(p) {
 
@@ -11,13 +13,18 @@ export default function sketch(p) {
 	const modelReady = () => {
 		console.log('Model is ready')
 		console.log('ml5 version:2', ml5.version);
+		setTimeout(() => {
+			time = true
+			console.log(allLabels)
+		}, 10000)
 		mobilenet.predict(gotResults)
 	}
 
 	const gotResults = (error, results) => {
 		if (error) {
 			// console.error(error);
-		} else {
+		} else if (!time) {
+			results.forEach(({label}) => allLabels[label] = true);
 			// console.log(results);
 			label = results[0].label;
 			// let prop = results[0].probability;
