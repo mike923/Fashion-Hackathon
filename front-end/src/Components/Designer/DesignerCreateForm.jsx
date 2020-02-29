@@ -32,7 +32,9 @@ class DesignerCreateForm extends Component {
     e.preventDefault();
 
     const designer_specs = {
-      above_bust, under_bust, across_back,
+      above_bust, 
+      under_bust, 
+      across_back,
       thigh
     }
 

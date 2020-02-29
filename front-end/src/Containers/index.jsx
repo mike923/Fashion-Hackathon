@@ -6,9 +6,10 @@ import ManufacturersPortalContainer from '../Components/OldManufacturer/Manufact
 import PortalContainer from './PortalContainer'
 import ProfileContainer from './ProfileContainer'
 import ProductContainer from './ProductContainer'
-
+import OrderContainer from "./OrderContainer";
 
 export {
+    OrderContainer,
     PrivateRoute,
     AuthContainer,
     NavbarContainer,

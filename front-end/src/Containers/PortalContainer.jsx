@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-
+import{loadManufacturers} from '../store/actions/userActions'
 import { ManufacturersPortal, DesignerPortal } from '../Components'
-import { loadManufacturers } from '../store/actions/userActions'
-const PortalContainer = ({ user, loadManufacturers }) => {
+
+const PortalContainer = ({user,loadManufacturers}) => {
+    // This contains all the backend connnections regarding the portal page for either a designer or manufacturers.
+
     console.log('user', user);
     const [products, setProducts] = useState([]);
     const [manufacturers, setManufacturers] = useState([]);
