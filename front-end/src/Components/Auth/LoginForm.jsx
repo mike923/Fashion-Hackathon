@@ -1,23 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { HANDLECHANGE } from '../store/actions/actionTypes';
+import { connect } from 'react-redux';
+import { HANDLECHANGE } from '../../store/actions/actionTypes';
 
-const SignupForm = ({ username, password, avatar_url, handleChange, signupUser }) => {
+const LoginForm = ({ username, password, handleChange, loginUser }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        signupUser()
+        loginUser()
     }
 
     return (
         <div>
-            <h3> Sign-Up </h3>
+            <h3> Log-In </h3>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="username"
                     value={username}
-                    placeholder="Username"
+                    placeholder="username"
                     onChange={handleChange}
                 />
                 <input
@@ -27,20 +27,13 @@ const SignupForm = ({ username, password, avatar_url, handleChange, signupUser }
                     placeholder="***"
                     onChange={handleChange}
                 />
-                <input 
-                    type="text"
-                    name="avatar_url"
-                    value={avatar_url}
-                    placeholder="https://photos.com/profile_picture.jpg"
-                    onChange={handleChange}
-                />
-                <input type="submit" value="Signup" />
+                <input type="submit" value="log-in" />
             </form>
         </div>
     )
 }
 
-const mapStateToProps = ({ ...inputReducer }) => { return { ...inputReducer }}
+const mapStateToProps = ({inputReducer}) => { return { ...inputReducer }}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -53,4 +46,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+

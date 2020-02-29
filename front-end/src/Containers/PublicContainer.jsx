@@ -1,36 +1,60 @@
 import React, { useState } from 'react'
-import PublicDesigners from '../Components/PublicDesigners'
 import axios from 'axios'
-import { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import DesignerProfile from '../Components/DesignerProfilePage'
+import {
+    AllManufacturers,
+    AllDesigners,
+    AllProducts,
+} from '../Components'
+import { ProductContainer } from './'
+
 const PublicContainer = (props) => {
+    const [manufacturers, setmanufacturers] = useState([])
+    const [designers, setdesigners] = useState([])
+    const [products, setproducts] = useState([])
 
-    const [allDesigners, setAllDesigners] = useState([])
-
-    const getAllDesigners = async () => {
+    const getAll = async (type) => {
         try {
-            const { data: { payload } } = await axios.get(`/designers/all`)
-            console.log('all designers', payload);
-            setAllDesigners(payload)
+            const {data : {payload}} = await axios.get(`/${type}/all`)
+            console.log(`all ${type}`, payload)
+            switch (type) {
+                case 'manufacturers':
+                    setmanufacturers(payload)
+                    break;
+                case 'designers':
+                    setdesigners(payload)
+                    break;
+                case 'products':
+                    setproducts(payload)
+                    break;
+                default:
+                    break;
+            }
         } catch (error) {
-
+            console.log(`error retrieving all ${type}`)
         }
     }
-
-    useEffect(() => {
-        getAllDesigners()
-    }, [])
-
-
-
 
     return (
         <div>
             <Switch>
+                <Route 
+                    path="/public/manufacturers" 
+                    render={() => <AllManufacturers manufacturers={manufacturers} getAll={getAll} />} 
+                />
+                <Route 
+                    path="/public/designers" 
+                    render={() => <AllDesigners designers={designers} getAll={getAll} />} 
+                />
+                <Route 
+                    path="/public/products/:id" 
+                    render={(props) => <ProductContainer {...props} />} 
+                />
+                <Route 
+                    path="/public/products" 
+                    render={() => <AllProducts products={products} getAll={getAll} />} 
+                />
             </Switch>
-
-            <PublicDesigners allDesigners={allDesigners} />
         </div>
     )
 

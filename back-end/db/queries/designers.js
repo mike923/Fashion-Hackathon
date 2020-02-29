@@ -14,7 +14,8 @@ const getDesignCompanyByID = async (id) => await db.any(`
 const getAllDesigners = async () => await db.any(`
     SELECT 
         user_id, username, avatar_url, email, account_type, 
-        design_company_id, company_name
+        design_company_id, company_name,
+        designers.id AS designer_id
     FROM users
     INNER JOIN designers 
     ON user_id = users.id
@@ -25,7 +26,8 @@ const getAllDesigners = async () => await db.any(`
 const getAllDesignersByCompany = async (id) => await db.any(`
     SELECT 
         user_id, username, avatar_url, email, account_type, 
-        design_company_id, company_name
+        design_company_id, company_name,
+        designers.id AS designer_id
     FROM users
     INNER JOIN designers 
     ON user_id = users.id
@@ -37,7 +39,8 @@ const getAllDesignersByCompany = async (id) => await db.any(`
 const getDesignerByID = async (id) => await db.one(`
     SELECT 
         user_id, username, avatar_url, email, account_type, 
-        design_company_id, company_name
+        design_company_id, company_name,
+        designers.id AS designer_id
     FROM users
     INNER JOIN designers 
     ON user_id = users.id

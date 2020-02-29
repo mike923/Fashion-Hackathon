@@ -30,7 +30,7 @@ const AuthContainer = ({ isUserLoggedIn, setUser, prevURL, ...props}) => {
         <div>
             <h2>Welcome</h2>
             {isUserLoggedIn
-                ? <Redirect to={prevURL ? prevURL : '/'} />
+                ? <Redirect to={prevURL ? prevURL : '/portal'} />
                 : (
                     <Switch>
                         <Route 

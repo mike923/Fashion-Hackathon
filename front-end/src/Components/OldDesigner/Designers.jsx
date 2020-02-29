@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import DesignerTabs from './DesignerTabs';
 import DesignerCreateForm from '../DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
-import DesignsContainer from '../../Containers/DesignerPortalContainer';
+import DesignsContainer from './DesignerPortalContainer';
 import Map from '../Map';
 import P5Wrapper from 'react-p5-wrapper';
 import Sketch from '../../p5classification/sketch'
