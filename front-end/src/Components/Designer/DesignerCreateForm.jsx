@@ -88,7 +88,6 @@ class DesignerCreateForm extends Component {
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <form onSubmit={this.handleSubmit}>
-          <button onClick={this.showModal}>Show Modal</button>
           <div className="design-specs">
             <select name="manufacturer_id" id="manufacturer-select" onChange={this.handleInput}>
             <option>Select A Manufacturer</option>
@@ -146,7 +145,7 @@ class DesignerCreateForm extends Component {
               placeholder="Thigh"
             />
           </div>
-          <button>submit</button>
+          <button onClick={this.showModal}>submit</button>
         </form>
       </div>
     );
