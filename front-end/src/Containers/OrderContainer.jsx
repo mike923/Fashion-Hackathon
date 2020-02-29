@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { Switch } from 'react-router-dom'
-
 import { PrivateRoute } from "./";
+import { Orders } from '../Components';
 
 const OrderContainer = () => {
     // This should contain all the info regarding an incomplete product.
@@ -30,8 +30,18 @@ const OrderContainer = () => {
 
     return (
         <Switch>
-            <PrivateRoute path="/orders" render={() => <h1>This is all orders</h1>} />
-            <PrivateRoute path="/orders/:id" render={() => <h1>This is order with id</h1>} />
+            <PrivateRoute 
+                path="/orders" 
+                render={() => {
+                    return <Orders />
+                }} 
+            />
+            <PrivateRoute 
+                path="/orders/:id" 
+                render={() => {
+                    return <Orders />
+                }} 
+            />
         </Switch>
     )
 }

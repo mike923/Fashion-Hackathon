@@ -18,26 +18,39 @@ import {
     ProfileContainer,
     OrderContainer,
 } from './Containers';
+import { connect } from 'react-redux';
 
 class App extends Component {
     render() {
+        console.log(this.props.isUserLoggedIn)
         return (
             <div className="App">
                 <NavbarContainer />
                 <Switch>
-                    <Route exact path='/' component={Home} />
                     <Route path='/login' component={AuthContainer} />
                     <Route path='/signup' component={AuthContainer} />
                     <Route path='/map' component={Map} />
                     <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
                     <PrivateRoute path='/portal' component={PortalContainer} />
-                    <Route path='/public' component={PublicContainer} />
+                    {/* <Route path='/public' component={PublicContainer} /> */}
                     <PrivateRoute path='/orders' component={OrderContainer} />
                     {/* <Route path='/public/product' component={Product} /> */}
+                    <Route 
+                        path='/'
+                        render={(props) => {
+                            return this.props.isUserLoggedIn
+                                ? <ProfileContainer {...props} /> 
+                                : <Home {...props} />
+                        }} 
+                    />
                 </Switch>
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = ({ authReducer }) => {
+    return { ...authReducer }
+}
+
+export default connect(mapStateToProps)(App);
