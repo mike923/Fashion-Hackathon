@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../App.css";
 import { connect } from "react-redux";
+import Modal from '../Modal'
+import { loadTechPack } from "../../store/actions/userActions";
 import P5Wrapper from 'react-p5-wrapper';
 import {setLabels} from '../../store/actions/userActions'
 import sketch from '../../p5classification/sketch'
@@ -23,23 +25,25 @@ class DesignerCreateForm extends Component {
     colors: [
       { name: "red", id: 1 },
       { name: "white", id: 2 }
-    ]
+    ],
+    show: false
   };
 
   handleSubmit = async e => {
     const { imageFile, manufacturer_id, above_bust, under_bust, across_back,
       thigh,
     } = this.state;
-    const { user } = this.props
+    const { user,loadTechPack } = this.props
     e.preventDefault();
 
     const designer_specs = {
-      above_bust, 
-      under_bust, 
+      above_bust,
+      under_bust,
       across_back,
       thigh
     }
 
+    //creating new FormData object to submit
     const data = new FormData();
     data.append("design_file", imageFile);
     data.append("designer_specs", JSON.stringify(designer_specs));
@@ -49,7 +53,12 @@ class DesignerCreateForm extends Component {
       const {
         data: { payload }
       } = await axios.post(`/productImg`, data);
+      
+      //loading returned payload into redux storte
+      loadTechPack(payload)
       console.log(payload);
+
+
       this.setState({ design_file: payload[0].design_file });
     } catch (error) {
       console.log("upload error", error);
@@ -60,18 +69,26 @@ class DesignerCreateForm extends Component {
 
   setImgUrl = e => this.setState({ imageFile: e.target.files[0] });
 
+  showModal = e => this.setState({ show: !this.state.show })
+
+
   render() {
     console.log("state", this.state);
     const { manufacturers } = this.props;
     const { design_file } = this.state;
     return (
       <div className="upload-form">
+        <Modal
+          show={this.state.show}
+          onClose={this.showModal}
+        />
         <div className="upload-photo">
         <P5Wrapper setLabels={this.props.setLabels} sketch={sketch} />
           {/* <img src={design_file} alt="default image" className="design_file" /> */}
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <form onSubmit={this.handleSubmit}>
+          <button onClick={this.showModal}>Show Modal</button>
           <div className="design-specs">
             <select name="manufacturer_id" id="manufacturer-select" onChange={this.handleInput}>
               {manufacturers.map(factory => {
@@ -140,7 +157,10 @@ const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { us
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return { setLabels: (labels) => dispatch(setLabels(labels)) }
+  return {
+    loadTechPack: data => dispatch(loadTechPack(data)),
+    setLabels: (labels) => dispatch(setLabels(labels)) 
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesignerCreateForm);
