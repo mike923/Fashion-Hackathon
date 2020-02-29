@@ -5,6 +5,9 @@ import DesignerCreateForm from '../DesignerCreateForm';
 // import DesignerProducts from './DesignerProducts';
 import DesignsContainer from '../../Containers/DesignerPortalContainer';
 import Map from '../Map';
+import P5Wrapper from 'react-p5-wrapper';
+import Sketch from '../../p5classification/sketch'
+
 import { connect } from 'react-redux';
 
 const styles = {
@@ -62,7 +65,7 @@ const Designers = (props) => {
                     <Map />
                 </div>
                 <div label='Classification'>
-                     testing
+                <P5Wrapper sketch={Sketch} />
                 </div>
             </DesignerTabs>
             {/* footer */}
