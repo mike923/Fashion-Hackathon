@@ -292,7 +292,7 @@
   
   .create-form-input{
     width: 39vw;
-    height: 20px;
+    height: 50px;
     border-radius: 5px;
     border: .5px solid black;
   }
@@ -303,6 +303,7 @@
     border:  1px solid black;
     height: 400px;
     gap: 10px;
+    padding: 5px;
   }
   .upload-form{
     display: grid;
@@ -310,5 +311,21 @@
     grid-template-rows: 500px;
     align-items: center;
     grid-column-gap: 250px;
+    border: 1px solid black;
+  }
+
+  .design_file{
+    border:  1px solid black;
+    width: 30vw;
+  }
+  .upload-photo{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+  }
+
+  #manufacturer-select{
+    height: 50px;
     border: 1px solid black;
   }

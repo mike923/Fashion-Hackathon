@@ -102,8 +102,8 @@ router.post('/', async (req, res, next) => {
     let design_file = "http://localhost:3100/" + req.file.path.replace('public/', '')
     bodyCopy.designer_specs = req.body.designer_specs
     bodyCopy.design_file = design_file
-    bodyCopy.designer_id = 1
-    bodyCopy.manufacturer_id = 1
+    // bodyCopy.designer_id = 1
+    // bodyCopy.manufacturer_id = 1
 
     let newDesign = await queries.addNewDesign(bodyCopy)
 
