@@ -6,11 +6,13 @@ let mobilenet;
 let label = '';
 let time = false;
 let allLabels = {};
+let setLabels;
 
 export default function sketch(p) {
 
 	p.myCustomRedrawAccordingToNewPropsHandler = (newProps) => {
 		console.log(newProps)
+		setLabels = newProps.setLabels
 	}
 
 	// mobilenet.predict()
@@ -19,7 +21,8 @@ export default function sketch(p) {
 		console.log('ml5 version:2', ml5.version);
 		setTimeout(() => {
 			time = true
-			console.log(allLabels)
+			console.log(allLabels, setLabels)
+			setLabels(allLabels)
 		}, 10000)
 		mobilenet.predict(gotResults)
 	}
