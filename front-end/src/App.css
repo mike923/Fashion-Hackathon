@@ -329,3 +329,26 @@
     height: 50px;
     border: 1px solid black;
   }
+
+  .product-card{
+    border: 1px solid black;
+    width: 40vw;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  .designer-profile {
+    height: 400px;
+    width: 20vw;
+  }
+
+  .product-profile-top{
+    display: flex;
+    /* margin: 0 auto; */
+    gap: 20px;
+  }
+  .modal{
+    border: 1px solid black;
+    height: 500px;
+    width:  760px;
+  }
