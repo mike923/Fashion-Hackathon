@@ -21,4 +21,21 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+router.get('/product/:id', async (req, res, next) => {
+    try {
+        let materials = await getMaterialsByDesign(Number(req.params.id))
+        res.json({
+            payload: materials,
+            msg: 'Retrieved materials for product',
+            err: false
+            })
+    } catch (error) {
+        res.status(500).json({
+            payload: null,
+            msg: 'Retrieved materials for product',
+            err: true
+        }) 
+    }
+})
+
 module.exports = router;
