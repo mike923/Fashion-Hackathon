@@ -4,6 +4,10 @@ import "../../App.css";
 import { connect } from "react-redux";
 import Modal from '../Modal'
 import { loadTechPack } from "../../store/actions/userActions";
+import P5Wrapper from 'react-p5-wrapper';
+import {setLabels} from '../../store/actions/userActions'
+import sketch from '../../p5classification/sketch'
+
 class DesignerCreateForm extends Component {
   state = {
     design_file:
@@ -79,7 +83,8 @@ class DesignerCreateForm extends Component {
           onClose={this.showModal}
         />
         <div className="upload-photo">
-          <img src={design_file} alt="default image" className="design_file" />
+        <P5Wrapper setLabels={this.props.setLabels} sketch={sketch} />
+          {/* <img src={design_file} alt="default image" className="design_file" /> */}
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <form onSubmit={this.handleSubmit}>
@@ -153,7 +158,8 @@ const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { us
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadTechPack: data => dispatch(loadTechPack(data))
+    loadTechPack: data => dispatch(loadTechPack(data)),
+    setLabels: (labels) => dispatch(setLabels(labels)) 
   }
 }
 
