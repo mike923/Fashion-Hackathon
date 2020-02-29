@@ -311,7 +311,7 @@
     grid-template-rows: 500px;
     align-items: center;
     grid-column-gap: 250px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
 
   .design_file{
@@ -331,17 +331,14 @@
   }
 
   .product-card{
-    border: 1px solid black;
     width: 40vw;
-    margin: 0 auto;
-    border-radius: 5px;
   }
-
+  
   .designer-profile {
     height: 400px;
     width: 20vw;
   }
-
+  
   .product-profile-top{
     display: flex;
     /* margin: 0 auto; */
@@ -351,4 +348,12 @@
     border: 1px solid black;
     height: 500px;
     width:  760px;
+  }
+  .product-card-container{
+    border: 1px solid black;
+    border-radius: 5px;
+    /* height: 500px; */
+    width: 50vw;
+    display: flex;
+    justify-content: flex-start;
   }

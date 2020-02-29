@@ -78,7 +78,7 @@ VALUES
    --2
    ('JON', 'jon', 'JON@email.com', 'MANUFACTURER', 'https://usatftw.files.wordpress.com/2019/04/ad51644215b57ef0cfea49acab180dbff2da45b775f7e9c63d4cd3402c3ed867-e1555335664836.jpg?w=651&h=391&crop=1&zoom=2'),
    --3
-   ('PAM', 'pam', 'PAM@email.com', 'DESIGNER', 'https://i.redd.it/3dayub1a9wrz.jpg'),
+   ('PAM', 'pam', 'PAM@email.com', 'DESIGNER', 'https://imgix.bustle.com/uploads/image/2019/5/28/44774e68-1522-49ec-87c8-6c966a499b8c-pamtheoffice.png?w=1020&h=574&fit=crop&crop=faces&auto=format&q=70'),
    --4
    ('kam', 'kam', 'kam@email.com', 'DESIGNER', 'https://miro.medium.com/max/3150/1*XHa-3O0Q-uS7t0r8Ibgekw.jpeg'),
    --5

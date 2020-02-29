@@ -80,12 +80,6 @@ class DesignerCreateForm extends Component {
     const { design_file } = this.state;
     return (
       <div className="upload-form">
-        <Modal
-          show={this.state.show}
-          onClose={this.showModal}
-        >
-        <TechPack/>
-        </Modal>
         <div className="upload-photo">
         <P5Wrapper setLabels={this.props.setLabels} sketch={sketch} />
           {/* <img src={design_file} alt="default image" className="design_file" /> */}
