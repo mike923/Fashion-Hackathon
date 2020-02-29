@@ -93,12 +93,13 @@ router.get('/manufacture_design/:manufacture_design_id', async (req, res, next) 
 router.post('/', async (req, res, next) => {
 
     // const colors = [...req.body.colors.split(',')]
+    try {
     
     console.log('uploading file!@#@#$@#$@#$%@#$%@#$%@#$%')
-    let design_file = "http://localhost:3100/" + req.file.path.replace('public/', '')
     
     let bodyCopy = {...req.body}
     console.log('bodycopy', bodyCopy)
+    let design_file = "http://localhost:3100/" + req.file.path.replace('public/', '')
     bodyCopy.designer_specs = {
         height: 15,
         width: 25,
@@ -110,7 +111,6 @@ router.post('/', async (req, res, next) => {
 
     let newDesign = await queries.addNewDesign(bodyCopy)
 
-    try {
         res.json(
             {
                 payload: newDesign,
