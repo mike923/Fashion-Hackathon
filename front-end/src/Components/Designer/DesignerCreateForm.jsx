@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../App.css";
 import { connect } from "react-redux";
-
+import Modal from '../Modal'
 class DesignerCreateForm extends Component {
   state = {
     design_file:
@@ -20,7 +20,8 @@ class DesignerCreateForm extends Component {
     colors: [
       { name: "red", id: 1 },
       { name: "white", id: 2 }
-    ]
+    ],
+    show: false
   };
 
   handleSubmit = async e => {
@@ -31,8 +32,8 @@ class DesignerCreateForm extends Component {
     e.preventDefault();
 
     const designer_specs = {
-      above_bust, 
-      under_bust, 
+      above_bust,
+      under_bust,
       across_back,
       thigh
     }
@@ -56,18 +57,23 @@ class DesignerCreateForm extends Component {
   handleInput = e => this.setState({ [e.target.name]: e.target.value });
 
   setImgUrl = e => this.setState({ imageFile: e.target.files[0] });
-
+  showModal = e => this.setState({ show: !this.state.show })
   render() {
     console.log("state", this.state);
     const { manufacturers } = this.props;
     const { design_file } = this.state;
     return (
       <div className="upload-form">
+      <Modal
+        show={this.state.show}
+        onClose={this.showModal}
+      />
         <div className="upload-photo">
           <img src={design_file} alt="default image" className="design_file" />
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <form onSubmit={this.handleSubmit}>
+          <button onClick={this.showModal}>Show Modal</button>
           <div className="design-specs">
             <select name="manufacturer_id" id="manufacturer-select" onChange={this.handleInput}>
               {manufacturers.map(factory => {

@@ -347,3 +347,8 @@
     /* margin: 0 auto; */
     gap: 20px;
   }
+  .modal{
+    border: 1px solid black;
+    height: 500px;
+    width:  760px;
+  }
