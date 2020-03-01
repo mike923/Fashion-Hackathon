@@ -1,5 +1,5 @@
 .form_wrapper {
-    width: 1000px;
+    width: 90%;
     height: 1000px;
     /* this will help us center it*/
     margin:auto;
@@ -24,9 +24,8 @@
 }
 
 .form_left img {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
+  width: 400px;
+  height: 400px;
 
 }
 
@@ -91,4 +90,44 @@
   transition: background-color,
       1s;
   cursor: pointer;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  background-color: var(--submit_bg);
+  padding-left: 0;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  height: 60px;
+  /* make the borders more round */
+  border-radius: 30px;
+  width: 100%;
+  /* background-color: var(--input_bg); */
+  /* vertically align icon and text inside the div*/
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #035515;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
 }

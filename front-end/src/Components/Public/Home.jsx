@@ -97,10 +97,6 @@ Id per vide referrentur, te everti convenire sit. Odio facer cum an, ea fastidii
 
             </section>
 
-            {/* footer */}
-            <footer>
-                <p>A9 App &copy; 2020</p>
-            </footer>
         </div>
     )
 }
