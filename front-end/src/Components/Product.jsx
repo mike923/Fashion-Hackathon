@@ -17,7 +17,7 @@ const Product = ({
     user_id,
     editButton,
 }) => (
-        <Link className='product-link' to={`/public/products/${product_id}`} >
+        <Link className='product-link' to={`/products/${product_id}`} >
             <img src={design_file} alt={company_name} id='product-img' />  <br />
             <div className='designer-products'>
                 <h1>{product_id}</h1>
