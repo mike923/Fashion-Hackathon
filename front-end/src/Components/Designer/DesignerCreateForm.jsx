@@ -7,6 +7,8 @@ import { loadTechPack } from "../../store/actions/userActions";
 import P5Wrapper from 'react-p5-wrapper';
 import {setLabels, setImg} from '../../store/actions/userActions'
 import sketch from '../../p5classification/sketch'
+import TechPack from '../TechPack'
+import Form from "./Form";
 
 class DesignerCreateForm extends Component {
   state = {
@@ -33,14 +35,15 @@ class DesignerCreateForm extends Component {
     const { imageFile, manufacturer_id, above_bust, under_bust, across_back,
       thigh,
     } = this.state;
-    const { user,loadTechPack } = this.props
+    const { user,loadTechPack,labels } = this.props
     e.preventDefault();
 
     const designer_specs = {
       above_bust,
       under_bust,
       across_back,
-      thigh
+      thigh,
+      labels
     }
 
     //creating new FormData object to submit
@@ -73,84 +76,18 @@ class DesignerCreateForm extends Component {
     this.setState({ imageFile: e.target.files[0] })
   };
 
-  showModal = e => this.setState({ show: !this.state.show })
-
-
   render() {
     console.log("state", this.state);
     const { manufacturers } = this.props;
     const { design_file } = this.state;
     return (
       <div className="upload-form">
-        <Modal
-          show={this.state.show}
-          onClose={this.showModal}
-        />
         <div className="upload-photo">
         {this.props.image ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> : ''}
-          {/* <img src={design_file} alt="default image" className="design_file" /> */}
+           <img src={design_file} alt="default image" className="design_file" /> 
           <input type="file" onChange={this.setImgUrl} />
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="design-specs">
-            <select name="manufacturer_id" id="manufacturer-select" onChange={this.handleInput}>
-            <option>Select A Manufacturer</option>
-              {manufacturers.map(factory => {
-                return (
-                  <option name='manufacturer_id'
-                    value={factory.id}
-                    key={factory.id}
-                  >
-                    {factory.manufacturer_name}
-                  </option>
-                );
-              })}
-            </select>
-            <input
-              type="text"
-              name="bust"
-              className="create-form-input"
-              onChange={this.handleInput}
-              placeholder="Bust (Circumference)"
-            />
-            <input
-              type="text"
-              name="above_bust"
-              className="create-form-input"
-              onChange={this.handleInput}
-              placeholder="Above Bust"
-            />
-            <input
-              type="text"
-              name="under_bust"
-              className="create-form-input"
-              onChange={this.handleInput}
-              placeholder="Under Bust"
-            />
-            <input
-              type="text"
-              name="across_shoulder"
-              className="create-form-input"
-              onChange={this.handleInput}
-              placeholder="Across Shoulder"
-            />
-            <input
-              type="text"
-              name="across_back"
-              className="create-form-input"
-              onChange={this.handleInput}
-              placeholder="Across  Back"
-            />
-            <input
-              type="text"
-              name="thigh"
-              className="create-form-input"
-              onChange={this.handleInput}
-              placeholder="Thigh"
-            />
-          </div>
-          <button onClick={this.showModal}>submit</button>
-        </form>
+        <Form handleInput={this.handleInput} handleSubmit={this.handleSubmit} manufacturers={manufacturers}/>
       </div>
     );
   }

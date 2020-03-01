@@ -8,6 +8,7 @@ import {
     Product,
     DesignerProfilePage,
     Map,
+    DesignerCreateForm,
 } from './Components'
 import { 
     AuthContainer, 
@@ -33,6 +34,7 @@ class App extends Component {
                         <Route path='/map' component={Map} />
                         <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
                         <PrivateRoute path='/portal' component={PortalContainer} />
+                        <PrivateRoute path='/create' component={DesignerCreateForm}/>
                         {/* <Route path='/public' component={PublicContainer} /> */}
                         <PrivateRoute path='/orders' component={OrderContainer} />
                         {/* <Route path='/public/product' component={Product} /> */}

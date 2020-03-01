@@ -1,13 +1,19 @@
 import React from 'react'
 import Product from '../Product'
+import { Link } from 'react-router-dom'
 
 const DesignerProfile = ({ designer_id, username, avatar_url, products }) => {
     return (
-        <section>
+            <section>
             <br />
             <div>
-                <img src={avatar_url} alt={username} className='designer-profile' />
-                <h1>{username}</h1>
+            <img src={avatar_url} alt={username} className='designer-profile' />
+            <h1>{username}</h1>
+            <button>{
+                <Link to='/create'>
+                Create
+                </Link>
+            }</button>
             </div>
             <div className='designer-product-container'>
                 {/* <h1>{designer_id}</h1> */}
