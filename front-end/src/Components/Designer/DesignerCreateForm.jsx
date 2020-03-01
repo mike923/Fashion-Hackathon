@@ -9,6 +9,7 @@ import {setLabels, setImg} from '../../store/actions/userActions'
 import sketch from '../../p5classification/sketch'
 import TechPack from '../TechPack'
 import Form from "./Form";
+import { Redirect } from "react-router-dom";
 
 class DesignerCreateForm extends Component {
     state = {
@@ -78,7 +79,7 @@ class DesignerCreateForm extends Component {
             console.log(payload);
             // this.props.setImg(payload.design_file)
             
-            this.setState({ design_file: payload.design_file });
+            this.setState({ design_file: payload.design_file, redirect: payload.id });
         } catch (error) {
             console.log("upload error", error);
         }
@@ -118,7 +119,7 @@ class DesignerCreateForm extends Component {
         if (imageFile) {
           image_url = URL.createObjectURL(imageFile)
         }
-
+        if (this.state.redirect) return <Redirect to={`/products/${this.state.redirect}`}/>
         if (manufacturers.length) {
           return <Form 
             handleInput={this.handleInput} 
