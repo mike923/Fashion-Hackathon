@@ -11,70 +11,70 @@ import TechPack from '../TechPack'
 import Form from "./Form";
 
 class DesignerCreateForm extends Component {
-  state = {
-    design_file:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRa9NQl0OadsMFUDS-0ycSNaU7OJiBvgefKvC8m7SLkAph1V7ya",
-    imageFile: null,
+    state = {
+        design_file:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRa9NQl0OadsMFUDS-0ycSNaU7OJiBvgefKvC8m7SLkAph1V7ya",
+        imageFile: null,
 
-    colors: ["red", "white"],
-    bust: "",
-    above_bust: "",
-    under_bust: "",
-    across_shoulder: "",
-    across_back: "",
-    thigh: "",
-    manufacturer_id: '',
-    colors: [
-      { name: "red", id: 1 },
-      { name: "white", id: 2 }
-    ],
-    show: false
-  };
+        colors: ["red", "white"],
+        bust: "",
+        above_bust: "",
+        under_bust: "",
+        across_shoulder: "",
+        across_back: "",
+        thigh: "",
+        manufacturer_id: '',
+        colors: [
+            { name: "red", id: 1 },
+            { name: "white", id: 2 }
+        ],
+        show: false
+    };
 
-  handleSubmit = async e => {
-    const { imageFile, manufacturer_id, above_bust, under_bust, across_back,
-      thigh,
-    } = this.state;
-    const { user,loadTechPack,labels } = this.props
-    e.preventDefault();
 
-    const designer_specs = {
-      above_bust,
-      under_bust,
-      across_back,
-      thigh,
-      labels
-    }
+    handleSubmit = async e => {
+        const { imageFile, manufacturer_id, above_bust, under_bust, across_back, thigh } = this.state;
+        const { user, loadTechPack, labels } = this.props
+        e.preventDefault();
 
-    //creating new FormData object to submit
-    const data = new FormData();
-    data.append("design_file", imageFile);
-    data.append("designer_specs", JSON.stringify(designer_specs));
-    data.append('manufacturer_id', manufacturer_id)
-    data.append('designer_id', user.user_id)
-    try {
-      const {
-        data: { payload }
-      } = await axios.post(`/productImg`, data);
-      
-      //loading returned payload into redux storte
-      loadTechPack(payload)
-      console.log(payload);
-      // this.props.setImg(payload.design_file)
+        const designer_specs = {
+            above_bust,
+            under_bust,
+            across_back,
+            thigh,
+            labels,
+        }
 
-      this.setState({ design_file: payload.design_file });
-    } catch (error) {
-      console.log("upload error", error);
-    }
-  };
 
-  handleInput = e => this.setState({ [e.target.name]: e.target.value });
+        //creating new FormData object to submit
+        const data = new FormData();
+        data.append("design_file", imageFile);
+        data.append("designer_specs", JSON.stringify(designer_specs));
+        data.append('manufacturer_id', manufacturer_id)
+        data.append('designer_id', user.user_id)
+        try {
+            const {
+                data: { payload }
+            } = await axios.post(`/productImg`, data);
+            
+            //loading returned payload into redux storte
+            loadTechPack(payload)
+            console.log(payload);
+            // this.props.setImg(payload.design_file)
 
-  setImgUrl = e => {
-    console.log(e.target.files[0])
-    // this.props.setImg(e.target.files[0])
-    this.setState({ imageFile: e.target.files[0] })
-  };
+            this.setState({ design_file: payload.design_file });
+        } catch (error) {
+            console.log("upload error", error);
+        }
+    };
+
+    handleInput = e => this.setState({ [e.target.name]: e.target.value });
+
+    setImgUrl = e => {
+        console.log(e.target.files[0])
+        // this.props.setImg(e.target.files[0])
+        this.setState({ imageFile: e.target.files[0] })
+    };
 
   render() {
     console.log("state", this.state);
@@ -94,15 +94,15 @@ class DesignerCreateForm extends Component {
 }
 
 const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user }, inputReducer: { image } }) => {
-  return { manufacturers, user, image };
+    return { manufacturers, user, image };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    loadTechPack: data => dispatch(loadTechPack(data)),
-    setLabels: (labels) => dispatch(setLabels(labels)),
-    setImg: (img) => dispatch(setImg(img))
-  }
+    return {
+        loadTechPack: data => dispatch(loadTechPack(data)),
+        setLabels: (labels) => dispatch(setLabels(labels)),
+        setImg: (img) => dispatch(setImg(img))
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesignerCreateForm);

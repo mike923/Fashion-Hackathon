@@ -143,17 +143,17 @@ VALUES
 
 
 INSERT INTO 
-   product_design (designer_specs, designer_id, manufacturer_id, design_file)
+   product_design (designer_id, manufacturer_id, designer_specs, design_file)
 VALUES
-   ('{ "testingspecs": "3 || 2,1" }' , 2, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "2 || 1,2" }' , 1, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "4 || 3,3" }' , 3, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "5 || 3,4" }' , 3, 4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "6 || 3,2" }' , 3, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "7 || 4,1" }' , 4, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "8 || 4,1" }' , 4, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "9 || 5,1" }' , 5, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   ('{ "testingspecs": "10 || 5,2" }' , 5, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W');
+   (2, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (1, 2, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (3, 3, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (3, 4, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (3, 2, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (4, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (4, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (5, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (5, 2, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W');
 
 
 INSERT INTO 
