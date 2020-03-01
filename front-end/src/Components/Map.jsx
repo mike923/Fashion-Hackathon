@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Redirect } from 'react-router-dom';
 
 const mapStyles = {
-    width: '100vw',
-    height: '93vh',
-    marginRight: '0',
+    width: '97vw',
+    height: '80vh',
+    // marginRight: '0',
     position: 'absolute',
-    left:'-60px',
-    bottom:'0px',
-    top:'40px'
+    left:'-30px',
+    // bottom:'20px',
+    // top:'40px'
 };
 
 
@@ -34,7 +35,7 @@ class MapContainer extends Component {
                 lat: store.latitude,
                 lng: store.longitude
             }}
-                onClick={() => console.log("You clicked me!")} />
+                onClick={() => <Redirect to='/private/manufacturer/1'/>} />
         })
     }
 
