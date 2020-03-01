@@ -44,6 +44,7 @@ CREATE TABLE manufacture_employee (
 
 CREATE TABLE product_design (
    id SERIAL PRIMARY KEY,
+   product_name VARCHAR NOT NULL,
    design_file VARCHAR NOT NULL,
    -- colors VARCHAR [],
    -- pattern VARCHAR NOT NULL,
@@ -143,17 +144,17 @@ VALUES
 
 
 INSERT INTO 
-   product_design (designer_id, manufacturer_id, designer_specs, design_file)
+   product_design (designer_id, manufacturer_id, product_name, designer_specs, design_file)
 VALUES
-   (2, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (1, 2, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (3, 3, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (3, 4, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (3, 2, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (4, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (4, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (5, 1, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
-   (5, 2, '{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in", "thigh": "19in", }', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W');
+   (2, 1,'Spring 2020 Long Sleeve','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (1, 2,'Fall 2019 Denim Jacket ','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (3, 3,'Spring 2020 SKirt','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPqngJDpVFAJk4u1sHI0qg7FUaeZO5xLTkAY2xy5LiWeeyqKGh'),
+   (3, 4,'Spring 2020 Jackal Collection','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQd8LiepcBFc-NMgC7VJYjxH3Zw9itr1zgGa_uqQdzzf4CvmH2A'),
+   (3, 2,'Fall 2020 Jackal Collection','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://img.forfansbyfans.com/image/cache/data/productimages/GuildWars2/WomensTees/17/WGDW139CDD1_Jackal_Mount_Icon_BLK-1000x1000.png'),
+   (4, 1,'Fall 2109 Randal Shirt','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (4, 1,'Fall 2109 Randal Shirt','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (5, 1,'Spring 2020 Explorer Tee','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W'),
+   (5, 2,'Spring 2020 Adventurer Tee','{  "colors": ["red", "white"], "bust": "25in", "above_bust": "15in", "under_bust": "10in", "across_shoulder": "30in", "across_back": "31in"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4wRrSyDHTs_93veLkgHiN-PCowkeHZjP-HkfoJungVXYRKm1W');
 
 
 INSERT INTO 

@@ -322,6 +322,7 @@ i {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 60%;
+    background-color: #eeeeee;
   }
 
   .product-link:hover {
@@ -538,4 +539,11 @@ i {
   .product-profile-details{
     display: flex;
     border: 1px solid black;
+    gap: 60px;
+    background-color: #eeeeee;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .product-profile-img{
+    width: 30vw;
   }
