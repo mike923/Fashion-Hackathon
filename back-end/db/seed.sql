@@ -63,7 +63,6 @@ CREATE TABLE materials (
 
 CREATE TABLE materials_used (
    id SERIAL PRIMARY KEY,
-   manufacturer_id INT NOT NULL REFERENCES manufacturers(id),
    product_id INT NOT NULL REFERENCES product_design(id),
    material_id INT NOT NULL REFERENCES materials(id),
    percentage_used INT NOT NULL
@@ -168,9 +167,41 @@ VALUES
 
 
 INSERT INTO 
-   materials_used (manufacturer_id, product_id, material_id, percentage_used) 
+   materials_used (product_id, material_id, percentage_used) 
 VALUES 
-   (1, 1, 1, 20),
-   (1, 1, 2, 20),
-   (1, 1, 3, 20),
-   (1, 1, 4, 40);
+   (1, 1, 20),
+   (1, 2, 20),
+   (1, 3, 20),
+   (1, 4, 40),
+   (2, 1, 20),
+   (2, 2, 20),
+   (2, 3, 20),
+   (2, 4, 40),
+   (3, 1, 20),
+   (3, 2, 20),
+   (3, 3, 20),
+   (3, 4, 40),
+   (4, 1, 20),
+   (4, 2, 20),
+   (4, 3, 20),
+   (4, 4, 40),
+   (5, 1, 20),
+   (5, 2, 20),
+   (5, 3, 20),
+   (5, 4, 40),
+   (6, 1, 20),
+   (6, 2, 20),
+   (6, 3, 20),
+   (6, 4, 40),
+   (7, 1, 20),
+   (7, 2, 20),
+   (7, 3, 20),
+   (7, 4, 40),
+   (8, 1, 20),
+   (8, 2, 20),
+   (8, 3, 20),
+   (8, 4, 40),
+   (9, 1, 20),
+   (9, 2, 20),
+   (9, 3, 20),
+   (9, 4, 40);
