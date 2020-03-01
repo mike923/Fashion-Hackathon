@@ -120,17 +120,21 @@ class DesignerCreateForm extends Component {
           image_url = URL.createObjectURL(imageFile)
         }
 
-        return <Form 
+        if (manufacturers.length) {
+          return <Form 
             handleInput={this.handleInput} 
             handleSubmit={this.handleSubmit}
             handleUpload={this.handleUpload} 
-            manufacturers={manufacturers}
+            manufacturers={this.state.manufacturers}
             sketch={sketch}
             design_file={design_file}
             setImgUrl={this.setImgUrl}
             {...this.props}
             image_url={image_url}
         />
+        } else {
+          return <></>
+        }
     }
 }
 
