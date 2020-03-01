@@ -58,6 +58,16 @@ const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image
                     {/* <i className="fas fa-lock"></i> */}
                     <input
                         type="text"
+                        name="product_name"
+                        className="input_field"
+                        onChange={handleInput}
+                        placeholder="Product Name"
+                    />
+                </section>
+                <section className="input_container">
+                    {/* <i className="fas fa-lock"></i> */}
+                    <input
+                        type="text"
                         value={props.bust}
                         name="bust"
                         className="input_field"
