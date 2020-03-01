@@ -19,6 +19,13 @@ const Form = ({handleSubmit, handleInput,manufacturers}) => {
                 </select>
                 <input
                     type="text"
+                    name="product_name"
+                    className="create-form-input"
+                    onChange={handleInput}
+                    placeholder="Product Name"
+                />
+                <input
+                    type="text"
                     name="bust"
                     className="create-form-input"
                     onChange={handleInput}
@@ -51,13 +58,6 @@ const Form = ({handleSubmit, handleInput,manufacturers}) => {
                     className="create-form-input"
                     onChange={handleInput}
                     placeholder="Across  Back"
-                />
-                <input
-                    type="text"
-                    name="thigh"
-                    className="create-form-input"
-                    onChange={handleInput}
-                    placeholder="Thigh"
                 />
             </div>
             <button>Submit</button>
