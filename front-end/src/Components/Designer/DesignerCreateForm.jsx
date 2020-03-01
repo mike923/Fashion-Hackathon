@@ -3,7 +3,7 @@ import axios from "axios";
 import "../../App.css";
 import { connect } from "react-redux";
 import Modal from '../Modal'
-import { loadTechPack } from "../../store/actions/userActions";
+import { loadTechPack, loadManufacturers } from "../../store/actions/userActions";
 import P5Wrapper from 'react-p5-wrapper';
 import {setLabels, setImg} from '../../store/actions/userActions'
 import sketch from '../../p5classification/sketch'
@@ -28,9 +28,22 @@ class DesignerCreateForm extends Component {
             { name: "red", id: 1 },
             { name: "white", id: 2 }
         ],
-        show: false
+        show: false,
+        manufacturers: []
     };
 
+    componentDidMount = () => {
+        (async () => {
+            try {
+                let {data:{payload}} = await axios.get('/manufacturers/all')
+                console.log(payload)
+                loadManufacturers(payload)
+                this.setState({manufacturers: payload})
+            } catch (error) {
+                console.log('error comp did mount')
+            }
+        })()
+    }
 
     handleSubmit = async e => {
         const { imageFile, manufacturer_id, above_bust, under_bust, across_back, thigh } = this.state;
@@ -95,8 +108,8 @@ class DesignerCreateForm extends Component {
 
     render() {
         console.log("state", this.state);
-        const { manufacturers } = this.props;
-        const { design_file } = this.state;
+        
+        const { design_file, manufacturers } = this.state;
         return (
             <div className="upload-form">
                 <form className="upload-photo" onSubmit={this.handleUpload}>
@@ -116,9 +129,9 @@ class DesignerCreateForm extends Component {
 const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user }, inputReducer: { image } }) => {
     return { manufacturers, user, image };
 };
-
 const mapDispatchToProps = (dispatch) => {
     return {
+        loadManufacturers: (data) => dispatch(loadManufacturers(data)),
         loadTechPack: data => dispatch(loadTechPack(data)),
         setLabels: (labels) => dispatch(setLabels(labels)),
         setImg: (img) => dispatch(setImg(img))
