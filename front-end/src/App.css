@@ -511,8 +511,8 @@ i {
   }
   
   .designer-profile {
-    height: 540px;
-    width: 540px;
+    height: 240px;
+    width: 240px;
     border-radius: 50%;
     gap: 15px;
     border: 4px solid var(--dark);
@@ -546,4 +546,32 @@ i {
 
   .product-profile-img{
     width: 30vw;
+  }
+  .create-btn { 
+    font-size: 20px ;
+    color: white;
+    background-color: rgb(97, 230, 97);
+    padding: 0.6rem 1.3rem;
+  }
+  
+  .profile-username{
+    font-size: 90px;
+  }
+
+  .profile-banner{
+    display: flex;
+    align-items: center;
+    gap: 15vw;
+    justify-content: center;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 2px;
+
+  }
+  .user-data{
+    display: flex;
+    align-items: center;
+    gap: 40px;
   }

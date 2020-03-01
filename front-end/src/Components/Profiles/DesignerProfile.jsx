@@ -4,22 +4,24 @@ import { Link } from 'react-router-dom'
 
 const DesignerProfile = ({ designer_id, username, avatar_url, products }) => {
     return (
-            <section>
+        <section>
             <br />
-            <div>
-            <img src={avatar_url} alt={username} className='designer-profile' />
-            <h1>{username}</h1>
-            <button>{
-                <Link to='/create'>
-                Create
+            <div className='profile-banner'>
+                <div className='user-data'>
+                    <img src={avatar_url} alt={username} className='designer-profile' />
+                    <h1 className='profile-username'>{username}</h1>
+                    </div>
+                <button className='create-btn'>{
+                    <Link to='/create'>
+                        Create Project
                 </Link>
-            }</button>
+                }</button>
             </div>
             <div className='designer-product-container'>
                 {/* <h1>{designer_id}</h1> */}
                 {products.map(
                     Product
-                    )}
+                )}
             </div>
         </section>
     )
