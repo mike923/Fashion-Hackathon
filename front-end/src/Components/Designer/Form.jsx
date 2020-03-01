@@ -58,6 +58,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image
                     {/* <i className="fas fa-lock"></i> */}
                     <input
                         type="text"
+                        value={props.bust}
                         name="bust"
                         className="input_field"
                         onChange={handleInput}
@@ -67,6 +68,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.above_bust}
                         name="above_bust"
                         className="input_field"
                         onChange={handleInput}
@@ -76,6 +78,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.under_bust}
                         name="under_bust"
                         className="input_field"
                         onChange={handleInput}
@@ -85,6 +88,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.across_shoulder}
                         name="across_shoulder"
                         className="input_field"
                         onChange={handleInput}
@@ -94,19 +98,11 @@ const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.across_back}
                         name="across_back"
                         className="input_field"
                         onChange={handleInput}
                         placeholder="Across  Back"
-                    />
-                </section>
-                <section className="input_container">
-                    <input
-                        type="text"
-                        name="thigh"
-                        className="input_field"
-                        onChange={handleInput}
-                        placeholder="Thigh"
                     />
                 </section>
                 <input type="submit" value="Submit" id='input_submit' className='input_field input_submit' />
