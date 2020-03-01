@@ -3,7 +3,7 @@ import { Product } from '../'
 import { ManufacturerProfile, DesignerProfile } from '../'
 
 const ProductProfile = ({ product_id, design_file, designer_specs = {}, materials, ...product }) => (
-    <div>
+    <div className='product-profile-page'>
         <h1>Product Name: {product.product_name}</h1>
         <div className='product-profile-details'>
             <img src={design_file} alt={product_id} className='product-profile-img' />
