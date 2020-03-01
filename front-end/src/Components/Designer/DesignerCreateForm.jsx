@@ -76,21 +76,22 @@ class DesignerCreateForm extends Component {
         this.setState({ imageFile: e.target.files[0] })
     };
 
-  render() {
-    console.log("state", this.state);
-    const { manufacturers } = this.props;
-    const { design_file } = this.state;
-    return (
-      <div className="upload-form">
-        <div className="upload-photo">
-        {this.props.image ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> : ''}
-           <img src={design_file} alt="default image" className="design_file" /> 
-          <input type="file" onChange={this.setImgUrl} />
-        </div>
-        <Form handleInput={this.handleInput} handleSubmit={this.handleSubmit} manufacturers={manufacturers}/>
-      </div>
-    );
-  }
+    render() {
+        console.log("state", this.state);
+        const { manufacturers } = this.props;
+        const { design_file } = this.state;
+        return (
+            <div className="upload-form">
+                <form className="upload-photo">
+                    {this.props.image ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> : ''}
+                    <img src={design_file} alt="default image" className="design_file" /> 
+                    <input type="file" onChange={this.setImgUrl} />
+                    <button type="submit">Submit</button>
+                </form>
+                <Form handleInput={this.handleInput} handleSubmit={this.handleSubmit} manufacturers={manufacturers}/>
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = ({ designerReducer: { manufacturers }, authReducer: { user }, inputReducer: { image } }) => {
