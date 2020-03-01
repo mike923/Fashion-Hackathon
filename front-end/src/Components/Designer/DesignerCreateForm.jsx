@@ -94,7 +94,7 @@ class DesignerCreateForm extends Component {
             const {data: { payload }} = await axios.post(`/productImg`, data);
             console.log(payload)
             this.props.setImg(payload)
-
+          
             this.setState({ design_file: payload });
         } catch (error) {
             console.log("upload error", error);
