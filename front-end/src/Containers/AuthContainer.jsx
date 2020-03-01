@@ -28,7 +28,6 @@ const AuthContainer = ({ isUserLoggedIn, setUser, prevURL, ...props}) => {
 
     return (
         <div>
-            <h2>Welcome</h2>
             {isUserLoggedIn
                 ? <Redirect to={prevURL ? prevURL : '/products'} />
                 : (

@@ -52,7 +52,7 @@ export default function sketch(p) {
 		// video = p.createCapture(p5.VIDEO);
 		// video.hide();
 		// design_file
-		cadImage = p.createImg(image)
+		cadImage = p.loadImage(image)
 		// cadImage.hide();
 		p.background(0);
 
