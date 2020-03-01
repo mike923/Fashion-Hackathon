@@ -2,9 +2,9 @@ import React from 'react'
 
 const Form = ({handleSubmit, handleInput,manufacturers}) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-data">
             <div className="design-specs">
-                <select name="manufacturer_id" id="manufacturer-select" onChange={handleInput}>
+                <select name="manufacturer_id" id="manufacturer-select" className='create-form-input' onChange={handleInput}>
                     <option>Select A Manufacturer</option>
                     {manufacturers.map(factory => {
                         return (

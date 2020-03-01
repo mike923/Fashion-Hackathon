@@ -295,15 +295,20 @@
     height: 50px;
     border-radius: 5px;
     border: .5px solid black;
+    margin-bottom: 30px;
   }
   .design-specs{
     display: flex;
     flex-direction: column;
-    width: 40vw;
+   width: 40vw;
+   height: 400px;
+   /* gap: 100px; */
+    /* width: 40vw;
     border:  1px solid black;
     height: 400px;
     gap: 10px;
-    padding: 5px;
+    padding: 5px; */
+    align-items: center;
   }
   .upload-form{
     display: grid;
