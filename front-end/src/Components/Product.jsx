@@ -16,21 +16,16 @@ const Product = ({
     specialty,
     user_id,
 }) => (
-        <Link to={`/public/products/${product_id}`} >
-            <h1>product_id: {product_id}</h1>
-            <p className='product-card'>
-                <img src={design_file} alt={company_name} id='product-img'/>  <br />
-                Company Name: {company_name} <br />
-                Status: {JSON.stringify(complete)} <br />
-                design_company_id: {design_company_id} <br />
-                designer_id: {designer_id} <br />
-                id: {id} <br />
-                manufacturer_id: {manufacturer_id} <br />
-                Manufacturer Name: {manufacturer_name} <br />
-                manufacturer_specs: {manufacturer_specs} <br />
-                specialty: {specialty} <br />
-                user_id: {user_id} <br />
-            </p>
+        <Link className='product-link' to={`/public/products/${product_id}`} >
+            <img src={design_file} alt={company_name} id='product-img' />  <br />
+            <div className='designer-products'>
+                <h1>{product_id}</h1>
+                <p>
+                    <strong>Company Name:</strong> {company_name} <br />
+                    <strong>Manufacturer Name:</strong> {manufacturer_name} <br />
+                    <strong>Status:</strong> {JSON.stringify(complete)} <br />
+                </p>
+            </div>
         </Link>
     )
 
