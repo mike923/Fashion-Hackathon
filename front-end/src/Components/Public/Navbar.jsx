@@ -4,12 +4,10 @@ import Logo from "../../images/A9Logo.png"
 
 const Navbar = ({ logoutUser, isUserLoggedIn, user_id }) => (
     <nav>
-        <Link to={isUserLoggedIn ? '/products' : '/'}>
+        <Link className='logo-nav' to={isUserLoggedIn ? '/' : '/'}>
             <img src={Logo} alt='Logo'></img>
         </Link>
-        <Link to={isUserLoggedIn ? '/products' : '/'}>
             <h3>Fashion Design</h3>
-        </Link>
         <ul className='nav-links'>
             {/* <Link style={navStyle} to="/"><strong><li>Home</li></strong></Link> */}
             {/* <Link style={navStyle} to="/public/designers"><strong><li>Designers</li></strong></Link> */}
