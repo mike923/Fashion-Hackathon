@@ -120,19 +120,16 @@ class DesignerCreateForm extends Component {
           image_url = URL.createObjectURL(imageFile)
         }
 
-        return (
-            <div className="upload-form">
-                <form className="upload-photo" onSubmit={this.handleUpload}>
-                    {this.props.image 
-                        ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> 
-                        : <img src={image_url} alt="default image" className="design_file" /> 
-                    }
-                    <input type="file" onChange={this.setImgUrl} />
-                    <button type="submit">Submit</button>
-                </form>
-                <Form handleInput={this.handleInput} handleSubmit={this.handleSubmit} manufacturers={manufacturers}/>
-            </div>
-        );
+        return <Form 
+            handleInput={this.handleInput} 
+            handleSubmit={this.handleSubmit}
+            handleUpload={this.handleUpload} 
+            manufacturers={manufacturers}
+            sketch={sketch}
+            design_file={design_file}
+            setImgUrl={this.setImgUrl}
+            {...this.props}
+        />
     }
 }
 
