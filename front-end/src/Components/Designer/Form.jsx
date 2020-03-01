@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import axios from 'axios'
 import P5Wrapper from 'react-p5-wrapper'
 import "./form.css"
+import { useState } from 'react'
 
-const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, setImgUrl, image_url, ...props}) => {
+const Form = ({handleSubmit, handleUpload, handleInput, sketch, setImgUrl, image_url, ...props}) => {
+    const [manufacturers, loadManufacturers] = useState([])
+    useEffect(() => {
+        (async () => {
+            try {
+                let {data:{payload}} = await axios.get('/manufacturers/all')
+                console.log(payload)
+                loadManufacturers(payload)
+                this.setState({manufacturers: payload})
+            } catch (error) {
+                console.log('error comp did mount')
+            }
+        })()
+    },[])
+    // console.log(manufacturers)
     return (<>
         <div className="form_wrapper">
             <section className="form_left">
@@ -26,6 +42,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                     <select name="manufacturer_id" id="manufacturer-select" className='input_field' onChange={handleInput}>
                         <option>Select A Manufacturer</option>
                         {manufacturers.map(factory => {
+                            console.log('manufacturers', manufacturers)
                             return (
                                 <option name='manufacturer_id'
                                     value={factory.id}
@@ -41,6 +58,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                     {/* <i className="fas fa-lock"></i> */}
                     <input
                         type="text"
+                        value={props.bust}
                         name="bust"
                         className="input_field"
                         onChange={handleInput}
@@ -50,6 +68,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.above_bust}
                         name="above_bust"
                         className="input_field"
                         onChange={handleInput}
@@ -59,6 +78,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.under_bust}
                         name="under_bust"
                         className="input_field"
                         onChange={handleInput}
@@ -68,6 +88,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.across_shoulder}
                         name="across_shoulder"
                         className="input_field"
                         onChange={handleInput}
@@ -77,27 +98,14 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                 <section className="input_container">
                     <input
                         type="text"
+                        value={props.across_back}
                         name="across_back"
                         className="input_field"
                         onChange={handleInput}
                         placeholder="Across  Back"
                     />
                 </section>
-                <section className="input_container">
-                    <input
-                        type="text"
-                        name="thigh"
-                        className="input_field"
-                        onChange={handleInput}
-                        placeholder="Thigh"
-                    />
-                </section>
                 <input type="submit" value="Submit" id='input_submit' className='input_field input_submit' />
-                {/* <span>Forgot <a href="#"> Username / Password ?</a></span>
-                <span id='create_account'>
-                    <a href="#">Create your account ➡ </a>
-                </span> */}
-                {/* <Form handleInput={handleInput} handleSubmit={handleSubmit} manufacturers={manufacturers}/> */}
             </form>
         </div>
     </>)

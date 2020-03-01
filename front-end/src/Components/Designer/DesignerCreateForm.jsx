@@ -17,12 +17,11 @@ class DesignerCreateForm extends Component {
         imageFile: null,
         product_name:'',
         colors: ["red", "white"],
-        bust: "",
-        above_bust: "",
-        under_bust: "",
-        across_shoulder: "",
-        across_back: "",
-        thigh: "",
+        bust: "26in",
+        above_bust: "24in",
+        under_bust: "19in",
+        across_shoulder: "30in",
+        across_back: "32in",
         manufacturer_id: '',
         // colors: [
         //     { name: "red", id: 1 },
@@ -120,17 +119,22 @@ class DesignerCreateForm extends Component {
           image_url = URL.createObjectURL(imageFile)
         }
 
-        return <Form 
+        if (manufacturers.length) {
+          return <Form 
             handleInput={this.handleInput} 
             handleSubmit={this.handleSubmit}
             handleUpload={this.handleUpload} 
-            manufacturers={manufacturers}
+            manufacturers={this.state.manufacturers}
             sketch={sketch}
             design_file={design_file}
             setImgUrl={this.setImgUrl}
-            {...this.props}
             image_url={image_url}
+            {...this.props}
+            {...this.state}
         />
+        } else {
+          return <></>
+        }
     }
 }
 

@@ -507,10 +507,6 @@ li {
   gap: 15px;
 }
 
-#manufacturer-select {
-  height: 50px;
-  border: 1px solid black;
-}
 
 .product-card {
   width: 40vw;
