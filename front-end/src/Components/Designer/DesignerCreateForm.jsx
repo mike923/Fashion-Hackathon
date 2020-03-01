@@ -61,8 +61,25 @@ class DesignerCreateForm extends Component {
             loadTechPack(payload)
             console.log(payload);
             // this.props.setImg(payload.design_file)
-
+            
             this.setState({ design_file: payload.design_file });
+        } catch (error) {
+            console.log("upload error", error);
+        }
+    };
+    
+    handleUpload = async e => {
+        const {imageFile} = this.state;
+        e.preventDefault();
+        
+        const data = new FormData();
+        data.append("design_file", imageFile);
+        try {
+            const {data: { payload }} = await axios.post(`/productImg`, data);
+            console.log(payload)
+            this.props.setImg(payload)
+
+            this.setState({ design_file: payload });
         } catch (error) {
             console.log("upload error", error);
         }
@@ -82,9 +99,11 @@ class DesignerCreateForm extends Component {
         const { design_file } = this.state;
         return (
             <div className="upload-form">
-                <form className="upload-photo">
-                    {this.props.image ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> : ''}
-                    <img src={design_file} alt="default image" className="design_file" /> 
+                <form className="upload-photo" onSubmit={this.handleUpload}>
+                    {this.props.image 
+                        ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> 
+                        : <img src={design_file} alt="default image" className="design_file" /> 
+                    }
                     <input type="file" onChange={this.setImgUrl} />
                     <button type="submit">Submit</button>
                 </form>

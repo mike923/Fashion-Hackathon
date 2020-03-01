@@ -97,19 +97,19 @@ router.post('/', async (req, res, next) => {
     
     console.log('uploading file!@#@#$@#$@#$%@#$%@#$%@#$%')
     
-    let bodyCopy = {...req.body}
-    console.log('bodycopy', bodyCopy)
+    // let bodyCopy = {...req.body}
+    // console.log('bodycopy', bodyCopy)
     let design_file = "http://localhost:3100/" + req.file.path.replace('public/', '')
-    bodyCopy.designer_specs = req.body.designer_specs
-    bodyCopy.design_file = design_file
+    // bodyCopy.designer_specs = req.body.designer_specs
+    // bodyCopy.design_file = design_file
     // bodyCopy.designer_id = 1
     // bodyCopy.manufacturer_id = 1
 
-    let newDesign = await queries.addNewDesign(bodyCopy)
+    // let newDesign = await queries.addNewDesign(bodyCopy)
 
         res.json(
             {
-                payload: newDesign,
+                payload: design_file,
                 msg: 'new design uploaded',
                 error: 'false'
             }
