@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import { ProductProfile } from '../Components'
 import axios from 'axios'
 import { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const ProductContainer = ({match : {params}}) => {
+const ProductContainer = (props) => {
+    const {match : {params}} = props
+    const editButton = props.user.user_id
+    console.log(editButton, props.user)
     // This contains all the backend connnecitons regarding a particular products page.
     // In a full build this is where our product wiki would be.
 
@@ -39,7 +43,9 @@ const ProductContainer = ({match : {params}}) => {
         }
     }
 
-    return <ProductProfile {...product} materials={materials} />
+    return <ProductProfile {...product} editButton={editButton === product.user_id} materials={materials} />
 }
 
-export default ProductContainer
+const mapStateToProps = ({authReducer}) => {return {...authReducer}}
+
+export default connect(mapStateToProps)(ProductContainer)

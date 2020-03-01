@@ -8,6 +8,7 @@ import {
     Product,
     DesignerProfilePage,
     Map,
+    DesignerCreateForm,
 } from './Components'
 import { 
     AuthContainer, 
@@ -24,26 +25,29 @@ class App extends Component {
     render() {
         console.log(this.props.isUserLoggedIn)
         return (
-            <div className="App">
+            <div>
                 <NavbarContainer />
-                <Switch>
-                    <Route path='/login' component={AuthContainer} />
-                    <Route path='/signup' component={AuthContainer} />
-                    <Route path='/map' component={Map} />
-                    <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
-                    <PrivateRoute path='/portal' component={PortalContainer} />
-                    {/* <Route path='/public' component={PublicContainer} /> */}
-                    <PrivateRoute path='/orders' component={OrderContainer} />
-                    {/* <Route path='/public/product' component={Product} /> */}
-                    <Route 
-                        path='/'
-                        render={(props) => {
-                            return this.props.isUserLoggedIn
-                                ? <ProfileContainer {...props} /> 
-                                : <Home {...props} />
-                        }} 
-                    />
-                </Switch>
+                <div className="App">
+                    <Switch>
+                        <Route path='/login' component={AuthContainer} />
+                        <Route path='/signup' component={AuthContainer} />
+                        <Route path='/map' component={Map} />
+                        <PrivateRoute path='/private/:type/:id' component={ProfileContainer} />
+                        <PrivateRoute path='/portal' component={PortalContainer} />
+                        <PrivateRoute path='/create' component={DesignerCreateForm}/>
+                        {/* <Route path='/public' component={PublicContainer} /> */}
+                        <PrivateRoute path='/orders' component={OrderContainer} />
+                        {/* <Route path='/public/product' component={Product} /> */}
+                        <Route 
+                            path='/'
+                            render={(props) => {
+                                return this.props.isUserLoggedIn
+                                    ? <ProfileContainer {...props} /> 
+                                    : <Home {...props} />
+                            }} 
+                        />
+                    </Switch>
+                </div>
             </div>
         );
     }
