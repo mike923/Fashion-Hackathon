@@ -9,7 +9,7 @@ let label = '';
 let time = false;
 let allLabels = {};
 let setLabels;
-let design_file = ''
+let design_file = image;
 
 export default function sketch(p) {
 
@@ -52,7 +52,8 @@ export default function sketch(p) {
 		// video = p.createCapture(p5.VIDEO);
 		// video.hide();
 		// design_file
-		cadImage = p.createImg(image)
+		console.log('designe_file', design_file)
+		cadImage = p.createImg(design_file)
 		// cadImage.hide();
 		p.background(0);
 
