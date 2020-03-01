@@ -52,8 +52,10 @@ export default function sketch(p) {
 		// video = p.createCapture(p5.VIDEO);
 		// video.hide();
 		// design_file
+
 		console.log('designe_file', design_file)
 		cadImage = p.createImg(design_file)
+
 		// cadImage.hide();
 		p.background(0);
 
