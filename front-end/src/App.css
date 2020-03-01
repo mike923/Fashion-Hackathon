@@ -231,6 +231,63 @@ a:hover {
     "showcase showcase"
     "top-box-a top-box-b";
 }
+.product-showcase, .product-profile-image, .product-profile-materials {
+  grid-area: showcase;
+  width: 100%;
+  height: 500px;
+  text-decoration: none;
+  border: 0;
+  background: var(--light);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  /* align-items: start; */
+  /* justify-content: center; */
+  /* box-shadow: var(--shadow); */
+  text-align: center;
+}
+.product-profile-image {
+background-color: #fff;
+}
+
+.product-showcase h1, .product-profile-image h1, .product-profile-materials h1 {
+  /* font-size: 3rem; */
+  /* display: flex; */
+  /* align-items: start; */
+  margin-bottom: 20px;
+  vertical-align: text-top;
+  text-align: center;
+color: black;
+/* background: rgba(255, 255, 255, 0.5); */
+}
+
+.product-showcase p, .product-profile-image p, .product-profile-materials p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: black;
+  text-align: center;
+
+  
+}
+
+.product-profile-materials,  .product-showcase {
+  background-color: #fff;
+}
+
+.product-profile-page {
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+  
+}
+
+.product-profile-page h1 {
+  font-size: 3rem;
+  margin-bottom: 0;
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+}
 
 .showcase {
   grid-area: showcase;
@@ -593,11 +650,7 @@ li {
   gap: 40px;
 }
 
-.product-profile-page {
-  display: flex;
-  flex-direction: column;
-  padding-top: 150px;
-}
+
 
 .mapContainer {
   position: fixed;
