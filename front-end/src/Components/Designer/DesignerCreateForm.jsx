@@ -76,9 +76,6 @@ class DesignerCreateForm extends Component {
     this.setState({ imageFile: e.target.files[0] })
   };
 
-  showModal = e => this.setState({ show: !this.state.show })
-
-
   render() {
     console.log("state", this.state);
     const { manufacturers } = this.props;
@@ -87,7 +84,7 @@ class DesignerCreateForm extends Component {
       <div className="upload-form">
         <div className="upload-photo">
         {this.props.image ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> : ''}
-          {/* <img src={design_file} alt="default image" className="design_file" /> */}
+           <img src={design_file} alt="default image" className="design_file" /> 
           <input type="file" onChange={this.setImgUrl} />
         </div>
         <Form handleInput={this.handleInput} handleSubmit={this.handleSubmit} manufacturers={manufacturers}/>

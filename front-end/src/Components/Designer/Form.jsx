@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Form = (props) => {
-    const {handleSubmit, handleInput,manufacturers} = props
+const Form = ({handleSubmit, handleInput,manufacturers}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="design-specs">
@@ -61,6 +60,7 @@ const Form = (props) => {
                     placeholder="Thigh"
                 />
             </div>
+            <button>Submit</button>
             {
 
                 // <button onClick={this.showModal}>submit</button>
