@@ -17,7 +17,7 @@ const Product = ({
     user_id,
     editButton,
 }) => (
-        <Link to={`/public/products/${product_id}`}>
+        <Link to={`/products/${product_id}`}>
             <p className='product-card-container'>
                 <p className='product-card'>
                     <h1>product_id: {product_id}</h1>
