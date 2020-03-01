@@ -21,6 +21,7 @@ const getAllProductsByDesigner = async (id) => await db.any(`
     INNER JOIN manufacturers 
     ON manufacturer_id = manufacturers.id
     WHERE designer_id = $1
+    ORDER BY product_design.id DESC
 `, [id])
 
 const getAllProductsByDesignCompany = async (id) => await db.any(`

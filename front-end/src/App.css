@@ -570,6 +570,22 @@ i {
     border-radius: 2px;
 
   }
+  .product-name {
+    margin-bottom: 20px;
+    font-size: small;
+  }
+
+  .product-details {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  .product-image {
+    padding: 10px;
+  }
+  .product-image img {
+    height: 225px;
+  }
+
   .user-data{
     display: flex;
     align-items: center;

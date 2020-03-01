@@ -15,7 +15,7 @@ class DesignerCreateForm extends Component {
         design_file:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRa9NQl0OadsMFUDS-0ycSNaU7OJiBvgefKvC8m7SLkAph1V7ya",
         imageFile: null,
-
+        product_name:'',
         colors: ["red", "white"],
         bust: "",
         above_bust: "",
@@ -24,13 +24,14 @@ class DesignerCreateForm extends Component {
         across_back: "",
         thigh: "",
         manufacturer_id: '',
-        colors: [
-            { name: "red", id: 1 },
-            { name: "white", id: 2 }
-        ],
+        // colors: [
+        //     { name: "red", id: 1 },
+        //     { name: "white", id: 2 }
+        // ],
         show: false,
         manufacturers: []
     };
+
 
     componentDidMount = () => {
         (async () => {
@@ -46,7 +47,7 @@ class DesignerCreateForm extends Component {
     }
 
     handleSubmit = async e => {
-        const { imageFile, manufacturer_id, above_bust, under_bust, across_back, thigh } = this.state;
+        const { imageFile, manufacturer_id, above_bust, under_bust, across_back, thigh,colors, product_name } = this.state;
         const { user, loadTechPack, labels } = this.props
         e.preventDefault();
 
@@ -56,15 +57,18 @@ class DesignerCreateForm extends Component {
             across_back,
             thigh,
             labels,
+            colors
         }
 
 
         //creating new FormData object to submit
         const data = new FormData();
+        // Object.keys(this.state).forEach(key => data.append(key, this.state[key]))
         data.append("design_file", imageFile);
         data.append("designer_specs", JSON.stringify(designer_specs));
         data.append('manufacturer_id', manufacturer_id)
-        data.append('designer_id', user.user_id)
+        data.append('designer_id', user.designer_id)
+        data.append('product_name', product_name)
         try {
             const {
                 data: { payload }
@@ -109,13 +113,19 @@ class DesignerCreateForm extends Component {
     render() {
         console.log("state", this.state);
         
-        const { design_file, manufacturers } = this.state;
+        const { design_file, manufacturers,imageFile } = this.state;
+        let image_url = design_file
+
+        if (imageFile) {
+          image_url = URL.createObjectURL(imageFile)
+        }
+
         return (
             <div className="upload-form">
                 <form className="upload-photo" onSubmit={this.handleUpload}>
                     {this.props.image 
                         ? <P5Wrapper setLabels={this.props.setLabels} image={this.props.image} sketch={sketch} /> 
-                        : <img src={design_file} alt="default image" className="design_file" /> 
+                        : <img src={image_url} alt="default image" className="design_file" /> 
                     }
                     <input type="file" onChange={this.setImgUrl} />
                     <button type="submit">Submit</button>
