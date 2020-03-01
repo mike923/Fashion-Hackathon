@@ -19,14 +19,20 @@ const Product = ({
     product_name
 }) => (
         <Link className='product-link' to={`/products/${product_id}`} >
-            <img src={design_file} alt={company_name} id='product-img' />  <br />
+            <div className="product-image">
+                <img src={design_file} alt={company_name} id='product-img' />
+            </div>
             <div className='designer-products'>
-                <h1>{product_name}</h1>
-                <p>
-                    <strong>Company Name:</strong> {company_name} <br />
-                    <strong>Manufacturer Name:</strong> {manufacturer_name} <br />
-                    <strong>Status:</strong> {JSON.stringify(complete)} <br />
-                </p>
+                <div className="product-name">
+                    <h1>{product_name}</h1>
+                </div>
+                <div className="product-details">
+                    <p>
+                        <strong>Company Name:</strong> {company_name} <br />
+                        <strong>Manufacturer Name:</strong> {manufacturer_name} <br />
+                        <strong>Status:</strong> {JSON.stringify(complete)} <br />
+                    </p>
+                </div>
             </div>
         </Link>
     )
