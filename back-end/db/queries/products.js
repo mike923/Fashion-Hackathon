@@ -76,7 +76,7 @@ const updateProductStatus = async (product) => await db.one(`
 const getProductByID = async (id) => await db.one(`
     SELECT 
         product_design.id AS product_id,
-        design_file, designer_specs, manufacturer_specs, complete, designer_id, manufacturer_id,
+        product_name, design_file, designer_specs, manufacturer_specs, complete, designer_id, manufacturer_id,
         user_id, design_company_id, 
         company_name, 
         manufacturer_name, specialty,
