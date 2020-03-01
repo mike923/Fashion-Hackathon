@@ -129,6 +129,7 @@ class DesignerCreateForm extends Component {
             design_file={design_file}
             setImgUrl={this.setImgUrl}
             {...this.props}
+            image_url={image_url}
         />
     }
 }

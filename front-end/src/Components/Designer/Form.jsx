@@ -2,24 +2,27 @@ import React from 'react'
 import P5Wrapper from 'react-p5-wrapper'
 import "./form.css"
 
-const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, setImgUrl, design_file, ...props}) => {
+const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, setImgUrl, image_url, ...props}) => {
     return (<>
         <div className="form_wrapper">
             <section className="form_left">
                 <form className="upload-photo" onSubmit={handleUpload}>
                     {props.image 
                         ? <P5Wrapper setLabels={props.setLabels} image={props.image} sketch={sketch} /> 
-                        : <img src={design_file} alt="default image" className="design_file" /> 
+                        : <img src={image_url} alt="default image" className="design_file" /> 
                     }
-                    <input type="file" onChange={setImgUrl} />
-                    <input type="submit" value="Upload" id='input_submit' className='input_field input_submit' />
+                    <br/>
+                    <input type="file" name="file" id="file" className='inputfile' onChange={setImgUrl} />
+                    <label for="file">Choose a file</label>
+
+                    {/* <input type="submit" value="Upload" id='input_submit' className='input_field input_submit' /> */}
                 </form>
                 {/* <img src="https://cdn.dribbble.com/users/2057890/screenshots/6123405/arion-people-dribbble.jpg" alt="computer icon" /> */}
             </section>
             <form onSubmit={handleSubmit} className="form_right">
                 <h1>Specs</h1>
                 <section className="input_container">
-                    <i className="fas fa-envelope"></i>
+                    {/* <i className="fas fa-envelope"></i> */}
                     <select name="manufacturer_id" id="manufacturer-select" className='input_field' onChange={handleInput}>
                         <option>Select A Manufacturer</option>
                         {manufacturers.map(factory => {
@@ -35,7 +38,7 @@ const Form = ({handleSubmit, handleUpload, handleInput, manufacturers, sketch, s
                     </select>
                 </section>
                 <section className="input_container">
-                    <i className="fas fa-lock"></i>
+                    {/* <i className="fas fa-lock"></i> */}
                     <input
                         type="text"
                         name="bust"
