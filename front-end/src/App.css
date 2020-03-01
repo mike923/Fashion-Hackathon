@@ -3,13 +3,14 @@
   --primary: #03C0C1;
   --dark: rgb(10, 67, 100);
   --light: #03FdFC;
-  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  --shadow: 0 9px 8px rgba(104, 104, 104, 0.8);
+  --gradient: linear-gradient(lightgreen, teal)
 }
 
 .App {
     text-align: center;
     box-sizing: border-box;
-    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: var(--dark);
     background: white;
     margin: 30px 50px;
@@ -74,6 +75,14 @@
 
   a:hover {
     background: var(--light);
+  }
+
+  .product-link:hover {
+    background: rgb(248, 255, 212);
+  }
+
+  .logo-nav:hover {
+    background: transparent;
   }
 
   .top-container {
@@ -171,6 +180,31 @@
   .portfolio img {
     width: 100%;
     box-shadow: var(--shadow);
+  }
+
+  .product-link {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60%;
+  }
+
+  .product-link:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .designer-products {
+    padding: 2px 16px;
+
+  }
+
+  .designer-product-container {
+    /* background: var(--light); */
+    /* background: url(/HomepageImg.jpg); */
+    /* box-shadow: var(--shadow); */
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    padding:3rem;
   }
 
   footer {
@@ -340,8 +374,11 @@
   }
   
   .designer-profile {
-    height: 400px;
-    width: 20vw;
+    height: 540px;
+    width: 540px;
+    border-radius: 50%;
+    gap: 15px;
+    border: 4px solid var(--dark);
   }
   
   .product-profile-top{
